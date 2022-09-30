@@ -11,7 +11,7 @@ public class Alimentation extends ConsoCarbone{
     public Alimentation (double tB, double tV) {
     	this.txBoeuf = tB;
     	this.txVege = tV;
- 
+ //to do 
     }
     
     public void setImpactA() {
