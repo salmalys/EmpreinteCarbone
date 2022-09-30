@@ -1,7 +1,7 @@
 package consoCarbone;
 import java.util.HashMap;
 import java.util.Map;
-
+// TODO0001
 public class Logement extends ConsoCarbone {
     public int superficie;
     private CE ce;
