@@ -3,6 +3,8 @@ import java.util.HashMap;
 import java.util.Map;
 //TO_DOOS
 // TODO0001
+
+//salut
 public class Logement extends ConsoCarbone {
     public int superficie;
     private CE ce;
