@@ -1,16 +1,13 @@
 package consoCarbone;
 
 public class ConsoCarbone  {
+	String nomPoste;
+	double impact;
     int id;
-    double impact;
-    double impactA;
-    double impactL;
     static int nbId;
-    
     
     public ConsoCarbone() {
     	this.id = ++nbId;
-    	
     }
     
 }

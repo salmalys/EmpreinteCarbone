@@ -3,40 +3,31 @@ package consoCarbone;
 public class Alimentation extends ConsoCarbone{
     public double txBoeuf;
     public double txVege;
-    private double impactA;
-    static double a=8;
-    static double b=1.6;
-    static double c=.9;
+    public double impact;
+    
+    final double c1 =8;
+    final double c2 =1.6;
+    final double c3 =.9;
     
     public Alimentation (double tB, double tV) {
     	this.txBoeuf = tB;
-    	this.txVege = tV;
- //to do 
+    	this.txVege = tV; 
     }
     
-    public void setImpactA() {
-    	this.impactA = a * this.txBoeuf + b * (1 - this.txVege - this.txBoeuf) + c * this.txVege;
+    public void setImpact() {
+    	this.impact = c1 * this.txBoeuf + c2 * (1 - this.txVege - this.txBoeuf) + c3 * this.txVege;
     }
     
-   public double getImpactA() {
-	   return this.impactA;
+   public double getImpact() {
+	   return this.impact;
    }
    
-   public static void cabMoyAlimentation() {
-		System.out.println("Viandes et Poissons = 1 144 ");
-		System.out.println("Produits laitiers et oeufs = 408 ");
-		System.out.println("Autres = 538");
-		System.out.println("Boissons = 263");
-	}
-   
-	
-	public static void main(String args[]) {
-		Alimentation a = new Alimentation(0.2,0.1);
-		a.setImpactA();
-		System.out.println(a.getImpactA());
-		cabMoyAlimentation();
-		
-	}
-	   
+   public static void empCarbMoy() {
+	    String unite = "kg CO2eq/an";
+		System.out.printf("Viandes et Poissons : 1 144 %s\n", unite);
+		System.out.printf("Produits laitiers et oeufs : 408 %s\n", unite);
+		System.out.printf("Autres : 538 %s\n", unite);
+		System.out.printf("Boissons : 263 %s\n", unite);
+	}	   
    
 }
