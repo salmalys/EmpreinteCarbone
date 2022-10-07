@@ -12,6 +12,8 @@ public class Main {
 		a.setImpact();
 		System.out.println(a.getImpact());
 		Alimentation.empCarbMoy();
+		
+
 
 	}
 

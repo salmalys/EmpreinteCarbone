@@ -10,4 +10,16 @@ public class ConsoCarbone  {
     	this.id = ++nbId;
     }
     
+    public double getImpact() {
+ 	   return this.impact;
+    }
+    
+    public void setImpact(){
+  	   this.setImpact();
+     }
+    
+    
+    
+    
+    
 }

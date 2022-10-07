@@ -3,7 +3,6 @@ package consoCarbone;
 public class Alimentation extends ConsoCarbone{
     public double txBoeuf;
     public double txVege;
-    public double impact;
     
     final double c1 =8;
     final double c2 =1.6;
@@ -14,13 +13,10 @@ public class Alimentation extends ConsoCarbone{
     	this.txVege = tV; 
     }
     
-    public void setImpact() {
+    @Override public void setImpact() {
     	this.impact = c1 * this.txBoeuf + c2 * (1 - this.txVege - this.txBoeuf) + c3 * this.txVege;
     }
     
-   public double getImpact() {
-	   return this.impact;
-   }
    
    public static void empCarbMoy() {
 	    String unite = "kg CO2eq/an";
@@ -29,5 +25,11 @@ public class Alimentation extends ConsoCarbone{
 		System.out.printf("Autres : 538 %s\n", unite);
 		System.out.printf("Boissons : 263 %s\n", unite);
 	}	   
+   
+   public String toString() {
+	   return "Votre impact alimentaire est de : " + getImpact();
+   }
+   
+   
    
 }
