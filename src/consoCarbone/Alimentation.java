@@ -1,4 +1,5 @@
 package consoCarbone;
+//si ca marche pas je meurs
 
 public class Alimentation extends ConsoCarbone{
     public double txBoeuf;
