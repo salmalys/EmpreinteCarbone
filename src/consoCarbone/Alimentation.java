@@ -14,8 +14,9 @@ public class Alimentation extends ConsoCarbone{
     	this.txVege = tV; 
     }
     
-    @Override public void setImpact() {
-    	this.impact = c1 * this.txBoeuf + c2 * (1 - this.txVege - this.txBoeuf) + c3 * this.txVege;
+    @Override public double getImpact() {
+    	this.impact = c1 * this.txBoeuf + c2 * (1 - this.txVege - this.txBoeuf)+ c3 * this.txVege;
+    	return this.impact;
     }
     
    

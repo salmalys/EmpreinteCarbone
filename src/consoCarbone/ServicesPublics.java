@@ -8,8 +8,9 @@ public final class ServicesPublics extends ConsoCarbone {
 	private ServicesPublics() {
 	}
 	
-	public void setImpact() {
+	public double getImpact() {
 		this.impact = 1.5;
+		return this.impact;
 	}
 //private static final ServicesPublics INSTANCE = new ServicesPublics();
 	

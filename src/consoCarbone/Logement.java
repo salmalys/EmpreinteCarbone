@@ -2,16 +2,34 @@ package consoCarbone;
 
 
 public class Logement extends ConsoCarbone {
-    public int superficie;
-    public CE ce;
+    private int superficie;
+    private CE ce;
     
     public Logement(int s,CE ce) {
     	this.superficie = s;
     	this.ce = ce;
     }
+    
+    public int getSuperficie() {
+		return superficie;
+	}
 
-	@Override public void setImpact() {
+	public void setSuperficie(int superficie) {
+		this.superficie = superficie;
+	}
+
+	public CE getCe() {
+		return ce;
+	}
+
+	public void setCe(CE ce) {
+		this.ce = ce;
+	}
+
+
+	@Override public double getImpact() {
 		this.impact = this.ce.getCoeff() * this.superficie;
+		return this.impact;
 	}
 	
 

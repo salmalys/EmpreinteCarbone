@@ -8,8 +8,9 @@ public class BienConso extends ConsoCarbone {
 	   this.montant = montant;
    }
    
-   @Override public void setImpact() {
+   @Override public double getImpact() {
    	this.impact = this.montant / 1750;
+   	return this.impact;
    }
    
    public static void empCarbMoy() {

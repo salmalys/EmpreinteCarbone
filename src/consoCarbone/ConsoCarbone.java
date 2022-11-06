@@ -1,21 +1,22 @@
 package consoCarbone;
 
 public abstract class ConsoCarbone implements Comparable<ConsoCarbone> {
-	String nomPoste;
-	double impact;
+	//String nomPoste;
+	protected double impact;
     int id;
     static int nbId;
     
     public ConsoCarbone() {
     	this.id = ++nbId;
     }
+
+    public abstract double getImpact();
     
-    public double getImpact() {
- 	   return this.impact;
+    public void setImpact(double impact) {
+    	this.impact = impact;
     }
     
-    public abstract void setImpact();
-    
+   
     @Override public int compareTo(ConsoCarbone c) {
     	if (this.impact == c.impact) return 0;
     	else if (this.impact > c.impact) return 1;
