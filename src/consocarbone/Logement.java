@@ -1,4 +1,4 @@
-package consoCarbone;
+package consocarbone;
 
 
 public class Logement extends ConsoCarbone {
@@ -27,13 +27,16 @@ public class Logement extends ConsoCarbone {
 	}
 
 
-	@Override public double getImpact() {
+	@Override
+	public double getImpact() {
 		this.impact = this.ce.getCoeff() * this.superficie;
 		return this.impact;
 	}
 	
 
 	public static void empCarbMoy() {
+		ConsoCarbone.empCarbMoy();
+		
 		String unite = "kg CO2eq/an";
 		System.out.printf("Energie et utilites : 1 696 %s\n", unite);
 		System.out.printf("Construction & gros entretien : 675 %s\n", unite);
@@ -41,7 +44,7 @@ public class Logement extends ConsoCarbone {
 	}
 	
 	public String toString() {
-		   return "Votre impact de logement est de : " + getImpact();
+		   return "\n============================================\nL'impact de votre logement est de : " + getImpact() + " TCO2eq\n============================================";
 	   }
 	
 }

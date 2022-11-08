@@ -1,4 +1,4 @@
-package consoCarbone;
+package consocarbone;
 
 public abstract class ConsoCarbone implements Comparable<ConsoCarbone> {
 	//String nomPoste;
@@ -17,10 +17,15 @@ public abstract class ConsoCarbone implements Comparable<ConsoCarbone> {
     }
     
    
-    @Override public int compareTo(ConsoCarbone c) {
+    @Override 
+    public int compareTo(ConsoCarbone c) {
     	if (this.impact == c.impact) return 0;
     	else if (this.impact > c.impact) return 1;
     	else return -1;
+    }
+    
+    public static void empCarbMoy() {
+    	System.out.println("L'empreinte carbonne moyenne d'un.e francais.e pour ce poste est:");
     }
     
     

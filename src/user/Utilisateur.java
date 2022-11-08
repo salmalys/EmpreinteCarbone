@@ -1,15 +1,15 @@
 package user;
-import consoCarbone.*;
+import consocarbone.*;
 //import java.util.ArrayList;
  
-public class Utilisateur_rice  {
+public class Utilisateur  {
   Alimentation alimentation;
   BienConso bienConso;
   Logement logement;
   Transport transport;
   ServicesPublics services;
   
-  public Utilisateur_rice() {}
+  public Utilisateur() {}
   
   //essayer de faire d'une autre maniere
   

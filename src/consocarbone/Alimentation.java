@@ -1,4 +1,4 @@
-package consoCarbone;
+package consocarbone;
 //si ca marche pas je meurs
 
 public class Alimentation extends ConsoCarbone{
@@ -21,6 +21,8 @@ public class Alimentation extends ConsoCarbone{
     
    
    public static void empCarbMoy() {
+	    ConsoCarbone.empCarbMoy();
+	   
 	    String unite = "kg CO2eq/an";
 		System.out.printf("Viandes et Poissons : 1 144 %s\n", unite);
 		System.out.printf("Produits laitiers et oeufs : 408 %s\n", unite);
@@ -29,7 +31,7 @@ public class Alimentation extends ConsoCarbone{
 	}	   
    
    public String toString() {
-	   return "Votre impact alimentaire est de : " + getImpact();
+	   return "\n============================================\nL'impact de votre alimentation est de : " + getImpact() + "TCO2eq\n============================================";
    }
    
    

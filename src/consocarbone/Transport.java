@@ -1,4 +1,4 @@
-package consoCarbone;
+package consocarbone;
 
 public class Transport extends ConsoCarbone {
    boolean possede;
@@ -20,7 +20,7 @@ public class Transport extends ConsoCarbone {
    @Override public double getImpact(){
 	   if (this.possede == false)  this.impact = 0;
 	   else {
-		   this.impact = this.kilomAnnee * 1.93 * Math.pow(10,-4) + this.taille.getConsVoit();
+		   this.impact = this.kilomAnnee * 1.93 * Math.pow(10,-4) + this.taille.getConsVoit()/this.amortissement;
 	   }
 	   return this.impact;
    }
@@ -34,7 +34,7 @@ public class Transport extends ConsoCarbone {
 	}	 
    
    @Override public String toString() {
-	   return "Votre impact de transport est de : " + getImpact();
+	   return "\n============================================\nL'impact de vos moyens de transport est de : " + getImpact() + " TCO2eq\n============================================";
    }
    
 }

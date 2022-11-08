@@ -1,4 +1,4 @@
-package consoCarbone;
+package consocarbone;
 
 public enum Taille {
     P(4.2),G(19);
