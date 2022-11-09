@@ -8,7 +8,11 @@ Documentation:
 - Nous avons développé notre projet sur l'IDE Eclipse et utilisé gitHub pour faciliter le travail d'équipe.  
 lien du repository: https://github.com/salmalys/EmpreinteCarbone.git
 
-Vous trouverez dans l’archive 2 packages : consocarbone et tools. 
+- Le programme commence par lancer un questionnaire puis verifie la validité de données saisies et enfin utilise ces données pour lancer le traitement de calcul des impacts. 
+
+Nous avons organisé les classes dans 2 packages : 
+- consocarbone, poru regrouper la gestion des traitements des postes de consommation
+- tools pour les classes utilitaires. 
 
 Le package consocarbone contient :
 -	4 classes pour 4 postes de consommation  :  Logement, Alimentation, BienConso et Transport. 
@@ -16,8 +20,7 @@ Le package consocarbone contient :
 -	2 énumérations Taille et CE
 -	La classe principale Main  
 
-Pour pouvoir tester l
-Pour simplifier la fonction main, nous avons décidé d’implémenter deux classes utilitaires Questionnaire et Verif. 
+Pour la fonction main, nous avons décidé d’implémenter deux classes utilitaires Questionnaire et Verif. 
 
 La classe Questionnaire contient toutes les questions à poser pour chaque poste de consommation (stockées dans un tableau de String) et une méthode commencer qui effectue la saisie des données. 
 
@@ -30,9 +33,7 @@ La taille de cette matrice a été fixée à 3x3 puisque le questionnaire concer
 
 Verif recupere la matrice et retourne une erreur si les conditions sur les saisies ne sont pas correctes (si la valeur de la superficie n’est pas un entier positif, si le taux n’est pas compris entre 0 et 1..).
 
-Dans les méthodes testNumericPositif et testTaux, nous avons utilisé un try/catch qui est une méthode trouvée sur un forum stackflow.
-
-Pour tester le polymorphisme, nous avons pour l’instant instancié dans la fonction main uniquement trois postes consommations : Logement l , Alimentation a et BienConso b. Puis pour chacun de ces objets, les methodes toString et empCarbMoy sont appelées. Par exemple, pour l'objet a, la méthode renvoie bien l'affichage de la méthode toString de la classe Alimentation. 
+Pour tester le polymorphisme, nous avons pour l’instant instancié dans la fonction main uniquement trois postes consommations : Logement l , Alimentation a et BienConso b. Puis pour chacun de ces objets, les methodes toString et empCarbMoy sont appelées. Par exemple, pour l'objet a, la méthode renvoie bien l'affichage de la méthode toString qui se trouve dans la classe Alimentation. 
 
 Remarques: 
 - Nous n'avons pas encore traité les questions de la classe Transport dans le questionnaire. Pour tester le polymorphisme de nos méthodes, les 3 postes de consommation présentés suffisent. 
