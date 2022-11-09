@@ -5,7 +5,7 @@ Pour pouvoir executer le programme, il faut récuperer le fichier jar dans le do
 Attention, la version JavaSE-17 est nécessaire. 
 
 Documentation: 
-Nous avons développé notre projet sur l'IDE Eclipse et utilisé gitHub pour faciliter le travail d'équipe.  
+- Nous avons développé notre projet sur l'IDE Eclipse et utilisé gitHub pour faciliter le travail d'équipe.  
 lien du repository: https://github.com/salmalys/EmpreinteCarbone.git
 
 Vous trouverez dans l’archive 2 packages : consocarbone et tools. 
@@ -35,8 +35,8 @@ Dans les méthodes testNumericPositif et testTaux, nous avons utilisé un try/ca
 Pour tester le polymorphisme, nous avons pour l’instant instancié dans la fonction main uniquement trois postes consommations : Logement l , Alimentation a et BienConso b. Puis pour chacun de ces objets, les methodes toString et empCarbMoy sont appelées. Par exemple, pour l'objet a, la méthode renvoie bien l'affichage de la méthode toString de la classe Alimentation. 
 
 Remarques: 
-Nous n'avons pas encore traité les questions de la classe Transport dans le questionnaire. Pour tester le polymorphisme de nos méthodes, les 3 postes de consommation présentés suffisent. 
-La manière dont est traité l'échange avec l'utilisateur est encore provisoire. 
-Nous avons pensé à utiliser des listes plutôt que des tableaux pour les questions (par souci d'espace mémoire). 
-La vérification des saisies est éffectuée une fois le questionnaire terminé. Par la suite, il serait préférable de traiter et tester les données immédiatement plutôt que de continuer à poser les questions après une erreur de saisie. 
+- Nous n'avons pas encore traité les questions de la classe Transport dans le questionnaire. Pour tester le polymorphisme de nos méthodes, les 3 postes de consommation présentés suffisent. 
+- La manière dont est traité l'échange avec l'utilisateur est encore provisoire. 
+- Nous avons pensé à utiliser des listes plutôt que des tableaux pour les questions (par souci d'espace mémoire). 
+- La vérification des saisies est éffectuée une fois le questionnaire terminé. Par la suite, il serait préférable de traiter et tester les données immédiatement plutôt que de continuer à poser les questions après une erreur de saisie. 
 
