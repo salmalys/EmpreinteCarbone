@@ -44,7 +44,7 @@ public class Logement extends ConsoCarbone {
 	}
 	
 	public String toString() {
-		   return "\n============================================\nL'impact de votre logement est de : " + getImpact() + " TCO2eq\n============================================";
+		   return "\n\nL'impact de votre logement est de : " + Math.round(getImpact()*100.0)/100.0 + " TCO2eq\n";
 	   }
 	
 }

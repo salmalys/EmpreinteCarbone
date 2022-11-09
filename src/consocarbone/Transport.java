@@ -17,7 +17,8 @@ public class Transport extends ConsoCarbone {
 	   this.amortissement = amortissement;
    }
    
-   @Override public double getImpact(){
+   @Override 
+   public double getImpact(){
 	   if (this.possede == false)  this.impact = 0;
 	   else {
 		   this.impact = this.kilomAnnee * 1.93 * Math.pow(10,-4) + this.taille.getConsVoit()/this.amortissement;
@@ -34,7 +35,7 @@ public class Transport extends ConsoCarbone {
 	}	 
    
    @Override public String toString() {
-	   return "\n============================================\nL'impact de vos moyens de transport est de : " + getImpact() + " TCO2eq\n============================================";
+	   return "\n\nL'impact de vos moyens de transport est de : " + Math.round(getImpact()*100.0)/100.0 + " TCO2eq\n";
    }
    
 }

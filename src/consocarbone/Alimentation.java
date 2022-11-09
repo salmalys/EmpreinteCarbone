@@ -31,7 +31,7 @@ public class Alimentation extends ConsoCarbone{
 	}	   
    
    public String toString() {
-	   return "\n============================================\nL'impact de votre alimentation est de : " + getImpact() + "TCO2eq\n============================================";
+	   return "\n\nL'impact de votre alimentation est de : " + Math.round(getImpact()*100.0)/100.0 + " TCO2eq\n";
    }
    
    
