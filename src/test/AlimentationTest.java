@@ -33,6 +33,8 @@ class AlimentationTest {
 
 	@Test
 	void compareTo_alimentation_returnsInterger() {
+		aUnderTest.getImpact();
+		bUnderTest.getImpact();
 		int res = aUnderTest.compareTo(bUnderTest);
 		assertEquals(-1,res);
 	}

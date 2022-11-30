@@ -39,7 +39,7 @@ public abstract class ConsoCarbone implements Comparable<ConsoCarbone> {
     */
     @Override 
     public int compareTo(ConsoCarbone c) {
-    	if (this.impact == c.impact) { System.out.println("this impact == " + this.impact);return 0;}
+    	if (this.impact == c.impact) return 0;
     	else if (this.impact > c.impact) return 1;
     	else return -1;
     }

@@ -26,10 +26,9 @@ public class Main {
 		System.out.println(a.toString());
 		Alimentation.empCarbMoy();
 		
-		Alimentation b = new Alimentation(tBoeuf,tVege);
+		BienConso b = new BienConso(montant);
 		System.out.println(b.toString());
-		Alimentation.empCarbMoy();
-		
+		BienConso.empCarbMoy();
 		
 		System.out.println(b.compareTo(a));
 		
