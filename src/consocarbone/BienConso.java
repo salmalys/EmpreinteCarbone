@@ -14,6 +14,9 @@ public class BienConso extends ConsoCarbone {
    	return this.impact;
    }
    
+   /**
+    * affiche l'empreinte carbonne moyenne d'un francais vis a vis de son alimentation
+    */
    public static void empCarbMoy() {
 	    ConsoCarbone.empCarbMoy();
 	   

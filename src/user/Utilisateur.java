@@ -25,7 +25,7 @@ public class Utilisateur  {
 	  return impactTotal;
   }
   
- //a modifier 
+ //a modifier methode generique
   
   public void detaillerEmpreinte() {
 	  System.out.println(alimentation.toString());
