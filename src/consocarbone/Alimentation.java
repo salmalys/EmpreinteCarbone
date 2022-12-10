@@ -4,6 +4,7 @@ package consocarbone;
  * Une Alimentation est un poste de consommation qui s'interesse a l'impact alimentaire
  *
  */
+//setteurs sur txboeuf et txvege 
 
 public class Alimentation extends ConsoCarbone{
 	/**
@@ -27,7 +28,10 @@ public class Alimentation extends ConsoCarbone{
     public Alimentation (double tB, double tV) {
     	this.txBoeuf = tB;
     	this.txVege = tV; 
+    	//calcul impact ??
     }
+    
+    //fonction qui met a jour ??
     
     /**
      * obtient l'impact calcule a partir d'une formule

@@ -17,7 +17,7 @@ class LogementTest {
 	@BeforeEach
 	public void setUpTests() {
 		aUnderTest = new Logement(200,CE.A);
-		bUnderTest = new Logement(4000,CE.C);
+		bUnderTest = new Logement(350,CE.C);
 	}
 
 	@AfterEach
@@ -32,12 +32,15 @@ class LogementTest {
 		assertEquals(1 ,res);
 	}
 	
-	/*@Test
-	void compareTo_logement_returnsInterger() {
+	@Test
+	void setImpact_logement_returnsInt() {
+		aUnderTest.setSuperficie(350);
 		aUnderTest.getImpact();
+		bUnderTest.setCe(CE.A);
 		bUnderTest.getImpact();
 		int res = aUnderTest.compareTo(bUnderTest);
+		assertEquals(0,res);
 
-	}*/
+	}
 
 }
