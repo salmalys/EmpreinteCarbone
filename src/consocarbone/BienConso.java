@@ -1,11 +1,12 @@
 package consocarbone;
 
 public class BienConso extends ConsoCarbone {
-   public double montant;
-   public double impact;
+   private double montant;
+   private double impact;
    
    public BienConso(double montant) {
 	   this.montant = montant;
+	   this.getImpact();
    }
    
    @Override 

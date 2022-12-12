@@ -16,6 +16,7 @@ public class Logement extends ConsoCarbone {
 
 	public void setSuperficie(int superficie) {
 		this.superficie = superficie;
+		this.getImpact();
 	}
 
 	public CE getCe() {
@@ -24,6 +25,7 @@ public class Logement extends ConsoCarbone {
 
 	public void setCe(CE ce) {
 		this.ce = ce;
+		this.getImpact();
 	}
 
 

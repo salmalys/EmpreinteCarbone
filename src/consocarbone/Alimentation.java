@@ -10,15 +10,15 @@ public class Alimentation extends ConsoCarbone{
 	/**
 	 * taux de repas a base de boeuf 
 	 */
-    public double txBoeuf;
+    private double txBoeuf;
     /**
      * taux de repas vegetariens
      */
-    public double txVege;
+    private double txVege;
     
-    final double c1 =8;
-    final double c2 =1.6;
-    final double c3 =.9;
+    private final double c1 =8;
+    private final double c2 =1.6;
+    private final double c3 =.9;
     
     /**
      * Constructeur de la classe
@@ -31,7 +31,22 @@ public class Alimentation extends ConsoCarbone{
     	//calcul impact ??
     }
     
-    //fonction qui met a jour ??
+    public double gettxBoeuf() {
+		return txBoeuf;
+	}
+
+	public void settxBoeuf(double txBoeuf) {
+		this.txBoeuf = txBoeuf;
+		this.getImpact();	}
+    
+    public double gettxVege() {
+		return txVege;
+	}
+
+	public void settxVege(double txVege) {
+		this.txVege = txVege;
+		this.getImpact();
+	}
     
     /**
      * obtient l'impact calcule a partir d'une formule

@@ -1,10 +1,10 @@
 package consocarbone;
 
 public class Transport extends ConsoCarbone {
-   boolean possede;
-   Taille taille;
-   int kilomAnnee;
-   int amortissement;
+   private boolean possede;
+   private Taille taille;
+   private int kilomAnnee;
+   private int amortissement;
    
    public Transport(boolean possede) {
 	   this.possede = possede;   
@@ -17,6 +17,53 @@ public class Transport extends ConsoCarbone {
 	   this.amortissement = amortissement;
    }
    
+   public boolean getpossede() {
+		return possede;
+	}
+
+	public void setpossede(boolean possede) {
+		this.possede = possede;
+		this.taille = null;
+		this.kilomAnnee = 0;
+		this.amortissement = 0;
+		this.getImpact();
+	}
+	
+    public void setpossede(boolean possede,Taille taille, int km, int amortissement) {
+			this.possede = possede;
+			this.taille = taille;
+			this.kilomAnnee = km;
+			this.amortissement = amortissement;
+			this.getImpact();
+		}
+   
+    public Taille getTaille() {
+ 		return taille;
+ 	}
+
+ 	public void setTaille(Taille taille) {
+ 		this.taille = taille;
+ 		this.getImpact();
+ 	}
+ 	
+    public int getKm() {
+ 		return kilomAnnee;
+ 	}
+
+ 	public void setKm(int km) {
+ 		this.kilomAnnee = km;
+ 		this.getImpact();
+ 	}
+	
+    public int getAmortissement() {
+ 		return amortissement;
+ 	}
+
+ 	public void setSuperficie(int amortissement) {
+ 		this.amortissement = amortissement;
+ 		this.getImpact();
+ 	}
+ 	
    @Override 
    public double getImpact(){
 	   if (this.possede == false)  this.impact = 0;

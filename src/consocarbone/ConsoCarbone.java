@@ -9,11 +9,11 @@ public abstract class ConsoCarbone implements Comparable<ConsoCarbone> {
 	/**
 	 * id du poste de consommation
 	 */
-    int id;
+    private int id;
     /**
      * nombre total de postes de consommation
      */
-    static int nbId;
+    private static int nbId;
     
     /**
      * Constructeur de la classe
@@ -24,12 +24,15 @@ public abstract class ConsoCarbone implements Comparable<ConsoCarbone> {
     
     public abstract double getImpact();
     
+    public int getId() {return id;}
    
    /**
     * compare le poste avec le poste A
     * @param poste A
     * @return 0 si l'impact est le meme, 1 si l'impact du poste est strictement superieur a celui du poste A et -1 sinon
     */
+    
+    
     @Override 
     public int compareTo(ConsoCarbone c) {
     	if (this.impact == c.impact) return 0;
@@ -37,6 +40,7 @@ public abstract class ConsoCarbone implements Comparable<ConsoCarbone> {
     	else return -1;
     }
     
+
     /**
      * affiche l'empreinte carbone moyenne d'un francais pour un poste de consommation donne
      */
