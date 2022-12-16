@@ -51,6 +51,18 @@ public class Logement extends ConsoCarbone {
 		   return "\n\nL'impact de votre logement est de : " + Math.round(getImpact()*100.0)/100.0 + " TCO2eq\n";
 	   }
 	
+	  @Override
+	   public Object clone() {
+			try {
+				Logement l = (Logement) super.clone();
+				return l;
+			}
+			catch (CloneNotSupportedException e){
+				throw new InternalError();
+			}
+	   }
+	   
+	
 }
 
 

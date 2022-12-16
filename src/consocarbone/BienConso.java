@@ -3,11 +3,9 @@ package consocarbone;
 public class BienConso extends ConsoCarbone {
    private double montant;
    
-
-   public BienConso(double montant) {
-	   this.montant = montant;
-	   this.getImpact();
-   }
+   public BienConso() {}
+   
+   public BienConso(double montant) {this.montant = montant;}
    
    @Override 
    public double getImpact() {
@@ -39,4 +37,16 @@ public class BienConso extends ConsoCarbone {
    public String toString() {
 	   return "\n\nL'impact de vos depenses annuelles est de : " + Math.round(getImpact()*100.0)/100.0 + " TCO2eq\n";
    }
+   
+   @Override
+   public Object clone() {
+		try {
+			BienConso b = (BienConso) super.clone();
+			return b;
+		}
+		catch (CloneNotSupportedException e){
+			throw new InternalError();
+		}
+   }
+   
 }

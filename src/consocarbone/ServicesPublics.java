@@ -24,4 +24,16 @@ public final class ServicesPublics extends ConsoCarbone {
 		   return "\n\nL'impact de vos services publics est de : 1,5 TCO2eq\n";
 	   }
 	
+	  @Override
+	   public Object clone() {
+			try {
+				ServicesPublics s = (ServicesPublics) super.clone();
+				return s;
+			}
+			catch (CloneNotSupportedException e){
+				throw new InternalError();
+			}
+	   }
+	   
+	
 }

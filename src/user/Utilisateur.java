@@ -2,6 +2,7 @@ package user;
 import consocarbone.*;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 public class Utilisateur {
@@ -17,6 +18,57 @@ public class Utilisateur {
   private ArrayList<ConsoCarbone> listCons;
   
   public Utilisateur() {}
+  
+  public Utilisateur(ArrayList<String> tab) {
+	  alimentation = new Alimentation();
+	  bienConso = new BienConso();
+	  services = ServicesPublics.getInstance();
+	  logements = new ArrayList<Logement>();
+	  transports = new ArrayList<Transport>();
+	  
+	    int i = 0;
+		int nbLogement = 0;
+		int nbTransport = 0;
+		
+		Iterator<String> l =  tab.iterator();
+		while(l.hasNext()){
+			//logement
+			if (i == 0) {
+				nbLogement = Integer.parseInt(l.next());
+				for (int j = 0; j<nbLogement; j++) {
+					Logement log = new Logement();
+					log.setSuperficie(Integer.parseInt(l.next()));
+					log.setCe(CE.valueOf(l.next()));
+					i += 2;
+					logements.add(log);
+				}
+			}
+			//alimentation
+			if(i == nbLogement*2 +1) {
+				alimentation.settxBoeuf(Double.parseDouble(l.next()));
+				alimentation.settxVege(Double.parseDouble(l.next()));
+				i += 2;
+			}
+			if(i == nbLogement*2 +3) {
+				bienConso.setMontant(Integer.parseInt(l.next()));
+				i++;
+			}
+			
+			if(i == nbLogement*2 +4) {
+				nbTransport = Integer.parseInt(l.next());
+				for (int j = 0; j<nbTransport; j++) {
+					Transport t = new Transport();
+					t.setTaille(Taille.valueOf(l.next()));
+					t.setAmortissement(Integer.parseInt(l.next()));
+					t.setKm(Integer.parseInt(l.next()));
+					i += 2;
+					transports.add(t);
+				}
+			}
+		}
+		setLogement();
+		setTransport();
+  }
   
   public Utilisateur(ConsoCarbone ... postes) {
 	  logements = new ArrayList<Logement>();
@@ -119,6 +171,18 @@ public class Utilisateur {
 	  if (this.bienConso.getImpact() > 2.625) System.out.println("Nous vous conseillions de reduire votre impact de bien consommateur");
 	  if (this.logement.getImpact() > 2.706) System.out.println("Nous vous conseillions de reduire votre impact de logement"); 
 	  if (this.transport.getImpact() > 2.920) System.out.println("Nous vous conseillions de reduire votre impact de transport");
+  }
+  
+  @Override
+  public Object clone() {
+		try {
+			Utilisateur u = (Utilisateur) super.clone();
+			u.listCons = new ArrayList<ConsoCarbone>(this.listCons);
+			return u;
+		}
+		catch (CloneNotSupportedException e){
+			throw new InternalError();
+		}
   }
   
 }

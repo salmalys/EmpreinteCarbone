@@ -62,7 +62,7 @@ public class Transport extends ConsoCarbone {
  		return amortissement;
  	}
 
- 	public void setSuperficie(int amortissement) {
+ 	public void setAmortissement(int amortissement) {
  		this.amortissement = amortissement;
  		this.getImpact();
  	}
@@ -86,6 +86,17 @@ public class Transport extends ConsoCarbone {
    
    @Override public String toString() {
 	   return "\n\nL'impact de vos moyens de transport est de : " + Math.round(getImpact()*100.0)/100.0 + " TCO2eq\n";
+   }
+   
+   @Override
+   public Object clone() {
+		try {
+			Transport t = (Transport) super.clone();
+			return t;
+		}
+		catch (CloneNotSupportedException e){
+			throw new InternalError();
+		}
    }
    
 }

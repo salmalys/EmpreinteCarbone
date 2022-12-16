@@ -1,5 +1,4 @@
 package consocarbone;
-
 /**
  * Une Alimentation est un poste de consommation qui s'interesse a l'impact alimentaire
  *
@@ -25,19 +24,20 @@ public class Alimentation extends ConsoCarbone{
      * @param tB
      * @param tV
      */
+    
+    public Alimentation() {
+    }
+    
     public Alimentation (double tB, double tV) {
     	this.txBoeuf = tB;
     	this.txVege = tV; 
-    	//calcul impact ??
     }
     
     public double gettxBoeuf() {
 		return txBoeuf;
 	}
 
-	public void settxBoeuf(double txBoeuf) {
-		this.txBoeuf = txBoeuf;
-		this.getImpact();	}
+	public void settxBoeuf(double txBoeuf) {this.txBoeuf = txBoeuf;}
     
     public double gettxVege() {
 		return txVege;
@@ -78,6 +78,17 @@ public class Alimentation extends ConsoCarbone{
    @Override
    public String toString() {
 	   return "\n\nL'impact de votre alimentation est de : " + Math.round(getImpact()*100.0)/100.0 + " TCO2eq\n";
+   }
+   
+   @Override
+   public Object clone() {
+		try {
+			Alimentation a = (Alimentation) super.clone();
+			return a;
+		}
+		catch (CloneNotSupportedException e){
+			throw new InternalError();
+		}
    }
    
    

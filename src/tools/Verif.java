@@ -1,5 +1,7 @@
 package tools;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 
 
 public class Verif {
@@ -33,7 +35,47 @@ public class Verif {
 			}
 		}
 		return true;
-}
+	}
+	
+	public static boolean testReponses(ArrayList<String> tab) {
+		int i = 0;
+		int nbLogement = 0;
+		int nbTransport = 0;
+		
+		Iterator<String> l =  tab.iterator();
+		while(l.hasNext()){
+			//logement
+			if (i == 0) {
+				nbLogement = Integer.parseInt(l.next());
+				for (int j = 0; j<nbLogement; j++) {
+					if (testNumericPositif(l.next())&&(testCe(l.next()))) {}
+					else return false;
+					i += 2;
+				}
+			}
+			//alimentation
+			if(i == nbLogement*2 +1) {
+				if (testTaux(l.next())&&(testTaux(l.next()))) {}
+				else return false;
+				i += 2;
+			}
+			if(i == nbLogement*2 +3) {
+				if(testNumericPositif(l.next()));
+				else return false;
+				i++;
+			}
+			
+			if(i == nbLogement*2 +4) {
+				nbTransport = Integer.parseInt(l.next());
+				for (int j = 0; j<nbTransport; j++) {
+					if (testTaille(l.next())&&(testNumericPositif(l.next()))&&(testNumericPositif(l.next()))) {}
+					else return false;
+					i += 3;
+				}
+			}
+		}
+		return true;
+	}
 	
 	public static boolean testCe(String str) {
 		String[] values = {"A", "B", "C", "D", "E", "F"};
@@ -41,6 +83,14 @@ public class Verif {
 		if (Arrays.asList(values).contains(str)) 
 			return true;
 		
+		return false;		
+	}
+	
+	public static boolean testTaille(String str) {
+		String[] values = {"P", "G"};
+		
+		if (Arrays.asList(values).contains(str)) 
+			return true;
 		return false;		
 	}
 	
