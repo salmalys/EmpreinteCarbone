@@ -4,16 +4,17 @@ import java.util.*;
 
 public class Questionnaire {
 	
-	static final String[] NOM_POSTE = {"Logement", "Alimentation", "BienConso","Transport"};
+	static final String[] NOM_POSTE = {"Logement", "Alimentation", "BienConso","Mail","Transport"};
 	
 	static final String QST_LOGEMENT1 = "Combien de logement avez vous ?";
 	static final String[] QST_LOGEMENT2 ={"Quelle est la superficie de votre appartement en m^2?", "Quelle est la classe energetique ?"};
 	static final String[] QST_ALIMENTATION = {"Quel est votre taux de repas a base de boeuf ?", "Quel est votre taux de repas vegetariens ?"};
 	static final String[] QST_BIENCONSO = {"Quel est le montant de vos depenses annuelles en euros ?"};
+	static final String[] QST_MAIL = {"Combien avez vous de mail envoyes depuis un an?", "Combien avez vous de mails recus depuis un an?"};
 	static final String QST_TRANSPORT1 = "Combien de voiture avez vous ?";
 	static final String[] QST_TRANSPORT2 = {"Quelle est la taille de votre voiture?", "Quel est vos nombre de kilometre a l'annee ?", "Quelle est la duree de conservation de votre vehicule ?"};
 	
-	static final String[][] QUESTION = {QST_LOGEMENT2, QST_ALIMENTATION, QST_BIENCONSO, QST_TRANSPORT2};
+	static final String[][] QUESTION = {QST_LOGEMENT2, QST_ALIMENTATION, QST_BIENCONSO,QST_MAIL, QST_TRANSPORT2};
 	
 	
 	public static ArrayList<String> commencer() {
@@ -38,7 +39,7 @@ public class Questionnaire {
         		}
         	}
         	
-        	if((i == 1)||(i == 2)) {
+        	if((i == 1) ||(i == 2) || (i==3) ) {
         		for (int j = 0; j< QUESTION[i].length; j++) {
             		System.out.println(QUESTION[i][j]);
             		tab.add(sc.nextLine());
