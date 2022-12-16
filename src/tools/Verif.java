@@ -12,7 +12,7 @@ public class Verif {
 			for (int j = 0; j < Questionnaire.QUESTION[i].length; j++) {
 				
 				//test sur la superficie et le montant
-				if ((i == 0 & j == 0) || (i == 2 & j == 1)) {
+				if ((i == 0 & j == 0) || (i == 2 & j == 1) (i == )) {
 				       if (testNumericPositif(reponses[i][j]) == false) {
 				    	   System.out.printf("\nLa valeur saisie %s a la question %d du poste %s n'est pas correcte", reponses[i][j], j+1, Questionnaire.NOM_POSTE[i]);
 				    	   return false;}
@@ -66,6 +66,12 @@ public class Verif {
 			}
 			
 			if(i == nbLogement*2 +4) {
+				if(testNumericPositif(l.next()) && (testNumericPositif(l.next())));
+				else return false;
+				i+=2;
+			}
+			
+			if(i == nbLogement*2 +6) {
 				nbTransport = Integer.parseInt(l.next());
 				for (int j = 0; j<nbTransport; j++) {
 					if (testTaille(l.next())&&(testNumericPositif(l.next()))&&(testNumericPositif(l.next()))) {}
