@@ -57,7 +57,10 @@ public class Utilisateur {
 			}
 			
 			if (i == nbLogement*2 +4){
-				mails.set
+				mails.setNbMailEnv(Integer.parseInt(l.next()));
+				mails.setNbMailStock(Integer.parseInt(l.next()));
+				i+=2;
+			}
 			
 			if(i == nbLogement*2 +6) {
 				nbTransport = Integer.parseInt(l.next());
@@ -82,6 +85,7 @@ public class Utilisateur {
 		  if (postes[i] instanceof Alimentation) alimentation = (Alimentation) postes[i];
 		  if (postes[i] instanceof ServicesPublics) services = (ServicesPublics) postes[i];
 		  if (postes[i] instanceof BienConso) bienConso = (BienConso) postes[i];
+		  if (postes[i] instanceof Mail) mails = (Mails) postes[i];
 		  if (postes[i] instanceof Logement) logements.add((Logement)postes[i]);
 		  if (postes[i] instanceof Transport) transports.add((Transport)postes[i]);		  
 	  }
@@ -94,6 +98,9 @@ public class Utilisateur {
 	
   public BienConso getBienConso() {return bienConso;}
   public void setBienConso(BienConso bienConso) {this.bienConso = bienConso;}
+	
+  public Mail getMail() {return mails;}
+  public void setMail(Mail mails) {this.mails= mails;}
 	
   public ArrayList<Logement> getLogements() {return logements;}
   public void setLogements(ArrayList<Logement> logements) {this.logements = logements;}
@@ -135,6 +142,7 @@ public class Utilisateur {
 		listCons = null;
 		listCons.add(this.alimentation);
 		listCons.add(this.bienConso);
+		listCons.add(this.mails);
 		listCons.add(this.services);
 		listCons.add(this.logement);
 		listCons.add(this.transport);
@@ -172,10 +180,11 @@ public class Utilisateur {
   public void conseilEmpreinte( ) {
 	  //instancier un Utilisateur: utilisateur moyen 
 	  
-	  if (this.alimentation.getImpact() > 2.353 ) System.out.println("Nous vous conseillions de reduire votre impact alimentaire");
-	  if (this.bienConso.getImpact() > 2.625) System.out.println("Nous vous conseillions de reduire votre impact de bien consommateur");
-	  if (this.logement.getImpact() > 2.706) System.out.println("Nous vous conseillions de reduire votre impact de logement"); 
-	  if (this.transport.getImpact() > 2.920) System.out.println("Nous vous conseillions de reduire votre impact de transport");
+	  if (this.alimentation.getImpact() > 2.353 ) System.out.println("Nous vous conseillions de reduire votre impact alimentaire, vous pouvez par exemple reduire vos repas a base de boeuf");
+	  if (this.bienConso.getImpact() > 2.625) System.out.println("Nous vous conseillions de reduire votre impact de bien consommateur, par exemple en essayant de moins depenser dans la consomation rapide");
+	  if(this.mails.getImpact() > 2.5) System.out.println("Nous vous conseillions de supprimer vos mails et d'envoyer seulement les mails necessaire");
+	  if (this.logement.getImpact() > 2.706) System.out.println("Nous vous conseillions de reduire votre impact de logement, par exemple en essaynt de faire baisser la classe ernegetique de votre logement"); 
+	  if (this.transport.getImpact() > 2.920) System.out.println("Nous vous conseillions de reduire votre impact de transport, par exemple en achetant une voiture electrique, ou plus recente, ou seulement diminuer vos deplacements quotidients en voiture");
   }
   
   @Override
