@@ -5,6 +5,8 @@ public class Logement extends ConsoCarbone {
     private int superficie;
     private CE ce;
     
+    public Logement() {}
+    
     public Logement(int s,CE ce) {
     	this.superficie = s;
     	this.ce = ce;

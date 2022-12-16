@@ -6,9 +6,12 @@ public class Transport extends ConsoCarbone {
    private int kilomAnnee;
    private int amortissement;
    
+   public Transport() {}
+   
    public Transport(boolean possede) {
 	   this.possede = possede;   
    }
+   
    
    public Transport(boolean possede, Taille taille, int km, int amortissement) {
 	   this.possede = possede;

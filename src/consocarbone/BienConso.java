@@ -2,8 +2,8 @@ package consocarbone;
 
 public class BienConso extends ConsoCarbone {
    private double montant;
-   private double impact;
    
+
    public BienConso(double montant) {
 	   this.montant = montant;
 	   this.getImpact();
@@ -14,6 +14,15 @@ public class BienConso extends ConsoCarbone {
    	this.impact = this.montant / 1750;
    	return this.impact;
    }
+   
+   public double getMontant() {
+	return montant;
+   }
+
+   public void setMontant(double montant) {
+	this.montant = montant;
+   }
+   
    
    /**
     * affiche l'empreinte carbonne moyenne d'un francais vis a vis de son alimentation

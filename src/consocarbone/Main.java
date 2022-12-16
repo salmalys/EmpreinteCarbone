@@ -1,9 +1,17 @@
 package consocarbone;
 import tools.*;
+import java.io.*;
 
 public class Main {
 	
 	public static void main(String[] args) {
+		System.out.println("hello");
+		if (args.length > 0) {
+			System.out.println(args[0]);
+			//for (int i = 0; i<args.length; i++) {
+			//	recupReponses(args[i]);
+			//}
+		}
 		// Lancement du questionnaire et recuperation des saisies de l'utilisateur dans la matrice reponses 
 		String[][] reponses = Questionnaire.commencer();
 		
@@ -32,6 +40,31 @@ public class Main {
 		
 		System.out.println(b.compareTo(a));
 		
+	}
+	
+	
+	public static void recupReponses(String filename){
+	    try
+	    {
+	      File file = new File(filename);    
+	      FileReader fr = new FileReader(file);  
+     
+	      BufferedReader br = new BufferedReader(fr);  
+	      StringBuffer sb = new StringBuffer();  
+	      
+	      String line;
+	      while((line = br.readLine()) != null)
+	      {
+	        sb.append(line);      
+	        sb.append("\n");     
+	      }
+	      System.out.println(sb);
+	      fr.close();    
+	    }
+	    catch(IOException e)
+	    {
+	      e.printStackTrace();
+	    }
 	}
 
 }
