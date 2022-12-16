@@ -9,6 +9,7 @@ public class Utilisateur {
   private Alimentation alimentation;
   private BienConso bienConso;
   private Logement logement;
+  private Mail mail;
   private Transport transport;
   private ServicesPublics services;
   
@@ -22,6 +23,7 @@ public class Utilisateur {
   public Utilisateur(ArrayList<String> tab) {
 	  alimentation = new Alimentation();
 	  bienConso = new BienConso();
+	  mails = new Mail();
 	  services = ServicesPublics.getInstance();
 	  logements = new ArrayList<Logement>();
 	  transports = new ArrayList<Transport>();
@@ -54,7 +56,10 @@ public class Utilisateur {
 				i++;
 			}
 			
-			if(i == nbLogement*2 +4) {
+			if (i == nbLogement*2 +4){
+				mails.set
+			
+			if(i == nbLogement*2 +6) {
 				nbTransport = Integer.parseInt(l.next());
 				for (int j = 0; j<nbTransport; j++) {
 					Transport t = new Transport();
