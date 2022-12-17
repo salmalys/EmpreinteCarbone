@@ -1,13 +1,31 @@
 package consocarbone;
 
+/**
+ * Enumeration CE compose de sept instances nomees {A,B,C,D,E,F,G} qui represente les differentes classes energetiques
+ *
+ */
+
 public enum CE {
     A(0.005),B(0.01),C(0.02),D(0.035),E(0.055),F(0.08),G(0.1);
 	
+	/**
+	 * Le coefficient multiplicatif dependant de la classe energetique du logement 
+	 */
 	private final double coeff;
+	
+	/**
+	 * Consructeur de l'enumeration
+	 * @param coeff
+	 */
 	
 	CE(double coeff){
 		this.coeff = coeff;
 	}
+	
+	/**
+	 * getter du coefficient
+	 * @return le coefficient
+	 */
 	
 	public double getCoeff() {
 		return coeff;
