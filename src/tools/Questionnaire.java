@@ -18,9 +18,8 @@ public class Questionnaire {
 	static final int[] nbAtt = {2,2,1,2,3};
 	
 	
-	public static ArrayList<ConsoCarbone> commencer() {
+	public static ArrayList<ConsoCarbone> commencer(Scanner sc) {
 		ArrayList<ConsoCarbone> listPostes = new ArrayList<ConsoCarbone>();
-        Scanner sc = new Scanner(System.in);
         
         for (int i = 0 ; i< NOM_POSTE.length ; i++) {
         	System.out.println(NOM_POSTE[i]);
