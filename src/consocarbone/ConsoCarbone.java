@@ -1,4 +1,7 @@
 package consocarbone;
+/** 
+* Classe consoCarbonne qui implement l'interface Comparable
+*/
 
 public abstract class ConsoCarbone implements Comparable<ConsoCarbone> {
 	//String nomPoste;
@@ -19,10 +22,16 @@ public abstract class ConsoCarbone implements Comparable<ConsoCarbone> {
      * Constructeur de la classe
      */
     public ConsoCarbone() {
+	impact = 0;
     	this.id = ++nbId;
     }
     
     public abstract double getImpact();
+    
+    /**
+    *Setter de l'impact
+    *@param impact 
+    */
     
     public void setImpact(double impact) {
     	this.impact = impact;
