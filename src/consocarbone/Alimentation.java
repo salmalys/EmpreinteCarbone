@@ -45,7 +45,6 @@ public class Alimentation extends ConsoCarbone{
 
 	public void settxVege(double txVege) {
 		this.txVege = txVege;
-		this.getImpact();
 	}
     
     /**
@@ -77,7 +76,7 @@ public class Alimentation extends ConsoCarbone{
     */
    @Override
    public String toString() {
-	   return "\n\nL'impact de votre alimentation est de : " + Math.round(getImpact()*100.0)/100.0 + " TCO2eq\n";
+	   return "\nL'impact de votre alimentation est de : " + Math.round(this.impact*100.0)/100.0 + " TCO2eq\n";
    }
    
    @Override

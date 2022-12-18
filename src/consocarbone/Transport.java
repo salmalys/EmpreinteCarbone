@@ -29,7 +29,6 @@ public class Transport extends ConsoCarbone {
 		this.taille = null;
 		this.kilomAnnee = 0;
 		this.amortissement = 0;
-		this.getImpact();
 	}
 	
     public void setpossede(boolean possede,Taille taille, int km, int amortissement) {
@@ -37,7 +36,6 @@ public class Transport extends ConsoCarbone {
 			this.taille = taille;
 			this.kilomAnnee = km;
 			this.amortissement = amortissement;
-			this.getImpact();
 		}
    
     public Taille getTaille() {
@@ -46,7 +44,6 @@ public class Transport extends ConsoCarbone {
 
  	public void setTaille(Taille taille) {
  		this.taille = taille;
- 		this.getImpact();
  	}
  	
     public int getKm() {
@@ -55,7 +52,6 @@ public class Transport extends ConsoCarbone {
 
  	public void setKm(int km) {
  		this.kilomAnnee = km;
- 		this.getImpact();
  	}
 	
     public int getAmortissement() {
@@ -64,7 +60,6 @@ public class Transport extends ConsoCarbone {
 
  	public void setAmortissement(int amortissement) {
  		this.amortissement = amortissement;
- 		this.getImpact();
  	}
  	
    @Override 
@@ -85,7 +80,7 @@ public class Transport extends ConsoCarbone {
 	}	 
    
    @Override public String toString() {
-	   return "\n\nL'impact de vos moyens de transport est de : " + Math.round(getImpact()*100.0)/100.0 + " TCO2eq\n";
+	   return "\n\nL'impact de vos moyens de transport est de : " + Math.round(this.impact*100.0)/100.0 + " TCO2eq\n";
    }
    
    @Override

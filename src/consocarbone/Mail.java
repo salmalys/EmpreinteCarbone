@@ -23,7 +23,7 @@ public class Mail extends ConsoCarbone {
     @Override 
 	public double getImpact() {
            this.impact = c1 * nbMailEnv + c2 * nbMailStock;
-           return this.getImpact();
+           return this.impact;
     }
 
     public static void empCarbMoy() {
@@ -35,7 +35,7 @@ public class Mail extends ConsoCarbone {
 
     @Override
     public String toString() {
-              return "\n\nL'impact de vos mails est de : " + Math.round(getImpact()*100.0)/100.0 + " TCO2eq\n";
+              return "\n\nL'impact de vos mails est de : " + Math.round(this.impact*100.0)/100.0 + " TCO2eq\n";
     }
     
 }

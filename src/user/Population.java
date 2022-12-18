@@ -5,9 +5,12 @@ public class Population implements Cloneable {
 	private ArrayList<Utilisateur> listPopulation;
 	private int nb;
 
-	public Population() {}
+	public Population() {
+		listPopulation = new ArrayList<Utilisateur>();
+	}
 	
 	public Population(Utilisateur ... pop) {
+		listPopulation = new ArrayList<Utilisateur>();
 		for (Utilisateur u: pop) {
 			listPopulation.add(u);
 			this.nb++;

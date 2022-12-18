@@ -1,9 +1,0 @@
-nbLogement: 2
-Logement_1: 200 A
-Logement_2: 300 C
-Alimentation: 0.3 0.5
-BienConso: 1500
-nbTransport: 2
-Transport_1: P 1200 56
-Transport_2: G 300 20
-

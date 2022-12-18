@@ -28,6 +28,10 @@ public abstract class ConsoCarbone implements Comparable<ConsoCarbone> {
     	this.impact = impact;
     }
     
+    public double calculEmpreinte() {
+    	return this.impact;
+    }
+    
     public int getId() {return id;}
    
    /**

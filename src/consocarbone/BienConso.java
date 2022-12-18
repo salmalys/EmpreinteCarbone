@@ -35,7 +35,7 @@ public class BienConso extends ConsoCarbone {
 	}	   
    
    public String toString() {
-	   return "\n\nL'impact de vos depenses annuelles est de : " + Math.round(getImpact()*100.0)/100.0 + " TCO2eq\n";
+	   return "\n\nL'impact de vos depenses annuelles est de : " + Math.round(this.impact*100.0)/100.0 + " TCO2eq\n";
    }
    
    @Override

@@ -18,7 +18,6 @@ public class Logement extends ConsoCarbone {
 
 	public void setSuperficie(int superficie) {
 		this.superficie = superficie;
-		this.getImpact();
 	}
 
 	public CE getCe() {
@@ -27,7 +26,6 @@ public class Logement extends ConsoCarbone {
 
 	public void setCe(CE ce) {
 		this.ce = ce;
-		this.getImpact();
 	}
 
 
@@ -48,7 +46,7 @@ public class Logement extends ConsoCarbone {
 	}
 	
 	public String toString() {
-		   return "\n\nL'impact de votre logement est de : " + Math.round(getImpact()*100.0)/100.0 + " TCO2eq\n";
+		   return "\n\nL'impact de votre logement est de : " + Math.round(this.impact*100.0)/100.0 + " TCO2eq\n";
 	   }
 	
 	  @Override

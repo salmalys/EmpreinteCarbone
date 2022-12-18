@@ -2,7 +2,6 @@ package user;
 import consocarbone.*;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 
 public class Utilisateur {
@@ -18,79 +17,38 @@ public class Utilisateur {
   
   private ArrayList<ConsoCarbone> listCons;
   
-  public Utilisateur() {}
+  public Utilisateur() {
+	  this.alimentation = null;
+	  this.bienConso = null;
+	  this.transport = null;
+	  this.logement = null;
+	  this.mail = null;
+	  this.services = null;
+	  
+	  this.logements = null;
+	  this.transports = null;
+	  
+	  this.listCons = null;
+	  
+  }
   
-  public Utilisateur(ArrayList<String> tab) {
-	  alimentation = new Alimentation();
-	  bienConso = new BienConso();
-	  mails = new Mail();
-	  services = ServicesPublics.getInstance();
+  
+  public Utilisateur(ArrayList<ConsoCarbone> postes) {
 	  logements = new ArrayList<Logement>();
 	  transports = new ArrayList<Transport>();
 	  
-	    int i = 0;
-		int nbLogement = 0;
-		int nbTransport = 0;
-		
-		Iterator<String> l =  tab.iterator();
-		while(l.hasNext()){
-			//logement
-			if (i == 0) {
-				nbLogement = Integer.parseInt(l.next());
-				for (int j = 0; j<nbLogement; j++) {
-					Logement log = new Logement();
-					log.setSuperficie(Integer.parseInt(l.next()));
-					log.setCe(CE.valueOf(l.next()));
-					i += 2;
-					logements.add(log);
-				}
-			}
-			//alimentation
-			if(i == nbLogement*2 +1) {
-				alimentation.settxBoeuf(Double.parseDouble(l.next()));
-				alimentation.settxVege(Double.parseDouble(l.next()));
-				i += 2;
-			}
-			if(i == nbLogement*2 +3) {
-				bienConso.setMontant(Integer.parseInt(l.next()));
-				i++;
-			}
-			
-			if (i == nbLogement*2 +4){
-				mails.setNbMailEnv(Integer.parseInt(l.next()));
-				mails.setNbMailStock(Integer.parseInt(l.next()));
-				i+=2;
-			}
-			
-			if(i == nbLogement*2 +6) {
-				nbTransport = Integer.parseInt(l.next());
-				for (int j = 0; j<nbTransport; j++) {
-					Transport t = new Transport();
-					t.setTaille(Taille.valueOf(l.next()));
-					t.setAmortissement(Integer.parseInt(l.next()));
-					t.setKm(Integer.parseInt(l.next()));
-					i += 2;
-					transports.add(t);
-				}
-			}
-		}
-		setLogement();
-		setTransport();
-  }
-  
-  public Utilisateur(ConsoCarbone ... postes) {
-	  logements = new ArrayList<Logement>();
-	  transports = new ArrayList<Transport>();
-	  for (int i = 0; i<postes.length; i++) {
-		  if (postes[i] instanceof Alimentation) alimentation = (Alimentation) postes[i];
-		  if (postes[i] instanceof ServicesPublics) services = (ServicesPublics) postes[i];
-		  if (postes[i] instanceof BienConso) bienConso = (BienConso) postes[i];
-		  if (postes[i] instanceof Mail) mails = (Mails) postes[i];
-		  if (postes[i] instanceof Logement) logements.add((Logement)postes[i]);
-		  if (postes[i] instanceof Transport) transports.add((Transport)postes[i]);		  
+	  for (ConsoCarbone c: postes) {
+		  if (c instanceof Alimentation) alimentation = (Alimentation) c;
+		  if (c instanceof BienConso) bienConso = (BienConso) c;
+		  if (c instanceof Mail) mail = (Mail) c;
+		  if (c instanceof Logement) logements.add((Logement)c);
+		  if (c instanceof Transport) transports.add((Transport)c);		  
 	  }
+	  
+	  services = ServicesPublics.getInstance();
 	  setLogement();
 	  setTransport();
+	  setListCons();
   }
   
   public Alimentation getAlimentation() {return alimentation;}
@@ -99,8 +57,8 @@ public class Utilisateur {
   public BienConso getBienConso() {return bienConso;}
   public void setBienConso(BienConso bienConso) {this.bienConso = bienConso;}
 	
-  public Mail getMail() {return mails;}
-  public void setMail(Mail mails) {this.mails= mails;}
+  public Mail getMail() {return mail;}
+  public void setMail(Mail mails) {this.mail= mails;}
 	
   public ArrayList<Logement> getLogements() {return logements;}
   public void setLogements(ArrayList<Logement> logements) {this.logements = logements;}
@@ -120,6 +78,8 @@ public class Utilisateur {
 	  for (Logement l : this.logements) {
 			 impactLog += l.getImpact();
 		 }
+	  logement.setCe(null);
+	  logement.setSuperficie(0);
 	  logement.setImpact(impactLog);
 	}
 	 
@@ -139,10 +99,10 @@ public class Utilisateur {
 	public List<ConsoCarbone> getListCons() {return listCons;}
 	
 	public void setListCons() {
-		listCons = null;
+		listCons = new ArrayList<ConsoCarbone>();
 		listCons.add(this.alimentation);
 		listCons.add(this.bienConso);
-		listCons.add(this.mails);
+		listCons.add(this.mail);
 		listCons.add(this.services);
 		listCons.add(this.logement);
 		listCons.add(this.transport);
@@ -160,16 +120,16 @@ public class Utilisateur {
   public double calculerEmpreinte() {
 	  int impactTotal = 0;
 	  for(ConsoCarbone c: listCons) {
-		  impactTotal += c.getImpact();
+		  impactTotal += c.calculEmpreinte();
 	  }
 	  return impactTotal;
   }
   
  //a modifier methode generique
   public void detaillerEmpreinte() {
-	  for (ConsoCarbone c: listCons)
+	  for (ConsoCarbone c: listCons) {
 		  System.out.println(c.toString());
-	  
+	  }
 	  /*System.out.println(alimentation.toString());
 	  System.out.println(bienConso.toString());
 	  System.out.println(logement.toString());
@@ -182,7 +142,7 @@ public class Utilisateur {
 	  
 	  if (this.alimentation.getImpact() > 2.353 ) System.out.println("Nous vous conseillions de reduire votre impact alimentaire, vous pouvez par exemple reduire vos repas a base de boeuf");
 	  if (this.bienConso.getImpact() > 2.625) System.out.println("Nous vous conseillions de reduire votre impact de bien consommateur, par exemple en essayant de moins depenser dans la consomation rapide");
-	  if(this.mails.getImpact() > 2.5) System.out.println("Nous vous conseillions de supprimer vos mails et d'envoyer seulement les mails necessaire");
+	  if(this.mail.getImpact() > 2.5) System.out.println("Nous vous conseillions de supprimer vos mails et d'envoyer seulement les mails necessaire");
 	  if (this.logement.getImpact() > 2.706) System.out.println("Nous vous conseillions de reduire votre impact de logement, par exemple en essaynt de faire baisser la classe ernegetique de votre logement"); 
 	  if (this.transport.getImpact() > 2.920) System.out.println("Nous vous conseillions de reduire votre impact de transport, par exemple en achetant une voiture electrique, ou plus recente, ou seulement diminuer vos deplacements quotidients en voiture");
   }

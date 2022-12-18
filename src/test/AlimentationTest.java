@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class AlimentationTest {
+	//pas mettre de commentaires sur la javadoc
 	private static Alimentation aUnderTest;
 	private static Alimentation bUnderTest;
 
