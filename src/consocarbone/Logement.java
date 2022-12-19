@@ -5,15 +5,7 @@ package consocarbone;
  */
 
 public class Logement extends ConsoCarbone {
-	/**
-	 * Superficie du logement
-	 */
     private int superficie;
-    
-    /**
-     * Classe energetique du logement
-     */
-    
     private CE ce;
     
     /**
