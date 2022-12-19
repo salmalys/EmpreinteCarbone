@@ -4,27 +4,26 @@ package consocarbone;
 */
 
 public abstract class ConsoCarbone implements Comparable<ConsoCarbone> {
-	//String nomPoste;
 	/**
 	 * impact carbonique du poste de consommation
 	 */
 	protected double impact;
-	/**
-	 * id du poste de consommation
-	 */
     private int id;
-    /**
-     * nombre total de postes de consommation
-     */
     private static int nbId;
     
     /**
-     * Constructeur de la classe
+     * Constructeur par defaut de la classe
      */
+	
     public ConsoCarbone() {
 	impact = 0;
     	this.id = ++nbId;
     }
+    
+  /**
+   * methode abstraite utilise dans toutes les classes implementant ConsoCarbone
+   * @return double etant la valeur de l'impact
+   */
     
     public abstract double getImpact();
     
@@ -37,9 +36,16 @@ public abstract class ConsoCarbone implements Comparable<ConsoCarbone> {
     	this.impact = impact;
     }
     
+    // getter non ?
+    
     public double calculEmpreinte() {
     	return this.impact;
     }
+    
+    /**
+     * Getter de l'identificateur du ConsoCarbonne
+     * @return l'id
+     */
     
     public int getId() {return id;}
    
