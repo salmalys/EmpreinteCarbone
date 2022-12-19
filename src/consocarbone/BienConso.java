@@ -7,17 +7,13 @@ package consocarbone;
 
 public class BienConso extends ConsoCarbone {
 	
-	/**
-	 * Le montant des depenses annuelles de l'utilisateur
-	 * */
-	
    private double montant;
    
    /**
     * Constructeur par defaut
     */
    
-   public BienConso() {  montant = 0;}
+   public BienConso() { montant = 0;}
    
    /**
     * Constructeur de la classe BienConso
@@ -82,7 +78,7 @@ public class BienConso extends ConsoCarbone {
    /**
     * Redefinition de la methode clone pour un bienConso de la classe Objet 
     * Copie les attributs du bienconso
-    * @return
+    * @return le nouvel objet bien conso
     */
    
    @Override
