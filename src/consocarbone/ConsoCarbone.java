@@ -36,11 +36,6 @@ public abstract class ConsoCarbone implements Comparable<ConsoCarbone> {
     	this.impact = impact;
     }
     
-    // getter non ?
-    
-    public double calculEmpreinte() {
-    	return this.impact;
-    }
     
     /**
      * Getter de l'identificateur du ConsoCarbonne

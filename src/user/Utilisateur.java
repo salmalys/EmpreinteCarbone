@@ -120,7 +120,7 @@ public class Utilisateur {
   public double calculerEmpreinte() {
 	  int impactTotal = 0;
 	  for(ConsoCarbone c: listCons) {
-		  impactTotal += c.calculEmpreinte();
+		  impactTotal += c.getImpact();
 	  }
 	  return impactTotal;
   }
@@ -140,7 +140,11 @@ public class Utilisateur {
   public void conseilEmpreinte( ) {
 	  //instancier un Utilisateur: utilisateur moyen 
 	  
-	  if (this.alimentation.getImpact() > 2.353 ) System.out.println("Nous vous conseillions de reduire votre impact alimentaire, vous pouvez par exemple reduire vos repas a base de boeuf");
+	  Utilisateur userMoy = new Utilisateur();
+	  userMoy.alimentation.setImpact(2.353);
+	  //a faire
+	  
+	  if (this.alimentation.compareTo(userMoy.alimentation)==1) System.out.println("Nous vous conseillions de reduire votre impact alimentaire, vous pouvez par exemple reduire vos repas a base de boeuf");
 	  if (this.bienConso.getImpact() > 2.625) System.out.println("Nous vous conseillions de reduire votre impact de bien consommateur, par exemple en essayant de moins depenser dans la consomation rapide");
 	  if(this.mail.getImpact() > 2.5) System.out.println("Nous vous conseillions de supprimer vos mails et d'envoyer seulement les mails necessaire");
 	  if (this.logement.getImpact() > 2.706) System.out.println("Nous vous conseillions de reduire votre impact de logement, par exemple en essaynt de faire baisser la classe ernegetique de votre logement"); 
