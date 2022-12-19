@@ -20,7 +20,10 @@ public class BienConso extends ConsoCarbone {
     * @param montant
     */
    
-   public BienConso(double montant) {this.montant = montant;}
+   public BienConso(double montant) {
+	   this.montant = montant;
+	   this.impact = calculImpact();
+	   }
    
    /**
     * Une tonne de CO2eq est equivalente a 1750e de depenses 
@@ -28,7 +31,7 @@ public class BienConso extends ConsoCarbone {
     */
    
    @Override 
-   public double getImpact() {
+   public double calculImpact() {
    	this.impact = this.montant / 1750;
    	return this.impact;
    }
@@ -49,6 +52,7 @@ public class BienConso extends ConsoCarbone {
 
    public void setMontant(double montant) {
 	this.montant = montant;
+	this.impact = calculImpact();
    }
    
    

@@ -18,6 +18,7 @@ public class Transport extends ConsoCarbone {
 	   this.taille = taille;
 	   this.kilomAnnee = km;
 	   this.amortissement = amortissement;
+	   this.impact = calculImpact();
    }
    
    public boolean getpossede() {
@@ -29,6 +30,7 @@ public class Transport extends ConsoCarbone {
 		this.taille = null;
 		this.kilomAnnee = 0;
 		this.amortissement = 0;
+		this.impact = calculImpact();
 	}
 	
     public void setpossede(boolean possede,Taille taille, int km, int amortissement) {
@@ -36,6 +38,7 @@ public class Transport extends ConsoCarbone {
 			this.taille = taille;
 			this.kilomAnnee = km;
 			this.amortissement = amortissement;
+			this.impact = calculImpact();
 		}
    
     public Taille getTaille() {
@@ -44,6 +47,7 @@ public class Transport extends ConsoCarbone {
 
  	public void setTaille(Taille taille) {
  		this.taille = taille;
+ 		this.impact = calculImpact();
  	}
  	
     public int getKm() {
@@ -52,6 +56,7 @@ public class Transport extends ConsoCarbone {
 
  	public void setKm(int km) {
  		this.kilomAnnee = km;
+ 		this.impact = calculImpact();
  	}
 	
     public int getAmortissement() {
@@ -60,15 +65,18 @@ public class Transport extends ConsoCarbone {
 
  	public void setAmortissement(int amortissement) {
  		this.amortissement = amortissement;
+ 		this.impact = calculImpact();
  	}
  	
-   @Override 
-   public double getImpact(){
+  
+   @Override
+   public double calculImpact() {
 	   if (this.possede == false)  this.impact = 0;
 	   else {
 		   this.impact = this.kilomAnnee * 1.93 * Math.pow(10,-4) + this.taille.getConsVoit()/this.amortissement;
 	   }
 	   return this.impact;
+   
    }
    
    public static void empCarbMoy() {

@@ -18,6 +18,7 @@ public final class ServicesPublics extends ConsoCarbone {
 	 * Constructeur par defaut de la classe
 	 */
 	private ServicesPublics() {
+		this.impact = calculImpact();
 	}
 	
 	/** 
@@ -25,7 +26,7 @@ public final class ServicesPublics extends ConsoCarbone {
 	 */
 	
 	@Override
-	public double getImpact() {
+	public double calculImpact() {
 		this.impact = 1.5;
 		return this.impact;
 	}

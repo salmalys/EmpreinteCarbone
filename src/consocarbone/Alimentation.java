@@ -22,6 +22,7 @@ package consocarbone;
 				    public Alimentation() {
 					    this.txBoeuf = 0.0;
 					    this.txVege = 0.0;
+					    this.impact = calculImpact();
 					    
 				    }
 				    
@@ -34,6 +35,7 @@ package consocarbone;
 				    public Alimentation (double tB, double tV) {
 				    	this.txBoeuf = tB;
 				    	this.txVege = tV; 
+				    	this.impact = calculImpact();
 				    }
 					
 				  /**
@@ -50,7 +52,10 @@ package consocarbone;
 					   */
 					    
 				    
-					public void settxBoeuf(double txBoeuf) {this.txBoeuf = txBoeuf;}
+					public void settxBoeuf(double txBoeuf) {
+						this.txBoeuf = txBoeuf;
+						this.impact = calculImpact();
+					}
 				    
 					  /**
 					   * Getter du tauxvegetarien
@@ -66,13 +71,16 @@ package consocarbone;
  
 					public void settxVege(double txVege) {
 						this.txVege = txVege;
+						this.impact = calculImpact();
 					}
 				    
 				    /**
 				     * obtient l'impact calcule a partir d'une formule
 				     * @return impact alimentaire
 				     */
-				    @Override public double getImpact() {
+				  
+				    @Override
+				    public double calculImpact() {
 				    	this.impact = c1 * this.txBoeuf + c2 * (1 - this.txVege - this.txBoeuf)+ c3 * this.txVege;
 				    	return this.impact;
 				    }

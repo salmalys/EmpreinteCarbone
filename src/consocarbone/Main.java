@@ -16,14 +16,15 @@ public class Main {
 			option = showMenu(sc);
 			switch(option) {
 			case 1:{
-				System.out.println("Chaque fichier doit contenir les informations d'un utilisateur");
-				System.out.println("Format: Chaque ligne doit correspondre a un poste de consommation ");
-				System.out.println("NomPoste;lalj,");
-				System.out.println("Entrez la liste des fichiers: (separees par des espaces ");
+				System.out.println("\nChaque fichier doit contenir les informations d'un utilisateur");
+				System.out.println("Format Chaque ligne doit correspondre a un poste de consommation ");
+				System.out.println("exemple: NomPoste;nbPoste;att1;att2\n");
+				System.out.println("Entrez la liste des fichiers: (separees par des espaces)");
 				String f = sc.nextLine();
 				String[] filenames = f.split(" ");
 				Population p = Traitement.recupPop(filenames);
-				System.out.println("Empreinte de la population"+p.calculerEmpreinte());
+				System.out.println("\nEmpreinte carbonne totale de la population: "+p.calculerEmpreinte()+"TCO2/an\n");
+				p.conseilEmpreintePop();
 				testSimul(p,showMenuSimulation(sc),sc);
 				break;
 				}
@@ -31,16 +32,19 @@ public class Main {
 				ArrayList<ConsoCarbone> listPostes = Questionnaire.commencer(sc);
 				Utilisateur u = new Utilisateur(listPostes);
 				u.detaillerEmpreinte();
+				u.conseilEmpreinte();
 				break;
 				}
 			case 3:
+				System.out.println("Fin");
 				System.exit(0);
+				break;
 			default:
 				option = -1;
 				System.out.println("Entrez une valeur valide");
 			}
 		}while(option == -1);
-		System.out.println("Fin menu");
+		System.out.println("Fin");
 		
 		sc.close();
 	}
@@ -51,17 +55,21 @@ public class Main {
 		System.out.println("Choix 2: Repondre a un questionnaire pour calculer sa propre empreinte");
 		System.out.println("Choix 3: Quitter");
 
-		int option = sc.nextInt();
-		sc.nextLine();
+	    int option = sc.nextInt();
+	    sc.nextLine();	
+	
 		return option;
 		
 	}
 	
 	public static int showMenuSimulation(Scanner sc) {
-		System.out.println("Choisissez une des options: (Entrez 1 ou 2)");
-		System.out.println("Choix 1: Simuler une baisse du taux de biens de consommation pour chaque utilisateur de la population");
-		System.out.println("Choix 2: Simulation2");
-		System.out.println("Choix 3: Quitter");
+		System.out.println("\nChoisissez une des options: (Entrez une nombre entre 1 et 6)");
+		System.out.println("Choix 1: Simuler une baisse du taux de bien conso.");
+		System.out.println("Choix 2: Simuler une baisse du taux de boeufs pour chaque utilisateur de la population.");
+		System.out.println("Choix 3: Simuler une baisse du nombre de mails stockes chaque utilisateur de la population.");
+		System.out.println("Choix 4: Simuler une baisse du taux de personnes se deplacant en voiture.");
+		System.out.println("Choix 5: Simuler une baisse de la classe energetique pour chaque utilisateur de la population.");
+		System.out.println("Choix 6: Quitter");
 
 		int option = sc.nextInt();
 		sc.nextLine();
@@ -72,15 +80,40 @@ public class Main {
 	public static void testSimul(Population p, int optionSimul, Scanner sc) {
 		switch(optionSimul) {
 		case 1:{
-			System.out.println("Entrez la baisse du taux de depense souhaite");
-			double t = sc.nextDouble();
-			System.out.println("L'impact totale de la population a été baissé de "+Simulation.reducTauxDepense(p,t));
+			System.out.println("\nEntrez la baisse du taux de depense souhaite");
+			//double t = sc.nextDouble();
+			//sc.nextLine();
+			double t = Double.parseDouble(sc.nextLine());
+			System.out.println("L'impact totale de la population a ete baisse de "+Simulation.reducTauxDepense(p,t)+"%");
 			break;
 		}
 		case 2:{
-			System.out.println("Entrez la baisse du taux de Boeuf souhaite");
-			double t = sc.nextDouble();
-			System.out.println("L'impact totale de la population a été baissé de "+Simulation.reducTauxDepense(p,t));
+			System.out.println("\nEntrez la baisse du taux de Boeuf souhaite");
+			//double t = sc.nextDouble();
+			//sc.nextLine();
+			double t = Double.parseDouble(sc.nextLine());
+			System.out.println("L'impact totale de la population a ete baissé de "+Simulation.reducTauxBoeuf(p,t)+"%");
+			break;
+		}
+		case 3:{
+			System.out.println("\nEntrez le nombre de mails stockes a supprimer");
+			//double t = sc.nextDouble();
+			//sc.nextLine();
+			int t = Integer.parseInt(sc.nextLine());
+			System.out.println("L'impact totale de la population a ete baissé de "+Simulation.reducNbMail(p,t)+"%");
+			break;
+		}
+		case 4:{
+			System.out.println("\nEntrez le taux de personnes qui n'utiliserons plus leur voiture.");
+			//double t = sc.nextDouble();
+			//sc.nextLine();
+			double t = Double.parseDouble(sc.nextLine());
+			System.out.println("L'impact totale de la population a ete baissé de "+Simulation.reducTauxBoeuf(p,t)+"%");
+			break;
+		}
+		case 5:{
+			System.out.println("\nSimulation pour le logement:");
+			System.out.println("L'impact totale de la population a ete baissé de "+Simulation.reducCE(p)+"%");
 			break;
 		}
 		default:

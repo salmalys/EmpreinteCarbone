@@ -27,6 +27,7 @@ public class Logement extends ConsoCarbone {
     public Logement(int s,CE ce) {
     	this.superficie = s;
     	this.ce = ce;
+    	this.impact = calculImpact();
     }
     
     /**
@@ -45,6 +46,7 @@ public class Logement extends ConsoCarbone {
 
 	public void setSuperficie(int superficie) {
 		this.superficie = superficie;
+		this.impact = calculImpact();
 	}
 	
 	/**
@@ -63,6 +65,7 @@ public class Logement extends ConsoCarbone {
 
 	public void setCe(CE ce) {
 		this.ce = ce;
+		this.impact = calculImpact();
 	}
 	
 	/**
@@ -72,10 +75,11 @@ public class Logement extends ConsoCarbone {
 
 
 	@Override
-	public double getImpact() {
+	public double calculImpact() {
 		this.impact = this.ce.getCoeff() * this.superficie;
 		return this.impact;
 	}
+	
 	
 	/**
 	 * affiche l'empreinte carbonne moyenne d'un logement d'un francais

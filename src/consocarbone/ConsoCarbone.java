@@ -25,7 +25,11 @@ public abstract class ConsoCarbone implements Comparable<ConsoCarbone> {
    * @return double etant la valeur de l'impact
    */
     
-    public abstract double getImpact();
+    public abstract double calculImpact();
+    
+    public double getImpact() {
+    	return this.impact;
+    }
     
     /**
     *Setter de l'impact
@@ -43,6 +47,10 @@ public abstract class ConsoCarbone implements Comparable<ConsoCarbone> {
      */
     
     public int getId() {return id;}
+    
+    public double calculerEmpreinte() {
+    	return this.impact;
+    }
    
    /**
     * compare le poste avec le poste A

@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Verif {
 	
 	public static boolean testCe(String str) {
-		String[] values = {"A", "B", "C", "D", "E", "F"};
+		String[] values = {"A", "B", "C", "D", "E", "F","G"};
 		
 		if (Arrays.asList(values).contains(str)) 
 			return true;
@@ -18,6 +18,7 @@ public class Verif {
 		
 		if (Arrays.asList(values).contains(str)) 
 			return true;
+		
 		return false;		
 	}
 	

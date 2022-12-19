@@ -78,8 +78,8 @@ public class Utilisateur {
 	  for (Logement l : this.logements) {
 			 impactLog += l.getImpact();
 		 }
-	  logement.setCe(null);
-	  logement.setSuperficie(0);
+	  //logement.setCe(null);
+	  //logement.setSuperficie(0);
 	  logement.setImpact(impactLog);
 	}
 	 
@@ -138,19 +138,21 @@ public class Utilisateur {
   }
   
   public void conseilEmpreinte( ) {
-	  //instancier un Utilisateur: utilisateur moyen 
-	  
-	  Utilisateur userMoy = new Utilisateur();
-	  userMoy.alimentation.setImpact(2.353);
-	  //a faire
-	  
-	  if (this.alimentation.compareTo(userMoy.alimentation)==1) System.out.println("Nous vous conseillions de reduire votre impact alimentaire, vous pouvez par exemple reduire vos repas a base de boeuf");
-	  if (this.bienConso.getImpact() > 2.625) System.out.println("Nous vous conseillions de reduire votre impact de bien consommateur, par exemple en essayant de moins depenser dans la consomation rapide");
-	  if(this.mail.getImpact() > 2.5) System.out.println("Nous vous conseillions de supprimer vos mails et d'envoyer seulement les mails necessaire");
-	  if (this.logement.getImpact() > 2.706) System.out.println("Nous vous conseillions de reduire votre impact de logement, par exemple en essaynt de faire baisser la classe ernegetique de votre logement"); 
-	  if (this.transport.getImpact() > 2.920) System.out.println("Nous vous conseillions de reduire votre impact de transport, par exemple en achetant une voiture electrique, ou plus recente, ou seulement diminuer vos deplacements quotidients en voiture");
-  }
-  
+      
+      Utilisateur userMoy = new Utilisateur();
+      userMoy.alimentation.setImpact(2.353);
+      userMoy.bienConso.setImpact(2.625);
+      userMoy.mail.setImpact(2.5);
+      userMoy.logement.setImpact(2.706);
+      userMoy.transport.setImpact(2.920);
+      
+      if (this.alimentation.compareTo(userMoy.alimentation)==1) System.out.println("Poste Alimentation:\nNous vous conseillions de reduire votre impact alimentaire, vous pouvez par exemple reduire vos repas a base de boeuf\n");
+      if (this.bienConso.compareTo(userMoy.bienConso)==1) System.out.println("Poste BienConso:\nNous vous conseillions de reduire votre impact de bien consommateur, par exemple en essayant de moins depenser dans la consommation rapide\n");
+      if(this.mail.compareTo(userMoy.mail) == 1) System.out.println("Poste Mail:\nNous vous conseillions de supprimer vos mails");
+      if (this.logement.compareTo(userMoy.logement) == 1) System.out.println("Poste Logement:\nNous vous conseillions de reduire votre impact de logement, par exemple en essaynt de faire baisser la classe ernegetique de votre logement\n"); 
+      if (this.transport.compareTo(userMoy.transport) == 1) System.out.println("Poste Transport:\nNous vous conseillions de reduire votre impact de transport, par exemple en utilisant un velo\n");
+}
+
   @Override
   public Object clone() {
 		try {

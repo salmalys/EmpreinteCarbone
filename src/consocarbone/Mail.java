@@ -24,6 +24,7 @@ public class Mail extends ConsoCarbone {
     public Mail (int nbE, int nbS) {
            this.nbMailEnv = nbE;
            this.nbMailStock = nbS;
+           this.impact = calculImpact();
     }
     
     /**
@@ -36,7 +37,10 @@ public class Mail extends ConsoCarbone {
      * Setter du nombre de mail envoye
      * @param nbMailEnv
      */
-    public void setNbMailEnv(int nbMailEnv ) {this.nbMailEnv = nbMailEnv;}
+    public void setNbMailEnv(int nbMailEnv ) {
+    	this.nbMailEnv = nbMailEnv;
+    	this.impact = calculImpact();
+    	}
 
     /**
      * Getter du nombre de mail stocke
@@ -47,14 +51,17 @@ public class Mail extends ConsoCarbone {
      * Setter du nombre de mail stocke
      * @param nbMailStock
      */
-    public void setNbMailStock(int nbMailStock) {this.nbMailStock = nbMailStock;}
+    public void setNbMailStock(int nbMailStock) {
+    	this.nbMailStock = nbMailStock;
+    	this.impact = calculImpact();
+    	}
     
     /**
      * obtient l'impact calcule a partir d'une formule et de deux constantes
      * @return impact des mails de l'utilisateur
      */
     @Override 
-	public double getImpact() {
+	public double calculImpact() {
            this.impact = c1 * nbMailEnv + c2 * nbMailStock;
            return this.impact;
     }

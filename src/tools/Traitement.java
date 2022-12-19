@@ -6,7 +6,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import consocarbone.Alimentation;
 import consocarbone.BienConso;
@@ -56,11 +55,9 @@ public class Traitement {
 	}
 	
 	public static String traiterLigne(String[] line, ArrayList<ConsoCarbone> listPostes) {
-		System.out.println(Arrays.toString(line));
 		switch(line[0]) {
 			case "Alimentation": {
 				if (Verif.testTaux(line[1])&&Verif.testTaux(line[2])){
-					System.out.println(line[1]+line[2]);
 					Alimentation a = new Alimentation(Double.parseDouble(line[1]),Double.parseDouble(line[2]));
 					listPostes.add(a);
 					break;
@@ -69,11 +66,9 @@ public class Traitement {
 			}
 			case "Logement":{
 				int nbLogement = Integer.parseInt(line[1]);
-				System.out.println("nbLogement "+nbLogement);
 				for (int j = 0; j<nbLogement; j++) {
 					String superficie = line[2*j+2];
 					String ce = line[2*j+3];
-					System.out.println("j= "+j+"sup = "+superficie+"ce = "+ce);
 					if (Verif.testNumericPositif(superficie)&&(Verif.testCe(ce))) {
 						Logement l = new Logement(Integer.parseInt(superficie),CE.valueOf(ce));
 						listPostes.add(l);
@@ -81,16 +76,13 @@ public class Traitement {
 					}
 					
 					else {
-						System.out.println("valala");
 						return line[0];
 					}
 				}
 				break;
 			}
 			case "Transport":{
-				System.out.println("lineee trans:"+line[0]);
 				int nbTransport = Integer.parseInt(line[1]);
-				System.out.println("nbTransport "+nbTransport);
 				for (int j = 0; j<nbTransport; j++) {
 					String taille = line[3*j+2];
 					String kilomAnnee = line[3*j+3];
@@ -98,11 +90,8 @@ public class Traitement {
 					if (Verif.testTaille(taille)&&Verif.testNumericPositif(kilomAnnee)&&Verif.testNumericPositif(Ammortissement)) {
 						Transport t = new Transport(true,Taille.valueOf(taille),Integer.parseInt(kilomAnnee), Integer.parseInt(Ammortissement));
 						listPostes.add(t);
-						//System.out.println(t.toString());
-						//break;
 					}
 					else {
-						System.out.println("valalaTRans");
 						return line[0];
 					}
 				}
@@ -115,11 +104,9 @@ public class Traitement {
 				if (Verif.testNumericPositif(line[1])){
 					BienConso b = new BienConso(Integer.parseInt(line[1]));
 					listPostes.add(b);
-					System.out.println(b.toString());
 					break;
 				}
 				else {
-					System.out.println("valalaBien");
 					return line[0];
 				}
 			}
@@ -127,11 +114,9 @@ public class Traitement {
 				if (Verif.testNumericPositif(line[1])&&Verif.testNumericPositif(line[2])){
 					Mail m = new Mail(Integer.parseInt(line[1]),Integer.parseInt(line[2]));
 					listPostes.add(m);
-					//System.out.println(m.toString());
 					break;
 				}
 				else {
-					System.out.println("valalaMail");
 					return line[0];
 				}
 			}
@@ -153,10 +138,7 @@ public class Traitement {
 		for (int i = 0; i<filenames.length; i++) {
 			Utilisateur u = recupUser(filenames[i]);
 			pop.addUser(u);
-			//System.out.println("Calculer empreinte: "+u.calculerEmpreinte());
-			
 		}
-		//System.out.println(pop.calculerEmpreinte());
 			
 		return pop;
 	}
