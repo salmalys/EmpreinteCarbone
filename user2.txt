@@ -1,0 +1,5 @@
+Alimentation;0.2;0.1
+Logement;1;100;G
+Transport;1;G;2000;12567
+BienConso;1789065
+Mail;98754;564000
