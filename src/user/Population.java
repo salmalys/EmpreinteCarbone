@@ -38,6 +38,7 @@ public class Population implements Cloneable {
                      double impactTotal = 0;
                      for (Utilisateur u : listPopulation) {
                                 impactTotal += u.calculerEmpreinte();
+                                
                      }
                      return impactTotal;       
            }

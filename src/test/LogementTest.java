@@ -35,9 +35,7 @@ class LogementTest {
 	@Test
 	void setImpact_logement_returnsInt() {
 		aUnderTest.setSuperficie(350);
-		aUnderTest.getImpact();
 		bUnderTest.setCe(CE.A);
-		bUnderTest.getImpact();
 		int res = aUnderTest.compareTo(bUnderTest);
 		assertEquals(0,res);
 

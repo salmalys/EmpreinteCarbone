@@ -121,6 +121,7 @@ public class Utilisateur {
 	  int impactTotal = 0;
 	  for(ConsoCarbone c: listCons) {
 		  impactTotal += c.getImpact();
+		  
 	  }
 	  return impactTotal;
   }

@@ -37,14 +37,14 @@ public class Simulation {
 					if (l.getCe() == CE.C) l.setCe(CE.B);
 					if (l.getCe() == CE.D) l.setCe(CE.C);
 					if (l.getCe() == CE.E) l.setCe(CE.D);
-					if (l.getCe() == CE.F) l.setCe(CE.E);
+					if (l.getCe() == CE.F) l.setCe(CE.A);
 					if (l.getCe() == CE.G) l.setCe(CE.F);
 				}
-				//Logement A faire
-				//setLogement();
+				
+				u.setLogement();
+				
 			}
 			double impactApres = popuSimule.calculerEmpreinte();
-			
 			return ((impactAvant-impactApres)/impactAvant)*100;
 		}
 	 
@@ -70,6 +70,7 @@ public class Simulation {
 	
 	public static double reducTauxBoeuf(Population population, double tauxBoeufReduc) {
 		Population popuSimule = (Population)population.clone();
+		
 		double impactAvant = popuSimule.calculerEmpreinte();
 		
 		System.out.println("impact avant de pop simule"+impactAvant);
@@ -101,7 +102,7 @@ public class Simulation {
 		}
 		double impactApres = popuSimule.calculerEmpreinte();
 		
-		return ((impactApres-impactAvant)/impactAvant)*100;
+		return ((impactAvant-impactApres)/impactAvant)*100;
 	}
 	
 }
