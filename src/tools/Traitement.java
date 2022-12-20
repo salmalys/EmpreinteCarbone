@@ -18,7 +18,19 @@ import consocarbone.Transport;
 import user.Population;
 import user.Utilisateur;
 
+/**
+ * 
+ *
+ */
+
 public class Traitement {
+	
+	/**
+	 * Permet d'ouvrir les fichiers donnes en arguments en ligne de commande, puis le lit ligne par ligne, et les traites une par une. 
+	 * Leve les exceptions concernant l'ouverture des fichiers
+	 * @param filename donne en argument en liste de commande
+	 * @return Si le fichier est ecrit correctement, retourne un utilisateur associe a sa liste de poste instancie a la fin de cette fonction
+	 */
 
 	public static Utilisateur recupUser(String filename){
 	    try
@@ -53,6 +65,15 @@ public class Traitement {
 	    
 	    return null;
 	}
+	/**
+	 * Traite une ligne donnee en parametre
+	 * En fonction du nom du poste, on verifie que les arguments sont coherent avec le poste, si c'est le cas, on instancie le poste
+	 * Sinon on retourne le nom du poste ou il y a une erreur
+	 * Si le nom du poste n'est pas reconnu on renvoie une erreur
+	 * @param line la ligne a analyser
+	 * @param listPostes ajoute un poste bien instancier a cette liste
+	 * @return 
+	 */
 	
 	public static String traiterLigne(String[] line, ArrayList<ConsoCarbone> listPostes) {
 		switch(line[0]) {
@@ -126,12 +147,24 @@ public class Traitement {
 
 	}
 	
+	/**
+	 * Gere les erreurs sur la redaction du fichiers, explique ou est l'erreur 
+	 * @param val
+	 * @throws IllegalArgumentException
+	 */
+	
 	public static void gestionErreur(String val) throws IllegalArgumentException{
 		if(val != "OK") {
 			if(val == "Erreur de nom poste") throw new IllegalArgumentException("Erreur");
 			else throw new IllegalArgumentException("Erreur au poste "+val);
 		}
 	}
+	
+	/**
+	 * Ajout des utilisateurs pour creer la population 
+	 * @param filenames
+	 * @return
+	 */
 	
 	public static Population recupPop(String[] filenames) {
 		Population pop = new Population();
