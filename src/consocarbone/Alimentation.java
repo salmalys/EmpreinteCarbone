@@ -40,6 +40,7 @@ package consocarbone;
 					
 				  /**
 				   * Getter du taux de boeuf 
+				   * @return taux de boeuf
 				   */
 				    
 				    public double gettxBoeuf() {
@@ -49,6 +50,7 @@ package consocarbone;
 					
 					  /**
 					   * Setter du taux de boeuf
+					   * Apres avoir mis à jour le taux de boeuf, on recalcul l'impact alimentaire
 					   */
 					    
 				    
@@ -67,6 +69,7 @@ package consocarbone;
 
 				    /**
 					   * Setter du taux vegetarien
+					   *Puis recalcul l'impact alimentaire
 					   */
  
 					public void settxVege(double txVege) {
