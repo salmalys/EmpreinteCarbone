@@ -1,9 +1,17 @@
 package tools;
 import java.util.Arrays;
 
+/**
+ * Classe contenant les methodes pour verifier chaque arguments des postes de consommmation
+ */
 
 public class Verif {
 	
+	/**
+	 * Verifie si str est bien une classe energetique
+	 * @param str
+	 * @return boolean pour savoir si le test est reussi ou non
+	 */
 	public static boolean testCe(String str) {
 		String[] values = {"A", "B", "C", "D", "E", "F","G"};
 		
@@ -12,6 +20,11 @@ public class Verif {
 		
 		return false;		
 	}
+	/**
+	 * Verifie si str est une bien dans l'une des deux tailles
+	 * @param str
+	 * @return boolean pour savoir si le test est reussi ou non
+	 */
 	
 	public static boolean testTaille(String str) {
 		String[] values = {"P", "G"};
@@ -21,6 +34,12 @@ public class Verif {
 		
 		return false;		
 	}
+	
+	/**
+	 * Verifie si str est bien un entier positif
+	 * @param str
+	 * @return boolean pour savoir si le test est reussi ou non
+	 */
 	
 	public static boolean testNumericPositif(String str) {
 		Integer intValue = 0;
@@ -34,6 +53,11 @@ public class Verif {
 		}
 		return true;	
 	}
+	/**
+	 * Verifie si str est un taux, donc inclut entre 0 et 1
+	 * @param str
+	 * @return boolean pour savoir si le test est reussi ou non
+	 */
 	
 	public static boolean testTaux(String str) {
 		Double val = 0.;
