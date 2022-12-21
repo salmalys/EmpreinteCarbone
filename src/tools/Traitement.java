@@ -42,7 +42,7 @@ public class Traitement {
 
 	/**
 	 * Permet d'ouvrir les fichiers donnes en arguments en ligne de commande, puis le lit ligne par ligne, et les traites une par une. 
-	 * Leve les exceptions concernant l'ouverture des fichiers
+	 * @throw les exceptions concernant l'ouverture des fichiers et les mauvais nom de fichiers
 	 * @param filename donne en argument en liste de commande
 	 * @return Si le fichier est ecrit correctement, retourne un utilisateur associe a sa liste de poste instancie a la fin de cette fonction
 	 */
@@ -89,8 +89,8 @@ public class Traitement {
 	/**
 	 * Traite une ligne donnee en parametre
 	 * En fonction du nom du poste, on verifie que les arguments sont coherent avec le poste, si c'est le cas, on instancie le poste
-	 * Sinon on leve une exception car on a un mauvais argument
-	 * Si le nom du poste n'est pas reconnu on renvoie une erreur
+	 * @throw leve une exception car si on a un argument inaproprie
+	 * @throw Si le nom du poste n'est pas reconnu on renvoie une erreur
 	 * @param line la ligne a analyser
 	 * @param listPostes ajoute un poste bien instancier a cette liste
 	 * @return 
