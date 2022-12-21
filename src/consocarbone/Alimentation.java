@@ -116,6 +116,18 @@ package consocarbone;
 				    * @return nouvel object clone 
 				    */
 				   
+				   @Override
+				   public Object clone() {
+						try {
+							Alimentation a = (Alimentation)super.clone();
+							a.settxBoeuf(txBoeuf);
+							a.settxVege(txVege);
+							return a;
+						}
+						catch (CloneNotSupportedException e){
+							throw new InternalError();
+						}
+				   }
 			
 				   
 				   

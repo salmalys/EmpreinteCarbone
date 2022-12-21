@@ -158,8 +158,8 @@ public class Utilisateur implements Cloneable{
 		  u.transport = (Transport) transport.clone();
 			
 		  u.services = ServicesPublics.getInstance();
-		  setLogement();
-		  setTransport();
+		  u.setLogement();
+		  u.setTransport();
 		  u.setListCons();
 		  return u; 
 	  }

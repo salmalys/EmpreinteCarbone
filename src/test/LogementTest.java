@@ -13,7 +13,6 @@ class LogementTest {
 	private static Logement bUnderTest;
 
 	
-
 	@BeforeEach
 	public void setUpTests() {
 		aUnderTest = new Logement(200,CE.A);
@@ -27,8 +26,8 @@ class LogementTest {
 	}
 
 	@Test
-	void getImpact_logement_returnsValueImpact() {
-		double res = aUnderTest.getImpact();
+	void calculImpact_logement_returnsValueImpact() {
+		double res = aUnderTest.calculImpact();
 		assertEquals(1 ,res);
 	}
 	

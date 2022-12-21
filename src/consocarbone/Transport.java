@@ -90,6 +90,16 @@ public class Transport extends ConsoCarbone {
    @Override public String toString() {
 	   return "L'impact de vos moyens de transport est de : " + Math.round(this.impact*100.0)/100.0 + " TCO2eq";
    }
+   
+   @Override
+   public Object clone() {
+		try {
+			return super.clone();
+		}
+		catch (CloneNotSupportedException e){
+			throw new InternalError();
+		}
+   }
 
    
 }

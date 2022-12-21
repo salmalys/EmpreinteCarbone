@@ -3,7 +3,7 @@ package consocarbone;
 * Classe consoCarbonne qui implement l'interface Comparable
 */
 
-public abstract class ConsoCarbone implements Comparable<ConsoCarbone>,Cloneable {
+public abstract class ConsoCarbone implements Comparable<ConsoCarbone> {
 	/**
 	 * impact carbonique du poste de consommation
 	 */
@@ -80,14 +80,5 @@ public abstract class ConsoCarbone implements Comparable<ConsoCarbone>,Cloneable
      */
     public abstract String toString();
     
-    @Override
-	   public Object clone() {
-			try {
-				return super.clone();
-			}
-			catch (CloneNotSupportedException e){
-				throw new InternalError();
-			}
-	   }
     
 }

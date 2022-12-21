@@ -84,6 +84,15 @@ public class BienConso extends ConsoCarbone {
     * Copie les attributs du bienconso
     * @return le nouvel objet bien conso
     */
+   @Override
+   public Object clone() {
+		try {
+			return super.clone();
+		}
+		catch (CloneNotSupportedException e){
+			throw new InternalError();
+		}
+   }
    
    
 }

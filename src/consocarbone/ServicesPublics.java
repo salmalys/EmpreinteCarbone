@@ -52,6 +52,15 @@ public final class ServicesPublics extends ConsoCarbone {
     * Reecriture de la methode clone de la classe object pour cree un nouveau poste de service public avec les meme argument que l'objet clone
     * @return nouvel object clone 
     */
+	 @Override
+	   public Object clone() {
+			try {
+				return super.clone();
+			}
+			catch (CloneNotSupportedException e){
+				throw new InternalError();
+			}
+	   }
 	
 	   
 	

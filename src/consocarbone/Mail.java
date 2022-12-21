@@ -73,7 +73,7 @@ public class Mail extends ConsoCarbone {
 
     public static void empCarbMoy() {
     ConsoCarbone.empCarbMoy();
-    String unite = "/an";
+    String unite = "mails/an";
            System.out.printf("Mail envoyes : 14 000 %s\n", unite);
            System.out.printf("Mail stocke : 25 000 %s\n", unite);
     }
@@ -91,6 +91,16 @@ public class Mail extends ConsoCarbone {
 	    * Reecriture de la methode clone de la classe object pour cree un nouveau poste de mail avec les meme argument que l'objet clone
 	    * @return nouvel object clone 
 	    */
+    
+    @Override
+	   public Object clone() {
+			try {
+				return super.clone();
+			}
+			catch (CloneNotSupportedException e){
+				throw new InternalError();
+			}
+	   }
 	   
     
 }

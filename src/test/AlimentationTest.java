@@ -27,8 +27,8 @@ class AlimentationTest {
 	}
 
 	@Test
-	void getImpact_alimentation_returnsValueImpact() {
-		double res = aUnderTest.getImpact();
+	void calculImpact_alimentation_returnsValueImpact() {
+		double res = aUnderTest.calculImpact();
 		assertEquals(3.74 ,res);
 	}
 

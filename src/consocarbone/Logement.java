@@ -110,6 +110,16 @@ public class Logement extends ConsoCarbone {
 	 * Reecriture de la methode clone de la classe Objet pour un Logement
 	 * @return 1 ou une erreur 
 	 */
+	
+	 @Override
+	   public Object clone() {
+			try {
+				return super.clone();
+			}
+			catch (CloneNotSupportedException e){
+				throw new InternalError();
+			}
+	   }
 	   
 	
 }

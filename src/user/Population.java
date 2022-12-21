@@ -26,9 +26,8 @@ public class Population implements Cloneable {
            public void setPopulation(ArrayList<Utilisateur> population) {this.listPopulation = population;}
            public ArrayList<Utilisateur> getListPopulation(){return this.listPopulation;}
            
-           public int getNb() {return nb;}
-
            public void setNb(int nb) {this.nb = nb;}
+           public int getNb() {return nb;}
            
            public void addUser(Utilisateur user) {
                  listPopulation.add(user);
@@ -83,6 +82,20 @@ public class Population implements Cloneable {
                      return impactT;    
            }
            
+           public void conseilEmpreintePop( ) {
+               double cA = 2.353*this.nb;
+               double cL = 2.706*this.nb;
+               double cB = 2.625*this.nb;
+               double cM = 2.5*this.nb;
+               double cT = 2.920*this.nb;
+               
+               
+               if (this.calculerEmpreinteAlim()> cA) System.out.println("Nous vous conseillions d'essayer la simulation qui reduit les taux de repas aux boeufs, pour reduire l'impact alimentaite");
+               if (this.calculerEmpreinteBienC() > cB) System.out.println("Nous vous conseillions d'essayer la simulation qui diminue le montant des depenses de votre population");
+               if(this.calculerEmpreinteMail() > cM) System.out.println("Nous vous conseillions d'essayer la simulation qui simule la suppression de mail");
+               if (this.calculerEmpreinteLog()> cL) System.out.println("Nous vous conseillions d'essayer la simulation qui baisse d'une classe, la classe energetique pour chaque logement de vos utilisateur");
+               if (this.calculerEmpreinteTrans() > cT) System.out.println("Nous vous conseillions d'essayer la simulation qui fait baisser le nombre de voiture de certain de vos utilisateur");
+     }
            
            @Override
            public Object clone(){
@@ -98,19 +111,6 @@ public class Population implements Cloneable {
                      
            }
            
-           public void conseilEmpreintePop( ) {
-                       double cA = 2.353*this.nb;
-                       double cL = 2.706*this.nb;
-                       double cB = 2.625*this.nb;
-                       double cM = 2.5*this.nb;
-                       double cT = 2.920*this.nb;
-                       
-                       
-                       if (this.calculerEmpreinteAlim()> cA) System.out.println("Nous vous conseillions d'essayer la simulation qui reduit les taux de repas aux boeufs, pour reduire l'impact alimentaite");
-                       if (this.calculerEmpreinteBienC() > cB) System.out.println("Nous vous conseillions d'essayer la simulation qui diminue le montant des depenses de votre population");
-                       if(this.calculerEmpreinteMail() > cM) System.out.println("Nous vous conseillions d'essayer la simulation qui simule la suppression de mail");
-                       if (this.calculerEmpreinteLog()> cL) System.out.println("Nous vous conseillions d'essayer la simulation qui baisse d'une classe, la classe energetique pour chaque logement de vos utilisateur");
-                       if (this.calculerEmpreinteTrans() > cT) System.out.println("Nous vous conseillions d'essayer la simulation qui fait baisser le nombre de voiture de certain de vos utilisateur");
-             }
+         
                      
 }

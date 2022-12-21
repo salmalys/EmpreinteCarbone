@@ -21,7 +21,6 @@ public class Simulation {
 			  i++;
 		  }
 		  else break;
-		  
 	  } 
 	  double impactApres = popuSimule.calculerEmpreinte();
 	  return ((impactAvant-impactApres)/impactAvant)*100;
