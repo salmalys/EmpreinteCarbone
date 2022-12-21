@@ -17,12 +17,11 @@ public class Main {
 			switch(option) {
 			case 1:{
 				System.out.println("\nChaque fichier doit contenir les informations d'un utilisateur");
-				System.out.println("Format Chaque ligne doit correspondre a un poste de consommation ");
-				System.out.println("exemple: NomPoste;nbPoste;att1;att2\n");
-				System.out.println("Entrez la liste des fichiers: (separees par des espaces)");
+				System.out.println("Format Chaque ligne doit correspondre a un poste de consommation\nexemple: NomPoste;nbPoste;att1;att2\\n");
+				System.out.println("Entrez la liste des fichiers (separees par des espaces):");
 				String f = sc.nextLine();
 				String[] filenames = f.split(" ");
-				Population p = Traitement.recupPop(filenames);
+				Population p = Traitement.readPop(filenames);
 				System.out.println("\nEmpreinte carbonne totale de la population: "+p.calculerEmpreinte()+"TCO2/an\n");
 				p.conseilEmpreintePop();
 				testSimul(p,showMenuSimulation(sc),sc);
@@ -31,6 +30,7 @@ public class Main {
 			case 2:{
 				ArrayList<ConsoCarbone> listPostes = Questionnaire.commencer(sc);
 				Utilisateur u = new Utilisateur(listPostes);
+				System.out.println("Voici le detail de votre empreinte carbone:");
 				u.detaillerEmpreinte();
 				u.conseilEmpreinte();
 				break;
@@ -44,7 +44,7 @@ public class Main {
 				System.out.println("Entrez une valeur valide");
 			}
 		}while(option == -1);
-		System.out.println("Fin");
+		System.out.println("Fin Menu");
 		
 		sc.close();
 	}
@@ -57,13 +57,13 @@ public class Main {
 
 	    int option = sc.nextInt();
 	    sc.nextLine();	
-	
-		return option;
+		
+	    return option;
 		
 	}
 	
 	public static int showMenuSimulation(Scanner sc) {
-		System.out.println("\nChoisissez une des options: (Entrez une nombre entre 1 et 6)");
+		System.out.println("\nChoisissez une des options: (Entrez un nombre entre 1 et 6)");
 		System.out.println("Choix 1: Simuler une baisse du taux de bien conso.");
 		System.out.println("Choix 2: Simuler une baisse du taux de boeufs pour chaque utilisateur de la population.");
 		System.out.println("Choix 3: Simuler une baisse du nombre de mails stockes chaque utilisateur de la population.");
@@ -84,7 +84,7 @@ public class Main {
 			//double t = sc.nextDouble();
 			//sc.nextLine();
 			double t = Double.parseDouble(sc.nextLine());
-			System.out.println("L'impact totale de la population a ete baisse de "+Simulation.reducTauxDepense(p,t)+"%");
+			System.out.println("L'impact totale de la population a ete baisse de "+Simulation.reducTauxDepense(p,t)+"%\n");
 			break;
 		}
 		case 2:{
@@ -92,7 +92,7 @@ public class Main {
 			//double t = sc.nextDouble();
 			//sc.nextLine();
 			double t = Double.parseDouble(sc.nextLine());
-			System.out.println("L'impact totale de la population a ete baissé de "+Simulation.reducTauxBoeuf(p,t)+"%");
+			System.out.println("L'impact totale de la population a ete baisse de "+Simulation.reducTauxBoeuf(p,t)+"%\n");
 			break;
 		}
 		case 3:{
@@ -100,7 +100,7 @@ public class Main {
 			//double t = sc.nextDouble();
 			//sc.nextLine();
 			int t = Integer.parseInt(sc.nextLine());
-			System.out.println("L'impact totale de la population a ete baissé de "+Simulation.reducNbMail(p,t)+"%");
+			System.out.println("L'impact totale de la population a ete baisse de "+Simulation.reducNbMail(p,t)+"%\n");
 			break;
 		}
 		case 4:{
@@ -108,12 +108,12 @@ public class Main {
 			//double t = sc.nextDouble();
 			//sc.nextLine();
 			double t = Double.parseDouble(sc.nextLine());
-			System.out.println("L'impact totale de la population a ete baissé de "+Simulation.reducTauxBoeuf(p,t)+"%");
+			System.out.println("L'impact totale de la population a ete baisse de "+Simulation.reducVoit(p,t)+"%\n");
 			break;
 		}
 		case 5:{
 			System.out.println("\nSimulation pour le logement:");
-			System.out.println("L'impact totale de la population a ete baissé de "+Simulation.reducCE(p)+"%");
+			System.out.println("L'impact totale de la population a ete baisse de "+Simulation.reducCE(p)+"%\n");
 			break;
 		}
 		default:

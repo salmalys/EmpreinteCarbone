@@ -51,15 +51,13 @@ public class Questionnaire {
 		ArrayList<ConsoCarbone> listPostes = new ArrayList<ConsoCarbone>();
         
         for (int i = 0 ; i< NOM_POSTE.length ; i++) {
-        	System.out.println(NOM_POSTE[i]);
+        	System.out.println("\nPoste "+ NOM_POSTE[i]);
         	String[] line = questionPoste(sc,NOM_POSTE[i],QUESTION[i],nbAtt[i]);
-        	System.out.println(Arrays.toString(line));
-        	Traitement.traiterLigne(line,listPostes);
+        	Traitement.readConso(line,listPostes);
         }
-        System.out.println("fin");
+        System.out.println("Fin du questionnaire\n");
         
 		sc.close();
-		
 		return listPostes;
 	}
 	
@@ -87,6 +85,7 @@ public class Questionnaire {
 			
 			int cpt = 2;
 			for(int j = 0; j<nbPoste; j++) {
+				System.out.println("\n"+nomPoste+" "+(j+1));
 				for(int q = 1; q<qPoste.length; q++) {
 					System.out.println(qPoste[q]);
 					line[cpt] = sc.nextLine();

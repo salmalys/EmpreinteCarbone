@@ -8,21 +8,22 @@ public class Simulation {
 	
 	  public static double reducVoit(Population population, double tauxPourc) {
 	  Population popuSimule = (Population)population.clone(); 
+
 	  double impactAvant = popuSimule.calculerEmpreinte();
 	  
-	  double n = popuSimule.getNb()*tauxPourc;
+	  double n = population.getNb()*tauxPourc;
 	  int i = 0;
 	  for (Utilisateur u : popuSimule.getListPopulation()) {
 		  if (i<n) {
 			  Transport t = u.getTransport();
 			  t.setpossede(false);
+			  u.setListCons();
+			  i++;
 		  }
-		  else {
-			  break;
-		  } 
-		 } 
+		  else break;
+		  
+	  } 
 	  double impactApres = popuSimule.calculerEmpreinte();
-		
 	  return ((impactAvant-impactApres)/impactAvant)*100;
 	  }
 	  
@@ -40,11 +41,12 @@ public class Simulation {
 					if (l.getCe() == CE.F) l.setCe(CE.A);
 					if (l.getCe() == CE.G) l.setCe(CE.F);
 				}
-				
 				u.setLogement();
-				
+				u.setListCons();
 			}
+			
 			double impactApres = popuSimule.calculerEmpreinte();
+			System.out.println("Impact apres la simulation:"+impactApres);
 			return ((impactAvant-impactApres)/impactAvant)*100;
 		}
 	 
@@ -63,17 +65,23 @@ public class Simulation {
 				m.setNbMailStock(nbmInit-nbMailSupp);
 			}
 		}
+		
 		double impactApres = popuSimule.calculerEmpreinte();
+		System.out.println("Impact apres la simulation:"+impactApres);
 		
 		return ((impactAvant-impactApres)/impactAvant)*100;
 	}
 	
 	public static double reducTauxBoeuf(Population population, double tauxBoeufReduc) {
-		Population popuSimule = (Population)population.clone();
-		
+		//Population popuSimule = (Population)population.clone();
+		Population popuSimule = new Population(population.getListPopulation());
 		double impactAvant = popuSimule.calculerEmpreinte();
 		
+		System.out.println("impact de pop de base"+population.calculerEmpreinte());
 		System.out.println("impact avant de pop simule"+impactAvant);
+		
+		System.out.println("alime de pop de base"+population.calculerEmpreinteAlim());
+		System.out.println("alime de pop simule"+popuSimule.calculerEmpreinteAlim());
 		
 		for (Utilisateur u : popuSimule.getListPopulation()) {
 			Alimentation a = u.getAlimentation();
@@ -83,9 +91,12 @@ public class Simulation {
 			System.out.println(a.gettxBoeuf());
 			
 		}
+		System.out.println("alime de pop de base"+population.calculerEmpreinteAlim());
+		System.out.println("alime de pop simule"+popuSimule.calculerEmpreinteAlim());
+		
 		System.out.println("impact de pop de base"+population.calculerEmpreinte());
 		double impactApres = popuSimule.calculerEmpreinte();
-		System.out.println("impact apres de pop simule"+impactApres);
+		System.out.println("Impact apres la simulation:"+impactApres);
 		
 		return ((impactAvant-impactApres)/impactAvant)*100;
 	}
@@ -101,6 +112,7 @@ public class Simulation {
 			b.setMontant(montantReduc);
 		}
 		double impactApres = popuSimule.calculerEmpreinte();
+		System.out.println("Impact apres la simulation:"+impactApres);
 		
 		return ((impactAvant-impactApres)/impactAvant)*100;
 	}

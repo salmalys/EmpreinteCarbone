@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Utilisateur {
+public class Utilisateur implements Cloneable{
   private Alimentation alimentation;
   private BienConso bienConso;
   private Logement logement;
@@ -121,49 +121,54 @@ public class Utilisateur {
 	  int impactTotal = 0;
 	  for(ConsoCarbone c: listCons) {
 		  impactTotal += c.getImpact();
-		  
 	  }
 	  return impactTotal;
   }
   
- //a modifier methode generique
   public void detaillerEmpreinte() {
 	  for (ConsoCarbone c: listCons) {
 		  System.out.println(c.toString());
 	  }
-	  /*System.out.println(alimentation.toString());
-	  System.out.println(bienConso.toString());
-	  System.out.println(logement.toString());
-	  System.out.println(transport.toString());
-	  System.out.println(services.toString());*/
   }
   
   public void conseilEmpreinte( ) {
-      
-      Utilisateur userMoy = new Utilisateur();
-      userMoy.alimentation.setImpact(2.353);
-      userMoy.bienConso.setImpact(2.625);
-      userMoy.mail.setImpact(2.5);
-      userMoy.logement.setImpact(2.706);
-      userMoy.transport.setImpact(2.920);
-      
-      if (this.alimentation.compareTo(userMoy.alimentation)==1) System.out.println("Poste Alimentation:\nNous vous conseillions de reduire votre impact alimentaire, vous pouvez par exemple reduire vos repas a base de boeuf\n");
-      if (this.bienConso.compareTo(userMoy.bienConso)==1) System.out.println("Poste BienConso:\nNous vous conseillions de reduire votre impact de bien consommateur, par exemple en essayant de moins depenser dans la consommation rapide\n");
-      if(this.mail.compareTo(userMoy.mail) == 1) System.out.println("Poste Mail:\nNous vous conseillions de supprimer vos mails");
-      if (this.logement.compareTo(userMoy.logement) == 1) System.out.println("Poste Logement:\nNous vous conseillions de reduire votre impact de logement, par exemple en essaynt de faire baisser la classe ernegetique de votre logement\n"); 
-      if (this.transport.compareTo(userMoy.transport) == 1) System.out.println("Poste Transport:\nNous vous conseillions de reduire votre impact de transport, par exemple en utilisant un velo\n");
+	  double cA = 2.353;
+      double cL = 2.706;
+      double cB = 2.625;
+      double cM = 2.5;
+      double cT = 2.920;
+      System.out.println("\nNous avons compare votre empreinte carbonne a celle d'un francais moyen");
+	  System.out.println("Voici quelques recommendations pour chaque poste de consommation.\n");
+		
+      if (this.alimentation.getImpact()>cA) System.out.println("Poste Alimentation:\nNous vous conseillions de reduire votre impact alimentaire, vous pouvez par exemple reduire vos repas a base de boeuf\n");
+      if (this.bienConso.getImpact()>cB) System.out.println("Poste BienConso:\nNous vous conseillions de reduire votre impact de bien consommateur, par exemple en essayant de moins depenser dans la consommation rapide\n");
+      if(this.mail.getImpact()>cM) System.out.println("Poste Mail:\nNous vous conseillions de supprimer vos mails\n");
+      if (this.logement.getImpact()>cL) System.out.println("Poste Logement:\nNous vous conseillions de reduire votre impact de logement, par exemple en essaynt de faire baisser la classe ernegetique de votre logement\n"); 
+      if (this.transport.getImpact()>cT) System.out.println("Poste Transport:\nNous vous conseillions de reduire votre impact de transport, par exemple en utilisant un velo\n");
 }
 
   @Override
   public Object clone() {
-		try {
-			Utilisateur u = (Utilisateur) super.clone();
-			u.listCons = new ArrayList<ConsoCarbone>(this.listCons);
-			return u;
-		}
-		catch (CloneNotSupportedException e){
+	  try {
+		  Utilisateur u = (Utilisateur)super.clone();
+		  u.alimentation = (Alimentation) alimentation.clone();
+	      u.logement = (Logement) logement.clone();
+		  u.bienConso = (BienConso) bienConso.clone();
+		  u.mail = (Mail) mail.clone();
+		  u.transport = (Transport) transport.clone();
+			
+		  u.services = ServicesPublics.getInstance();
+		  setLogement();
+		  setTransport();
+		  u.setListCons();
+		  return u; 
+	  }
+	  catch (CloneNotSupportedException e){
 			throw new InternalError();
 		}
+
+		  
+	 
   }
   
 }

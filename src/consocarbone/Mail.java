@@ -84,7 +84,7 @@ public class Mail extends ConsoCarbone {
 
     @Override
     public String toString() {
-              return "\n\nL'impact de vos mails est de : " + Math.round(this.impact*100.0)/100.0 + " TCO2eq\n";
+              return "L'impact de vos mails est de : " + Math.round(this.impact*100.0)/100.0 + " TCO2eq";
     }
     
     /**
@@ -92,16 +92,6 @@ public class Mail extends ConsoCarbone {
 	    * @return nouvel object clone 
 	    */
 	   
-	   @Override
-	   public Object clone() {
-			try {
-				Mail m = (Mail) super.clone();
-				return m;
-			}
-			catch (CloneNotSupportedException e){
-				throw new InternalError();
-			}
-	   }
     
 }
 

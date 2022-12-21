@@ -24,6 +24,20 @@ import user.Utilisateur;
  */
 
 public class Traitement {
+	/**
+	 * Ajout des utilisateurs pour creer la population 
+	 * @param filenames
+	 * @return
+	 */
+	
+	public static Population readPop(String... filenames) {
+		Population p = new Population();
+		for (String f: filenames) {
+			Utilisateur u = readUser(f);
+			p.addUser(u);
+		}
+		return p;
+	}
 	
 	/**
 	 * Permet d'ouvrir les fichiers donnes en arguments en ligne de commande, puis le lit ligne par ligne, et les traites une par une. 
@@ -32,7 +46,7 @@ public class Traitement {
 	 * @return Si le fichier est ecrit correctement, retourne un utilisateur associe a sa liste de poste instancie a la fin de cette fonction
 	 */
 
-	public static Utilisateur recupUser(String filename){
+	public static Utilisateur readUser(String filename){
 	    try
 	    {
 	      File file = new File(filename);    
@@ -44,27 +58,33 @@ public class Traitement {
 	      String line;
 	      while((line = br.readLine()) != null)
 	      {
-	    	String val = traiterLigne(line.split(";"), listPostes);
-	    	gestionErreur(val);
-	    	
+	    	try {
+	    		readConso(line.split(";"), listPostes);
+	    	}
+	    	catch (IllegalArgumentException e) {
+	    		e.printStackTrace();
+	    		System.exit(1);
+	    	}
 	      }   
-	      
-	   
-	      
 	      fr.close(); 
 	      Utilisateur u = new Utilisateur(listPostes);
-	     return u;
+	      
+	      return u;
 	    }
 	    
 	    catch(FileNotFoundException e){
-	    	System.out.println("fichier non trouve");
+	    	System.out.println("Le fichier "+filename+" est introuvable\n");
+	    	//e.printStackTrace();
+	    	System.exit(1);
+	    	}
+	    catch(IOException e){
 	    	e.printStackTrace();
 	    	System.exit(1);
 	    	}
-	    catch(IOException e){e.printStackTrace();System.exit(1);}
 	    
 	    return null;
 	}
+	
 	/**
 	 * Traite une ligne donnee en parametre
 	 * En fonction du nom du poste, on verifie que les arguments sont coherent avec le poste, si c'est le cas, on instancie le poste
@@ -75,15 +95,15 @@ public class Traitement {
 	 * @return 
 	 */
 	
-	public static String traiterLigne(String[] line, ArrayList<ConsoCarbone> listPostes) {
+	public static void readConso(String[] line, ArrayList<ConsoCarbone> listPostes) throws IllegalArgumentException {
 		switch(line[0]) {
 			case "Alimentation": {
 				if (Verif.testTaux(line[1])&&Verif.testTaux(line[2])){
 					Alimentation a = new Alimentation(Double.parseDouble(line[1]),Double.parseDouble(line[2]));
 					listPostes.add(a);
-					break;
+					return;
 				}
-				else return line[0];
+				break;
 			}
 			case "Logement":{
 				int nbLogement = Integer.parseInt(line[1]);
@@ -93,14 +113,10 @@ public class Traitement {
 					if (Verif.testNumericPositif(superficie)&&(Verif.testCe(ce))) {
 						Logement l = new Logement(Integer.parseInt(superficie),CE.valueOf(ce));
 						listPostes.add(l);
-						
 					}
-					
-					else {
-						return line[0];
-					}
+					else throw new IllegalArgumentException("Erreur au poste Logement");
 				}
-				break;
+				return;
 			}
 			case "Transport":{
 				int nbTransport = Integer.parseInt(line[1]);
@@ -112,67 +128,32 @@ public class Traitement {
 						Transport t = new Transport(true,Taille.valueOf(taille),Integer.parseInt(kilomAnnee), Integer.parseInt(Ammortissement));
 						listPostes.add(t);
 					}
-					else {
-						return line[0];
-					}
+					else throw new IllegalArgumentException("Erreur au poste Transport");
 				}
 				if (nbTransport == 0) {
 					listPostes.add(new Transport(false));
 				}
-				break;
+				return;
 			}
 			case "BienConso": {
 				if (Verif.testNumericPositif(line[1])){
 					BienConso b = new BienConso(Integer.parseInt(line[1]));
 					listPostes.add(b);
-					break;
+					return;
 				}
-				else {
-					return line[0];
-				}
+				break;
 			}
 			case "Mail":{
 				if (Verif.testNumericPositif(line[1])&&Verif.testNumericPositif(line[2])){
 					Mail m = new Mail(Integer.parseInt(line[1]),Integer.parseInt(line[2]));
 					listPostes.add(m);
-					break;
+					return;
 				}
-				else {
-					return line[0];
-				}
+				break;
 			}
-			default:return "Erreur de nom poste";
+			default: throw new IllegalArgumentException("Erreur de nom de poste");
 	}
-	return "OK";
-
-	}
-	
-	/**
-	 * Gere les erreurs sur la redaction du fichiers, explique ou est l'erreur 
-	 * @param val
-	 * @throws IllegalArgumentException
-	 */
-	
-	public static void gestionErreur(String val) throws IllegalArgumentException{
-		if(val != "OK") {
-			if(val == "Erreur de nom poste") throw new IllegalArgumentException("Erreur");
-			else throw new IllegalArgumentException("Erreur au poste "+val);
-		}
-	}
-	
-	/**
-	 * Ajout des utilisateurs pour creer la population 
-	 * @param filenames
-	 * @return
-	 */
-	
-	public static Population recupPop(String[] filenames) {
-		Population pop = new Population();
-		for (int i = 0; i<filenames.length; i++) {
-			Utilisateur u = recupUser(filenames[i]);
-			pop.addUser(u);
-		}
-			
-		return pop;
+		
+	throw new IllegalArgumentException("Erreur au poste "+ line[0]);
 	}
 }

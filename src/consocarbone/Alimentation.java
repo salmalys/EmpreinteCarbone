@@ -108,7 +108,7 @@ package consocarbone;
 				    */
 				   @Override
 				   public String toString() {
-					   return "\nL'impact de votre alimentation est de : " + Math.round(this.impact*100.0)/100.0 + " TCO2eq\n";
+					   return "L'impact de votre alimentation est de : " + Math.round(this.impact*100.0)/100.0 + " TCO2eq";
 				   }
 				   
 				   /**
@@ -116,16 +116,7 @@ package consocarbone;
 				    * @return nouvel object clone 
 				    */
 				   
-				   @Override
-				   public Object clone() {
-						try {
-							Alimentation a = (Alimentation) super.clone();
-							return a;
-						}
-						catch (CloneNotSupportedException e){
-							throw new InternalError();
-						}
-				   }
+			
 				   
 				   
 				}

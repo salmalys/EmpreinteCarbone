@@ -76,7 +76,7 @@ public class BienConso extends ConsoCarbone {
     */
    
    public String toString() {
-	   return "\n\nL'impact de vos depenses annuelles est de : " + Math.round(this.impact*100.0)/100.0 + " TCO2eq\n";
+	   return "L'impact de vos depenses annuelles est de : " + Math.round(this.impact*100.0)/100.0 + " TCO2eq";
    }
    
    /**
@@ -85,15 +85,5 @@ public class BienConso extends ConsoCarbone {
     * @return le nouvel objet bien conso
     */
    
-   @Override
-   public Object clone() {
-		try {
-			BienConso b = (BienConso) super.clone();
-			return b;
-		}
-		catch (CloneNotSupportedException e){
-			throw new InternalError();
-		}
-   }
    
 }
