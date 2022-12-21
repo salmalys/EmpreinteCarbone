@@ -5,7 +5,7 @@ package consocarbone;
  * */
 
 
-public class BienConso extends ConsoCarbone {
+public class BienConso extends ConsoCarbone implements Cloneable {
 
 	private double montant;
 
