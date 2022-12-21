@@ -4,7 +4,7 @@ package consocarbone;
  *
  */
 
-public class Alimentation extends ConsoCarbone{
+public class Alimentation extends ConsoCarbone implements Cloneable{
 	private double txBoeuf;
 	private double txVege;
 
