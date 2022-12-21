@@ -15,16 +15,12 @@ public enum CE {
 	 * @param coeff
 	 */
 
-	CE(double coeff){
-		this.coeff = coeff;
-	}
+	CE(double coeff){this.coeff = coeff;}
 
 	/**
 	 * getter du coefficient
 	 * @return le coefficient
 	 */
 
-	public double getCoeff() {
-		return coeff;
-	}
+	public double getCoeff() {return coeff;}
 }
