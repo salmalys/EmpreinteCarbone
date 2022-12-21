@@ -1,14 +1,16 @@
 package consocarbone;
 import tools.*;
-
 import java.util.Scanner;
-
 import user.*;
-
 import java.util.ArrayList;
 
 public class Main {
-	
+
+	/**
+	 * Methode main qui en fonction du choix de l'utilisateur, detaille l'empreinte carbone puis conseil l'utilisateur et propose de tester des simulations pour aider a reduire l'impact carbone
+	 * @param args
+	 */
+
 	public static void main(String[] args) {
 		int option;
 		Scanner sc = new Scanner(System.in);
@@ -26,7 +28,7 @@ public class Main {
 				p.conseilEmpreintePop();
 				testSimul(p,showMenuSimulation(sc),sc);
 				break;
-				}
+			}
 			case 2:{
 				ArrayList<ConsoCarbone> listPostes = Questionnaire.commencer(sc);
 				Utilisateur u = new Utilisateur(listPostes);
@@ -34,7 +36,7 @@ public class Main {
 				u.detaillerEmpreinte();
 				u.conseilEmpreinte();
 				break;
-				}
+			}
 			case 3:
 				System.out.println("Fin");
 				System.exit(0);
@@ -45,23 +47,35 @@ public class Main {
 			}
 		}while(option == -1);
 		System.out.println("Fin Menu");
-		
+
 		sc.close();
 	}
-	
+
+	/**
+	 * Methode permettant de donner le choix a l'utilisateur entre calculer l'empreintre carbone d'une population grace a des fichiers, ou grace a un questionnaire
+	 * @param sc : Reponse de l'utilisateur en ligne de commande
+	 * @return le choix de l'utilisateur
+	 */
+
 	public static int showMenu(Scanner sc) {
 		System.out.println("Choisissez une des options: (Entrez 1 ou 2)");
 		System.out.println("Choix 1: Calculer l'empreinte carbonne d'une population");
 		System.out.println("Choix 2: Repondre a un questionnaire pour calculer sa propre empreinte");
 		System.out.println("Choix 3: Quitter");
 
-	    int option = sc.nextInt();
-	    sc.nextLine();	
-		
-	    return option;
-		
+		int option = sc.nextInt();
+		sc.nextLine();	
+
+		return option;
+
 	}
-	
+
+	/**
+	 * Methode permettanr d'afficher les choix de simulation a l'utilisateur, puis recupere le choix de l'utilisateur
+	 * @param sc 
+	 * @return le choix de la simulation a tester
+	 */
+
 	public static int showMenuSimulation(Scanner sc) {
 		System.out.println("\nChoisissez une des options: (Entrez un nombre entre 1 et 6)");
 		System.out.println("Choix 1: Simuler une baisse du taux de bien conso.");
@@ -74,9 +88,16 @@ public class Main {
 		int option = sc.nextInt();
 		sc.nextLine();
 		return option;
-		
+
 	}
-	
+
+	/**
+	 * Methode permettant de lancer la simulation choisi par l'utilisateur et de savoir l'effet de celle ci sur l'impact 
+	 * @param p : la population sur laquelle on va appliquer la simulation
+	 * @param optionSimul : choix de la simulation par l'utilisateur
+	 * @param sc
+	 */
+
 	public static void testSimul(Population p, int optionSimul, Scanner sc) {
 		switch(optionSimul) {
 		case 1:{
@@ -117,8 +138,8 @@ public class Main {
 			break;
 		}
 		default:
-			
+
 		}
 	}
-	
+
 }
