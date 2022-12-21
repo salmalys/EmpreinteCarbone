@@ -93,9 +93,7 @@ public class Logement extends ConsoCarbone implements Cloneable {
 	 * @see ConsoCarbone#toString()
 	 */
 
-	public String toString() {
-		return "L'impact de votre logement est de : " + Math.round(this.impact*100.0)/100.0 + " TCO2eq";
-	}
+	public String toString() {return "L'impact de votre logement est de : " + Math.round(this.impact*100.0)/100.0 + " TCO2eq";}
 
 	/**
 	 * Reecriture de la methode clone de la classe Objet pour un Logement
