@@ -3,7 +3,7 @@ package consocarbone;
 /**
  * Classe qui correspond au poste de transport, qui a pour attribut possede, taille, le nombre de killometre par an et son ammortissement
  */
-public class Transport extends ConsoCarbone {
+public class Transport extends ConsoCarbone implements Cloneable {
 	private boolean possede;
 	private Taille taille;
 	private int kilomAnnee;
