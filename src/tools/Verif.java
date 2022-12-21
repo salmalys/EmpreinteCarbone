@@ -39,6 +39,7 @@ public class Verif {
 
 	/**
 	 * Verifie si str est bien un entier positif
+	 *@throw les valeurs non entieres
 	 * @param str : String a verifier
 	 * @return boolean pour savoir si le test est reussi ou non
 	 */
@@ -58,6 +59,7 @@ public class Verif {
 
 	/**
 	 * Verifie si str est un taux, donc inclut entre 0 et 1
+	 * @throw les valeurs de type autre que double
 	 * @param str : String a verifier
 	 * @return boolean pour savoir si le test est reussi ou non
 	 */
