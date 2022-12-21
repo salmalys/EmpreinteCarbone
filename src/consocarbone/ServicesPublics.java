@@ -1,6 +1,5 @@
 package consocarbone;
 
-//design pattern singleton 
 /**
  * Classe service publics : poste de consommation carbone induit par les services publics.
  * Tous les francais ont la meme empreinte pour ce poste
@@ -8,60 +7,58 @@ package consocarbone;
  *
  */
 
-public final class ServicesPublics extends ConsoCarbone {
-	
+public final class ServicesPublics extends ConsoCarbone implements Cloneable {
+
 	/**
 	 * instance unique pre-initialisee
 	 */
+
 	private static final ServicesPublics INSTANCE = new ServicesPublics();
+
 	/**
 	 * Constructeur par defaut de la classe
 	 */
-	private ServicesPublics() {
-		this.impact = calculImpact();
-	}
-	
+
+	private ServicesPublics() {this.impact = calculImpact();}
+
 	/** 
-     * @return l'impact des services publics de l'utilisateur
+	 * @return l'impact des services publics de l'utilisateur
 	 */
-	
+
 	@Override
 	public double calculImpact() {
 		this.impact = 1.5;
 		return this.impact;
 	}
+
 	/**
 	 * Acces a l'instance unique du singleton 
 	 * @return l'instance
 	 */
-	
-	public static ServicesPublics getInstance() {
-		return INSTANCE;
-	}
-	 /**
-	  * affiche l'impact des services publics de cet utilisateur
-	  * @see ConsoCarbone#toString()
-	  */
+
+	public static ServicesPublics getInstance() {return INSTANCE;}
+
+	/**
+	 * affiche l'impact des services publics de cet utilisateur
+	 * @see ConsoCarbone#toString()
+	 */
 
 	@Override 
-	 public String toString() {
-		   return "L'impact de vos services publics est de : 1.5 TCO2eq";
+	public String toString() {return "L'impact de vos services publics est de : 1.5 TCO2eq";}
+
+	/**
+	 * Reecriture de la methode clone de la classe object pour cree un nouveau poste de service public avec les meme argument que l'objet clone
+	 * @return nouvel object clone 
+	 */
+
+	@Override
+	public Object clone() {
+		try {
+			return super.clone();
+		}
+		catch (CloneNotSupportedException e){
+			throw new InternalError();
+		}
 	}
-	
-    /**
-    * Reecriture de la methode clone de la classe object pour cree un nouveau poste de service public avec les meme argument que l'objet clone
-    * @return nouvel object clone 
-    */
-	 @Override
-	   public Object clone() {
-			try {
-				return super.clone();
-			}
-			catch (CloneNotSupportedException e){
-				throw new InternalError();
-			}
-	   }
-	
-	   
-	
+
 }
