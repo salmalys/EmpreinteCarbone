@@ -270,6 +270,7 @@ public class Utilisateur implements Cloneable{
 	/**
 	 * Reecriture de la methode clone de la classe Object. 
 	 * On veut clone un utilisateur, on clone donc chaque poste de consommation, en appellant les methodes clone de chaque poste
+	 * @throw InternnalError()
 	 */
 
 	@Override
