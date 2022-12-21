@@ -47,9 +47,7 @@ public class BienConso extends ConsoCarbone implements Cloneable {
 	 * @return le montant des depense anuelle
 	 */
 
-	public double getMontant() {
-		return montant;
-	}
+	public double getMontant() {return montant;}
 
 	/**
 	 * setter du montant
@@ -81,9 +79,7 @@ public class BienConso extends ConsoCarbone implements Cloneable {
 	 * @see ConsoCarbone#toString()
 	 */
 
-	public String toString() {
-		return "L'impact de vos depenses annuelles est de : " + Math.round(this.impact*100.0)/100.0 + " TCO2eq";
-	}
+	public String toString() {return "L'impact de vos depenses annuelles est de : " + Math.round(this.impact*100.0)/100.0 + " TCO2eq";}
 
 	/**
 	 * Redefinition de la methode clone pour un bienConso de la classe Objet 
