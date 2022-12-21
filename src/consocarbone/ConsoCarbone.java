@@ -30,19 +30,14 @@ public abstract class ConsoCarbone implements Comparable<ConsoCarbone> {
 
 	public abstract double calculImpact();
 
-	public double getImpact() {
-		return this.impact;
-	}
+	public double getImpact() {return this.impact;}
 
 	/**
 	 *Setter de l'impact
 	 *@param impact 
 	 */
 
-	public void setImpact(double impact) {
-		this.impact = impact;
-	}
-
+	public void setImpact(double impact) {this.impact = impact;}
 
 	/**
 	 * Getter de l'identificateur du ConsoCarbonne
@@ -56,9 +51,7 @@ public abstract class ConsoCarbone implements Comparable<ConsoCarbone> {
 	 * @return
 	 */
 
-	public double calculerEmpreinte() {
-		return this.impact;
-	}
+	public double calculerEmpreinte() {return this.impact;}
 
 	/**
 	 * compare le poste avec le poste A
@@ -77,9 +70,7 @@ public abstract class ConsoCarbone implements Comparable<ConsoCarbone> {
 	 * affiche l'empreinte carbone moyenne d'un francais pour un poste de consommation donne
 	 */
 
-	public static void empCarbMoy() {
-		System.out.println("L'empreinte carbonne moyenne d'un.e francais.e pour ce poste est:");
-	}
+	public static void empCarbMoy() {System.out.println("L'empreinte carbonne moyenne d'un.e francais.e pour ce poste est:");}
 
 	/**
 	 * methode abstraite 
@@ -87,6 +78,5 @@ public abstract class ConsoCarbone implements Comparable<ConsoCarbone> {
 	 */
 
 	public abstract String toString();
-
 
 }
