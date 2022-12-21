@@ -22,7 +22,6 @@ public class Alimentation extends ConsoCarbone implements Cloneable{
 		this.txBoeuf = 0.0;
 		this.txVege = 0.0;
 		this.impact = calculImpact();
-
 	}
 
 	/**
@@ -42,16 +41,12 @@ public class Alimentation extends ConsoCarbone implements Cloneable{
 	 * @return taux de boeuf
 	 */
 
-	public double gettxBoeuf() {
-		return txBoeuf;
-	}
-
+	public double gettxBoeuf() {return txBoeuf;}
 
 	/**
 	 * Setter du taux de boeuf
 	 * Apres avoir mis à jour le taux de boeuf, on recalcul l'impact alimentaire
 	 */
-
 
 	public void settxBoeuf(double txBoeuf) {
 		this.txBoeuf = txBoeuf;
@@ -62,9 +57,7 @@ public class Alimentation extends ConsoCarbone implements Cloneable{
 	 * Getter du taux vegetarien
 	 */
 
-	public double gettxVege() {
-		return txVege;
-	}
+	public double gettxVege() {return txVege;}
 
 	/**
 	 * Setter du taux vegetarien
@@ -108,9 +101,7 @@ public class Alimentation extends ConsoCarbone implements Cloneable{
 	 */
 
 	@Override
-	public String toString() {
-		return "L'impact de votre alimentation est de : " + Math.round(this.impact*100.0)/100.0 + " TCO2eq";
-	}
+	public String toString() {return "L'impact de votre alimentation est de : " + Math.round(this.impact*100.0)/100.0 + " TCO2eq";}
 
 	/**
 	 * Reecriture de la methode clone de la classe object pour cree un nouveau poste d'alimentation avec les meme argument que l'objet clone
@@ -129,7 +120,5 @@ public class Alimentation extends ConsoCarbone implements Cloneable{
 			throw new InternalError();
 		}
 	}
-
-
 
 }
