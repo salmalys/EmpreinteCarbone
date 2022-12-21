@@ -95,9 +95,7 @@ public class Mail extends ConsoCarbone {
 	 */
 
 	@Override
-	public String toString() {
-		return "L'impact de vos mails est de : " + Math.round(this.impact*100.0)/100.0 + " TCO2eq";
-	}
+	public String toString() {return "L'impact de vos mails est de : " + Math.round(this.impact*100.0)/100.0 + " TCO2eq";}
 
 	/**
 	 * Reecriture de la methode clone de la classe object pour cree un nouveau poste de mail avec les meme argument que l'objet clone
