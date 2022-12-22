@@ -12,6 +12,9 @@ public class Alimentation extends ConsoCarbone implements Cloneable{
 	private final double c2 =1.6;
 	private final double c3 =.9;
 
+	/**
+	 * Constructeur par defaut
+	 */
 	public Alimentation() {
 		this.txBoeuf = 0.0;
 		this.txVege = 0.0;

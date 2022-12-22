@@ -10,6 +10,9 @@ public class Mail extends ConsoCarbone {
 	private final double c1 = 0.000004;
 	private final double c2 = 0.00001;
 
+	/**
+	 * Constructeur par defaut 
+	 */
 	public Mail() {
 		this.nbMailEnv = 0;
 		this.nbMailStock = 0;

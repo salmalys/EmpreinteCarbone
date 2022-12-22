@@ -19,8 +19,7 @@ import user.Population;
 import user.Utilisateur;
 
 /**
- * 
- *
+ * Methodes statiques qui traite les donnees des fichiers et instancie les utilisateurs ainsi que la population apartir des donnees
  */
 
 public class Traitement {
@@ -92,7 +91,6 @@ public class Traitement {
 	 * @throws IllegalArgumentException Si le nom du poste n'est pas reconnu on renvoie une erreur
 	 * @param line la ligne a analyser
 	 * @param listPostes ajoute un poste bien instancier a cette liste
-	 * @return 
 	 */
 
 	public static void readConso(String[] line, ArrayList<ConsoCarbone> listPostes) throws IllegalArgumentException {

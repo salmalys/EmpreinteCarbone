@@ -10,7 +10,7 @@ public class Simulation {
 	
 	/**
 	 * Reduire les depenses en biens 
-	 * @param tauxBoeufReduc taux de reduction a applique sur les depenses en biens de chaque utilisateur 
+	 * @param tauxReduc taux de reduction a applique sur les depenses en biens de chaque utilisateur 
 	 * @param population population a modifier 
 	 * @return diminution en pourcentage de l'impact
 	 */

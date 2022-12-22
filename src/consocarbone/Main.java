@@ -4,6 +4,10 @@ import java.util.Scanner;
 import user.*;
 import java.util.ArrayList;
 
+/**
+ * Classe principale
+ *
+ */
 public class Main {
 
 	/**
@@ -11,7 +15,7 @@ public class Main {
 	 * Cree une population a partir de fichiers textes, affiche l'impact totale et propose des simulations
 	 * ou
 	 * Cree un Utilisateur a partir des reponses au questionnaire, affiche l'empreinte carbonne pour chaque poste et fais des recommendations
-	 * @param args
+	 * @param args arguments en ligne de commande
 	 */
 
 	public static void main(String[] args) {
@@ -82,7 +86,7 @@ public class Main {
 
 	/**
 	 * Affiche le menu pour la simulation sur la console 
-	 * @param Scanner 
+	 * @param sc Scanner 
 	 * @return option de simulation choisi
 	 */
 
@@ -102,8 +106,8 @@ public class Main {
 
 	/**
 	 * Effectue la simulation choisi par l'utilisateur affiche le resultat (baisse de l'impact) 
-	 * @param p population sur laquelle on applique la simulation
-	 * @param sc
+	 * @param population population sur laquelle on applique la simulation
+	 * @param sc Scanner
 	 */
 
 	public static void testSimul(Population population, Scanner sc) {

@@ -39,6 +39,9 @@ public class Utilisateur implements Cloneable{
 	 */
 	private ArrayList<ConsoCarbone> listCons;
 
+	/**
+	 * Constructeur par defaut
+	 */
 	public Utilisateur() {
 		this.alimentation = null;
 		this.bienConso = null;
