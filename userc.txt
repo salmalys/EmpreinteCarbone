@@ -1,0 +1,5 @@
+Logement;1;50;A
+Alimentation; 0.1;0.8
+Transport; 1;P;12000;12
+BienConso;2500
+Mail; 123;21000
