@@ -53,12 +53,12 @@ public class Questionnaire {
 	static final String[][] QUESTION = {QST_LOGEMENT, QST_ALIMENTATION, QST_BIENCONSO,QST_MAIL, QST_TRANSPORT};
 
 	/**
-	 * Nombre de questions pour chaque poste
+	 * Nombre d'attributs pour chaque poste
 	 */
 	static final int[] nbAtt = {2,2,1,2,3};
 
 	/**
-	 * Methode permettant  ???????????
+	 * Lance le questionnaire pour chaque poste et alimente la liste des postes a partir des reponses 
 	 * @param sc reponse insctire sur la console par l'utilisateur
 	 * @return la liste des postes
 	 */
@@ -78,9 +78,7 @@ public class Questionnaire {
 	}
 
 	/**
-	 * Methode permettant de poser les bonnes quesitons en fonction du poste le nombre de fois ou c'est utile, puis ensuite permet de recuperer les valeurs ecrites par l'urtilisateur
-	 * pour les rentrer dans un tableau line, qui nous sert pour stocker les valeurs
-	 * @param sc ecrit sur la console
+	 * Affiche les questions du poste et stocke les reponses dans un tableau 
 	 * @param nomPoste pour lequel on a besoin de reponse
 	 * @param qPoste dans le tableau Question
 	 * @param nbAtt nombre de reponses que l'on va avoir
