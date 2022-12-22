@@ -1,18 +1,45 @@
 package consocarbone;
 
 /**
- * Enumeration CE compose de sept instances nomees {A,B,C,D,E,F,G} qui representent les differentes classes energetiques
+ * Enumeration CE composee de sept instances nomees {A,B,C,D,E,F,G} qui representent les differentes classes energetiques
  *
  */
 
 public enum CE {
-	A(0.005),B(0.01),C(0.02),D(0.035),E(0.055),F(0.08),G(0.1);
+	/**
+	 * Classe energetique A ayant pour coefficient 0.005
+	 */
+	A(0.005),
+	/**
+	 * Classe energetique B ayant pour coefficient 0.01
+	 */
+	B(0.01),
+	/**
+	 * Classe energetique C ayant pour coefficient 0.02
+	 */
+	C(0.02),
+	/**
+	 * Classe energetique D ayant pour coefficient 0.035
+	 */
+	D(0.035),
+	/**
+	 * Classe energetique E ayant pour coefficient 0.055
+	 */
+	E(0.055),
+	/**
+	 * Classe energetique F ayant pour coefficient 0.08
+	 */
+	F(0.08),
+	/**
+	 * Classe energetique G ayant pour coefficient 0.1
+	 */
+	G(0.1);
 
 	private final double coeff;
 
 	/**
 	 * Consructeur de l'enumeration
-	 * @param coeff
+	 * @param coeff coefficient du logement
 	 */
 
 	CE(double coeff){this.coeff = coeff;}
