@@ -1,4 +1,5 @@
 package consocarbone;
+
 /**
  * Une Alimentation est un poste de consommation qui s'interesse a l'impact alimentaire
  *
@@ -36,15 +37,14 @@ public class Alimentation extends ConsoCarbone implements Cloneable{
 
 	/**
 	 * Getter du taux de boeuf 
-	 * @return taux de boeuf
+	 * @return Taux de boeuf
 	 */
 
 	public double gettxBoeuf() {return txBoeuf;}
 
 	/**
-	 * Setter du taux de boeuf
-	 * Apres avoir mis à jour le taux de boeuf, on recalcul l'impact alimentaire
-	 * @param txBoeuf parametre a setter
+	 * Setter du taux de boeuf, apres avoir mis a jour le taux de boeuf, on recalcul l'impact alimentaire
+	 * @param txBoeuf Le nouveau taux a mettre a jour
 	 */
 
 	public void settxBoeuf(double txBoeuf) {
@@ -54,13 +54,14 @@ public class Alimentation extends ConsoCarbone implements Cloneable{
 
 	/**
 	 * Getter du taux vegetarien
+	 * @return le taux vegetarien
 	 */
 
 	public double gettxVege() {return txVege;}
 
 	/**
-	 * Setter du taux vegetarien
-	 *Puis recalcul l'impact alimentaire
+	 * Setter du taux vegetarien, puis nous recalculons l'impact alimentaire
+	 * @param txVege Le nouveau taux a mettre a jour
 	 */
 
 	public void settxVege(double txVege) {
@@ -69,7 +70,7 @@ public class Alimentation extends ConsoCarbone implements Cloneable{
 	}
 
 	/**
-	 * obtient l'impact calcule a partir d'une formule
+	 * Obtient l'impact calcule a partir d'une formule
 	 * @return impact alimentaire
 	 */
 
@@ -80,7 +81,7 @@ public class Alimentation extends ConsoCarbone implements Cloneable{
 	}
 
 	/**
-	 * affiche l'empreinte carbonne moyenne alimenatire d'un francais
+	 * Affiche l'empreinte carbonne moyenne alimenatire d'un francais
 	 * @see ConsoCarbone#empCarbMoy()
 	 */ 
 
@@ -121,3 +122,4 @@ public class Alimentation extends ConsoCarbone implements Cloneable{
 	}
 
 }
+
