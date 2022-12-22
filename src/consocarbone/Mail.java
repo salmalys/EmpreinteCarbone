@@ -21,9 +21,9 @@ public class Mail extends ConsoCarbone {
 	}
 
 	/**
-	 * Constructeur de la classe Mail
-	 * @param nbE : nombre de mail envoye par an
-	 * @param nbS : nombre de mail stocke
+	 * Constructeur de la classe Mail, recalcul l'impact
+	 * @param nbE nombre de mail envoye par an
+	 * @param nbS nombre de mail stocke
 	 */
 
 	public Mail (int nbE, int nbS) {
@@ -40,8 +40,8 @@ public class Mail extends ConsoCarbone {
 	public int getNbMailEnv() {return nbMailEnv;}
 
 	/**
-	 * Setter du nombre de mail envoye
-	 * @param nbMailEnv
+	 * Setter du nombre de mail envoye, puis recalcul l'impact
+	 * @param nbMailEnv nombre de mail envoye de l'utilisateur
 	 */
 
 	public void setNbMailEnv(int nbMailEnv ) {
@@ -57,8 +57,8 @@ public class Mail extends ConsoCarbone {
 	public int getNbMailStock() {return nbMailStock;}
 
 	/**
-	 * Setter du nombre de mail stocke
-	 * @param nbMailStock
+	 * Setter du nombre de mail stocke, et raclcul l'impact
+	 * @param nbMailStock nombre de mail stocke dans la boite mail
 	 */
 
 	public void setNbMailStock(int nbMailStock) {
@@ -67,7 +67,7 @@ public class Mail extends ConsoCarbone {
 	}
 
 	/**
-	 * obtient l'impact calcule a partir d'une formule et de deux constantes
+	 * Obtient l'impact calcule a partir d'une formule et de deux constantes
 	 * @return l'impact des mails de l'utilisateur
 	 */
 
@@ -78,7 +78,7 @@ public class Mail extends ConsoCarbone {
 	}
 
 	/**
-	 * affiche l'empreinte carbonne moyenne des mails d'un francais
+	 * Affiche l'empreinte carbonne moyenne des mails d'un francais
 	 * @see ConsoCarbone#empCarbMoy()
 	 */ 
 
@@ -90,7 +90,7 @@ public class Mail extends ConsoCarbone {
 	}
 
 	/**
-	 * affiche l'impact des mails de cet utilisateur
+	 * Affiche l'impact des mails de cet utilisateur
 	 * @see ConsoCarbone#toString()
 	 */
 
