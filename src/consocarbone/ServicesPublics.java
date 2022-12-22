@@ -2,7 +2,7 @@ package consocarbone;
 
 /**
  * Classe service publics : poste de consommation carbone induit par les services publics.
- * Tous les francais ont la meme empreinte pour ce poste
+ * Tous les francais ont la meme empreinte pour ce poste.
  * Il a donc un design patttern singleton
  *
  */
@@ -10,7 +10,7 @@ package consocarbone;
 public final class ServicesPublics extends ConsoCarbone implements Cloneable {
 
 	/**
-	 * instance unique pre-initialisee
+	 * Instance unique pre-initialisee
 	 */
 
 	private static final ServicesPublics INSTANCE = new ServicesPublics();
@@ -22,6 +22,7 @@ public final class ServicesPublics extends ConsoCarbone implements Cloneable {
 	private ServicesPublics() {this.impact = calculImpact();}
 
 	/** 
+	 * Methode qui calcul l'impact qui est toujours le meme pour chaque utilisateur
 	 * @return l'impact des services publics de l'utilisateur
 	 */
 
@@ -33,13 +34,13 @@ public final class ServicesPublics extends ConsoCarbone implements Cloneable {
 
 	/**
 	 * Acces a l'instance unique du singleton 
-	 * @return l'instance
+	 * @return L'instance
 	 */
 
 	public static ServicesPublics getInstance() {return INSTANCE;}
 
 	/**
-	 * affiche l'impact des services publics de cet utilisateur
+	 * Affiche l'impact des services publics de cet utilisateur
 	 * @see ConsoCarbone#toString()
 	 */
 
