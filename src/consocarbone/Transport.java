@@ -3,7 +3,8 @@ package consocarbone;
 /**
  * Classe qui correspond au poste de transport, qui a pour attribut possede, taille, le nombre de killometre par an et son ammortissement
  */
-public class Transport extends ConsoCarbone implements Cloneable {
+
+public class Transport extends ConsoCarbone {
 	private boolean possede;
 	private Taille taille;
 	private int kilomAnnee;
@@ -17,7 +18,7 @@ public class Transport extends ConsoCarbone implements Cloneable {
 
 	/**
 	 * Constructeur de la classe transport pour un utilisateur qui n'a pas de voiture et calcul l'impact
-	 * @param possede = false
+	 * @param possede false
 	 */
 
 	public Transport(boolean possede) {
@@ -30,9 +31,9 @@ public class Transport extends ConsoCarbone implements Cloneable {
 
 	/**
 	 * Constructeur de la classe transport pour un utilisateur qui a une voiture, puis calcul l'impact
-	 * @param possede = true
-	 * @param taille = taille de la voiture
-	 * @param km = nombre de kilomettre a l'annee
+	 * @param possede true
+	 * @param taille taille de la voiture
+	 * @param km nombre de kilomettre a l'annee
 	 * @param amortissement = amortissement de la voiture
 	 */
 
@@ -53,7 +54,7 @@ public class Transport extends ConsoCarbone implements Cloneable {
 
 	/**
 	 * Setter lorsque possede devient false, remet a null les objets et a zero les entiers, puis recalcul l'impact
-	 * @param possede
+	 * @param possede false
 	 */
 
 	public void setpossede(boolean possede) {
@@ -66,10 +67,10 @@ public class Transport extends ConsoCarbone implements Cloneable {
 
 	/**
 	 * Setter des attributs lorsque possede est a true, et recalcul l'immpact
-	 * @param possede
-	 * @param taille
-	 * @param km
-	 * @param amortissement
+	 * @param possede une voiture ou non
+	 * @param taille taille de la voiture
+	 * @param km kilommettre a l'annee
+	 * @param amortissement amortissement de la voiture
 	 */
 
 	public void setpossede(boolean possede,Taille taille, int km, int amortissement) {
@@ -82,14 +83,13 @@ public class Transport extends ConsoCarbone implements Cloneable {
 
 	/**
 	 * Getter de l'attribut taille
-	 * @return la taille
+	 * @return la taille de la voiture
 	 */
 
 	public Taille getTaille() {return taille;}
 
 	/**
-	 * setter de la taille 
-	 * recalcul l'impact
+	 * Setter de la taille et recalcul l'impact
 	 * @param taille de la voiture
 	 */
 
@@ -99,16 +99,15 @@ public class Transport extends ConsoCarbone implements Cloneable {
 	}
 
 	/**
-	 * getter du nombre de killommetre a l'annee
+	 * Getter du nombre de killommetre a l'annee
 	 * @return le nombre de killometre
 	 */
 
 	public int getKm() {return kilomAnnee;}
 
 	/**
-	 * Setter du nombre de killometre a l'annee
-	 * recalcul l'impact
-	 * @param km
+	 * Setter du nombre de killometre a l'annee et recalcul l'impact
+	 * @param km kilometre a l'annee de la voiture
 	 */
 
 	public void setKm(int km) {
@@ -118,14 +117,13 @@ public class Transport extends ConsoCarbone implements Cloneable {
 
 	/**
 	 * Getter de l'amortissement de la voiture de l'utilisateur
-	 * @return l'amortissement
+	 * @return l'amortissement 
 	 */
 	public int getAmortissement() {return amortissement;}
 
 	/**
-	 * Setter de l'amortissement
-	 * recalcul l'impact
-	 * @param amortissement
+	 * Setter de l'amortissement et recalcul l'impact
+	 * @param amortissement amortissement de la voiture
 	 */
 	public void setAmortissement(int amortissement) {
 		this.amortissement = amortissement;
@@ -133,7 +131,7 @@ public class Transport extends ConsoCarbone implements Cloneable {
 	}
 
 	/**
-	 * obtient l'impact calcule a partir d'une formule
+	 * Obtient l'impact calcule a partir d'une formule
 	 * @return impact transport
 	 */
 
@@ -147,7 +145,7 @@ public class Transport extends ConsoCarbone implements Cloneable {
 	}
 
 	/**
-	 * affiche l'empreinte carbonne moyenne de transport d'un francais
+	 * Affiche l'empreinte carbonne moyenne de transport d'un francais
 	 * @see ConsoCarbone#empCarbMoy()
 	 */ 
 
