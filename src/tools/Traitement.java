@@ -19,14 +19,15 @@ import user.Population;
 import user.Utilisateur;
 
 /**
- *Contient des methodes statiques utile a la lecture des fichiers
+ * 
+ *
  */
 
 public class Traitement {
 
 	/**
 	 * Ajout des utilisateurs pour creer la population a partir de la lecture de fichiers
-	 * @param filenames : tableau comprenant des noms de fichiers
+	 * @param filenames tableau comprenant des noms de fichiers
 	 * @return la population cree
 	 */
 
@@ -41,6 +42,7 @@ public class Traitement {
 
 	/**
 	 * Permet d'ouvrir les fichiers donnes en arguments en ligne de commande, puis le lit ligne par ligne, et les traites une par une. 
+	 * @throws IllegalArgumentException les exceptions concernant l'ouverture des fichiers et les mauvais nom de fichiers
 	 * @param filename donne en argument en liste de commande
 	 * @return Si le fichier est ecrit correctement, retourne un utilisateur associe a sa liste de poste instancie a la fin de cette fonction
 	 */
@@ -85,10 +87,12 @@ public class Traitement {
 	}
 
 	/**
-	 * Traite une ligne donnee en parametre
-	 * En fonction du nom du poste, on verifie que les arguments sont coherent avec le poste, si c'est le cas, on instancie le poste
+	 * Traite une ligne donnee en parametre. En fonction du nom du poste, on verifie que les arguments sont coherent avec le poste, si c'est le cas, on instancie le poste
+	 * @throws IllegalArgumentException leve une exception car si on a un argument inaproprie
+	 * @throws IllegalArgumentException Si le nom du poste n'est pas reconnu on renvoie une erreur
 	 * @param line la ligne a analyser
 	 * @param listPostes ajoute un poste bien instancier a cette liste
+	 * @return 
 	 */
 
 	public static void readConso(String[] line, ArrayList<ConsoCarbone> listPostes) throws IllegalArgumentException {
