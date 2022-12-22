@@ -101,12 +101,7 @@ public class Logement extends ConsoCarbone implements Cloneable {
 
 	@Override
 	public Object clone() {
-		try {
-			return super.clone();
-		}
-		catch (CloneNotSupportedException e){
-			throw new InternalError();
-		}
+		return new Logement(superficie,ce);
 	}
 
 }

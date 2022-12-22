@@ -1,8 +1,7 @@
 package consocarbone;
 
 /**
- * Une Alimentation est un poste de consommation qui s'interesse a l'impact alimentaire
- *
+ * Poste Alimentation 
  */
 
 public class Alimentation extends ConsoCarbone implements Cloneable{
@@ -13,10 +12,6 @@ public class Alimentation extends ConsoCarbone implements Cloneable{
 	private final double c2 =1.6;
 	private final double c3 =.9;
 
-	/**
-	 * Constructeur par defaut de la classe
-	 */
-
 	public Alimentation() {
 		this.txBoeuf = 0.0;
 		this.txVege = 0.0;
@@ -25,10 +20,9 @@ public class Alimentation extends ConsoCarbone implements Cloneable{
 
 	/**
 	 * Constructeur de la classe
-	 * @param tB taux de boeuf
-	 * @param tV taux vegetarien
+	 * @param tB taux de repas a base de boeuf
+	 * @param tV taux de repas vegetariens
 	 */
-
 	public Alimentation (double tB, double tV) {
 		this.txBoeuf = tB;
 		this.txVege = tV; 
@@ -39,14 +33,12 @@ public class Alimentation extends ConsoCarbone implements Cloneable{
 	 * Getter du taux de boeuf 
 	 * @return Taux de boeuf
 	 */
-
 	public double gettxBoeuf() {return txBoeuf;}
 
 	/**
 	 * Setter du taux de boeuf, apres avoir mis a jour le taux de boeuf, on recalcul l'impact alimentaire
 	 * @param txBoeuf Le nouveau taux a mettre a jour
 	 */
-
 	public void settxBoeuf(double txBoeuf) {
 		this.txBoeuf = txBoeuf;
 		this.impact = calculImpact();
@@ -56,14 +48,12 @@ public class Alimentation extends ConsoCarbone implements Cloneable{
 	 * Getter du taux vegetarien
 	 * @return le taux vegetarien
 	 */
-
 	public double gettxVege() {return txVege;}
 
 	/**
 	 * Setter du taux vegetarien, puis nous recalculons l'impact alimentaire
 	 * @param txVege Le nouveau taux a mettre a jour
 	 */
-
 	public void settxVege(double txVege) {
 		this.txVege = txVege;
 		this.impact = calculImpact();
@@ -73,7 +63,6 @@ public class Alimentation extends ConsoCarbone implements Cloneable{
 	 * Obtient l'impact calcule a partir d'une formule
 	 * @return impact alimentaire
 	 */
-
 	@Override
 	public double calculImpact() {
 		this.impact = c1 * this.txBoeuf + c2 * (1 - this.txVege - this.txBoeuf)+ c3 * this.txVege;
@@ -84,7 +73,6 @@ public class Alimentation extends ConsoCarbone implements Cloneable{
 	 * Affiche l'empreinte carbonne moyenne alimenatire d'un francais
 	 * @see ConsoCarbone#empCarbMoy()
 	 */ 
-
 	public static void empCarbMoy() {
 		ConsoCarbone.empCarbMoy();
 
@@ -99,7 +87,6 @@ public class Alimentation extends ConsoCarbone implements Cloneable{
 	 * Affiche l'impact alimenataire de cet utilisateur
 	 * @see ConsoCarbone#toString()
 	 */
-
 	@Override
 	public String toString() {return "L'impact de votre alimentation est de : " + Math.round(this.impact*100.0)/100.0 + " TCO2eq";}
 
@@ -107,18 +94,9 @@ public class Alimentation extends ConsoCarbone implements Cloneable{
 	 * Reecriture de la methode clone de la classe object pour cree un nouveau poste d'alimentation avec les meme argument que l'objet clone
 	 * @return nouvel object clone 
 	 */
-
 	@Override
 	public Object clone() {
-		try {
-			Alimentation a = (Alimentation)super.clone();
-			a.settxBoeuf(txBoeuf);
-			a.settxVege(txVege);
-			return a;
-		}
-		catch (CloneNotSupportedException e){
-			throw new InternalError();
-		}
+		return new Alimentation(txBoeuf,txVege);
 	}
 
 }

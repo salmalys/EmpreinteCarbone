@@ -171,12 +171,8 @@ public class Transport extends ConsoCarbone {
 
 	@Override
 	public Object clone() {
-		try {
-			return super.clone();
-		}
-		catch (CloneNotSupportedException e){
-			throw new InternalError();
-		}
+		if (this.possede) return new Transport(true,taille,kilomAnnee,amortissement);
+		return new Transport(false);
 	}
 }
 

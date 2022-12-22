@@ -7,7 +7,7 @@ package consocarbone;
  *
  */
 
-public final class ServicesPublics extends ConsoCarbone implements Cloneable {
+public final class ServicesPublics extends ConsoCarbone {
 
 	/**
 	 * Instance unique pre-initialisee
@@ -46,20 +46,5 @@ public final class ServicesPublics extends ConsoCarbone implements Cloneable {
 
 	@Override 
 	public String toString() {return "L'impact de vos services publics est de : 1.5 TCO2eq";}
-
-	/**
-	 * Reecriture de la methode clone de la classe object pour cree un nouveau poste de service public avec les meme argument que l'objet clone
-	 * @return nouvel object clone 
-	 */
-
-	@Override
-	public Object clone() {
-		try {
-			return super.clone();
-		}
-		catch (CloneNotSupportedException e){
-			throw new InternalError();
-		}
-	}
 
 }

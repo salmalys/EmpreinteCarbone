@@ -48,7 +48,7 @@ class LogementTest {
 
 	/**
 	 * Test des methodes set et compareTo de la classe Logement
-	 * On fait en sorte que les deux objets cree aient les memes valeurs d'attributs, pour ensuite verifier qu'ils sont egaux
+	 * Set des deux objets avec les memes valeurs d'attributs, pour ensuite verifier qu'ils sont egaux
 	 */
 
 	@Test

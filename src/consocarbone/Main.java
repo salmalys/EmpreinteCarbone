@@ -7,7 +7,10 @@ import java.util.ArrayList;
 public class Main {
 
 	/**
-	 * Methode main qui en fonction du choix de l'utilisateur, detaille l'empreinte carbone puis conseil l'utilisateur et propose de tester des simulations pour aider a reduire l'impact carbone
+	 * Methode main qui en fonction de l'option choisie, 
+	 * Cree une population a partir de fichiers textes, affiche l'impact totale et propose des simulations
+	 * ou
+	 * Cree un Utilisateur a partir des reponses au questionnaire, affiche l'empreinte carbonne pour chaque poste et fais des recommendations
 	 * @param args
 	 */
 
@@ -53,9 +56,9 @@ public class Main {
 	}
 
 	/**
-	 * Methode permettant de donner le choix a l'utilisateur entre calculer l'empreintre carbone d'une population grace a des fichiers, ou grace a un questionnaire
-	 * @param sc : Reponse de l'utilisateur en ligne de commande
-	 * @return le choix de l'utilisateur
+	 * Affiche le menu principale sur la console 
+	 * @param sc Scanner
+	 * @return option choisi
 	 */
 
 	public static int showMenu(Scanner sc) {
@@ -72,9 +75,9 @@ public class Main {
 	}
 
 	/**
-	 * Methode permettanr d'afficher les choix de simulation a l'utilisateur, puis recupere le choix de l'utilisateur
-	 * @param sc 
-	 * @return le choix de la simulation a tester
+	 * Affiche le menu pour la simulation sur la console 
+	 * @param Scanner 
+	 * @return option de simulation choisi
 	 */
 
 	public static int showMenuSimulation(Scanner sc) {
@@ -89,46 +92,38 @@ public class Main {
 		int option = sc.nextInt();
 		sc.nextLine();
 		return option;
-
 	}
 
 	/**
-	 * Methode permettant de lancer la simulation choisi par l'utilisateur et de savoir l'effet de celle ci sur l'impact 
-	 * @param p : la population sur laquelle on va appliquer la simulation
-	 * @param optionSimul : choix de la simulation par l'utilisateur
+	 * Effectue la simulation choisi par l'utilisateur affiche le resultat (baisse de l'impact) 
+	 * @param p population sur laquelle on applique la simulation
+	 * @param optionSimul choix de la simulation 
 	 * @param sc
 	 */
 
-	public static void testSimul(Population p, int optionSimul, Scanner sc) {
+	public static void testSimul(Population population, int optionSimul, Scanner sc) {
+		Population p = (Population)population.clone();
 		switch(optionSimul) {
 		case 1:{
 			System.out.println("\nEntrez la baisse du taux de depense souhaite");
-			//double t = sc.nextDouble();
-			//sc.nextLine();
 			double t = Double.parseDouble(sc.nextLine());
 			System.out.println("L'impact totale de la population a ete baisse de "+Simulation.reducTauxDepense(p,t)+"%\n");
 			break;
 		}
 		case 2:{
 			System.out.println("\nEntrez la baisse du taux de Boeuf souhaite");
-			//double t = sc.nextDouble();
-			//sc.nextLine();
 			double t = Double.parseDouble(sc.nextLine());
 			System.out.println("L'impact totale de la population a ete baisse de "+Simulation.reducTauxBoeuf(p,t)+"%\n");
 			break;
 		}
 		case 3:{
 			System.out.println("\nEntrez le nombre de mails stockes a supprimer");
-			//double t = sc.nextDouble();
-			//sc.nextLine();
 			int t = Integer.parseInt(sc.nextLine());
 			System.out.println("L'impact totale de la population a ete baisse de "+Simulation.reducNbMail(p,t)+"%\n");
 			break;
 		}
 		case 4:{
 			System.out.println("\nEntrez le taux de personnes qui n'utiliserons plus leur voiture.");
-			//double t = sc.nextDouble();
-			//sc.nextLine();
 			double t = Double.parseDouble(sc.nextLine());
 			System.out.println("L'impact totale de la population a ete baisse de "+Simulation.reducVoit(p,t)+"%\n");
 			break;
@@ -138,8 +133,11 @@ public class Main {
 			System.out.println("L'impact totale de la population a ete baisse de "+Simulation.reducCE(p)+"%\n");
 			break;
 		}
-		default:
-
+		case 6:
+			System.out.println("Fin");
+			System.exit(0);
+			break;
+		default: System.out.println("La valeur entree n'est pas valide");
 		}
 	}
 

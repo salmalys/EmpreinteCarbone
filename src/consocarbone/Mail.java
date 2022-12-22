@@ -1,8 +1,7 @@
 package consocarbone;
 
 /**
- * La classe mail represente un poste qui calcul l'impact en fonction du nombre de mail envoyes et du nombre de mail stocke
- *
+ * Poste Mail
  */
 
 public class Mail extends ConsoCarbone {
@@ -11,17 +10,13 @@ public class Mail extends ConsoCarbone {
 	private final double c1 = 0.000004;
 	private final double c2 = 0.00001;
 
-	/**
-	 * Constructeur par defaut de la classe Mail
-	 */
-
 	public Mail() {
 		this.nbMailEnv = 0;
 		this.nbMailStock = 0;
 	}
 
 	/**
-	 * Constructeur de la classe Mail, recalcul l'impact
+	 * Constructeur de la classe Mail
 	 * @param nbE nombre de mail envoye par an
 	 * @param nbS nombre de mail stocke
 	 */
@@ -36,14 +31,12 @@ public class Mail extends ConsoCarbone {
 	 * Getter du nombre de mail envoye
 	 * @return nombre de mail envoye
 	 */
-
 	public int getNbMailEnv() {return nbMailEnv;}
 
 	/**
 	 * Setter du nombre de mail envoye, puis recalcul l'impact
 	 * @param nbMailEnv nombre de mail envoye de l'utilisateur
 	 */
-
 	public void setNbMailEnv(int nbMailEnv ) {
 		this.nbMailEnv = nbMailEnv;
 		this.impact = calculImpact();
@@ -53,14 +46,12 @@ public class Mail extends ConsoCarbone {
 	 * Getter du nombre de mail stocke
 	 * @return nombre de mail stocke
 	 */
-
 	public int getNbMailStock() {return nbMailStock;}
 
 	/**
 	 * Setter du nombre de mail stocke, et raclcul l'impact
 	 * @param nbMailStock nombre de mail stocke dans la boite mail
 	 */
-
 	public void setNbMailStock(int nbMailStock) {
 		this.nbMailStock = nbMailStock;
 		this.impact = calculImpact();
@@ -104,12 +95,7 @@ public class Mail extends ConsoCarbone {
 
 	@Override
 	public Object clone() {
-		try {
-			return super.clone();
-		}
-		catch (CloneNotSupportedException e){
-			throw new InternalError();
-		}
+		return new Mail(nbMailEnv,nbMailStock);
 	}
 
 }

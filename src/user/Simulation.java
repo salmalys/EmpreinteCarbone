@@ -3,86 +3,74 @@ import consocarbone.*;
 import java.util.ArrayList;
 
 /**
- * La classe simulation nous permet de simuler certaines methodes sur une population pour voir son effet sur l'empreinte total carbonique .
- * Cette classe comporte seulement des methodes statiques.
+ * Cette classe comporte seulement des methodes statiques qui correspondent chacune a une simulation.
  */
 
 public class Simulation {
-
+	
 	/**
-	 * Cette simulation permet de reduire le nombre de voiture dans notre population. 
-	 * Elle clone la population passer en parametre pour ensuite recalculer son impact avec plus d'utilisateur sans voiture.
-	 * @param population notre liste d'utilisateur
-	 * @param tauxPourc le taux en pourcenatge de voiture en moins dans notre nouvelle population
-	 * @return le pourcentage de difference entre l'impact de base et celui si on applique la simulation
+	 * Reduire les depenses en biens 
+	 * @param tauxBoeufReduc taux de reduction a applique sur les depenses en biens de chaque utilisateur 
+	 * @param population population a modifier 
+	 * @return diminution en pourcentage de l'impact
 	 */
 
-	public static double reducVoit(Population population, double tauxPourc) {
-		Population popuSimule = (Population)population.clone(); 
+	public static double reducTauxDepense(Population population, double tauxReduc) {
+		double impactAvant = population.calculerEmpreinte();
 
-		double impactAvant = popuSimule.calculerEmpreinte();
+		for (Utilisateur u : population.getListPopulation()) {
+			BienConso b = u.getBienConso();
+			double montantReduc = b.getMontant()*tauxReduc;
+			b.setMontant(montantReduc);
+		}
+		double impactApres = population.calculerEmpreinte();
+		System.out.println("Impact apres la simulation: "+impactApres);
 
-		double n = population.getNb()*tauxPourc;
-		int i = 0;
-		for (Utilisateur u : popuSimule.getListPopulation()) {
-			if (i<n) {
-				Transport t = u.getTransport();
-				t.setpossede(false);
-				u.setListCons();
-				i++;
-			}
-			else break;
-		} 
-		double impactApres = popuSimule.calculerEmpreinte();
 		return ((impactAvant-impactApres)/impactAvant)*100;
 	}
 
 	/**
-	 * Cette simulation permet de reduire la classe energetique des logements de notre population. 
-	 * Elle clone la population passer en parametre pour ensuite recalculer son impact avec toute les classes energetiques de tous les logements des utilisateurs baisse d'un niveau.
-	 * Si la classe energetique est deja a A on ne fait rien
-	 * @param population notre liste d'utilisateur
-	 * @return le pourcentage de difference entre l'impact de base et celui si on applique la simulation
+	 * Reduire la classe energetique des logements d'un niveau pour tous les logements des utilisateurs de la population 
+	 * Si la classe energetique est deja A, aucune modification
+	 * @param population population a modifier 
+	 * @return diminution en pourcentage de l'impact 
 	 */
 
 
 	public static double reducCE(Population population) {
-		Population popuSimule = (Population)population.clone();
-		double impactAvant = popuSimule.calculerEmpreinte();
+		double impactAvant = population.calculerEmpreinte();
 
-		for (Utilisateur u : popuSimule.getListPopulation()) {
+		for (Utilisateur u : population.getListPopulation()) {
 			ArrayList<Logement> listLog = u.getLogements();
 			for (Logement l: listLog) {
 				if (l.getCe() == CE.B) l.setCe(CE.A);
 				if (l.getCe() == CE.C) l.setCe(CE.B);
 				if (l.getCe() == CE.D) l.setCe(CE.C);
 				if (l.getCe() == CE.E) l.setCe(CE.D);
-				if (l.getCe() == CE.F) l.setCe(CE.A);
+				if (l.getCe() == CE.F) l.setCe(CE.E);
 				if (l.getCe() == CE.G) l.setCe(CE.F);
 			}
 			u.setLogement();
 			u.setListCons();
 		}
 
-		double impactApres = popuSimule.calculerEmpreinte();
-		System.out.println("Impact apres la simulation:"+impactApres);
+		double impactApres = population.calculerEmpreinte();
+		System.out.println("Impact apres la simulation: "+impactApres);
 		return ((impactAvant-impactApres)/impactAvant)*100;
 	}
 
 	/**
-	 * Cette simulation permet de reduire le nombre de mail stocke par notre population. 
-	 * Elle clone la population passer en parametre pour ensuite recalculer son impact avec plus de mail supprimes.
-	 * Si un utilisateur a moins de mail stocke que le nombre a supprimer, on les supprime tous.
-	 * @param population notre liste d'utilisateur
-	 * @param nbMailSupp nombre de mail a supprimer
-	 * @return le pourcentage de difference entre l'impact de base et celui si on applique la simulation
+	 * Reduire le nombre de mail stockes par chaque utilisateur 
+	 * Si un utilisateur a moins de mail stocke que le nombre a supprimer, il n'aura aucun mail stockes.
+	 * @param nbMailSupp nombre de mail a supprimer par utilisateur
+	 * @param population population a modifier 
+	 * @return diminution en pourcentage de l'impact
 	 */
 
 	public static double reducNbMail(Population population, int nbMailSupp) {
-		Population popuSimule = (Population)population.clone();
-		double impactAvant = popuSimule.calculerEmpreinte();
+		double impactAvant = population.calculerEmpreinte();
 
-		for (Utilisateur u : popuSimule.getListPopulation()) {
+		for (Utilisateur u : population.getListPopulation()) {
 			Mail m = u.getMail();
 			int nbmInit = m.getNbMailStock();
 			if (nbmInit<nbMailSupp) {
@@ -93,33 +81,24 @@ public class Simulation {
 			}
 		}
 
-		double impactApres = popuSimule.calculerEmpreinte();
-		System.out.println("Impact apres la simulation:"+impactApres);
+		double impactApres = population.calculerEmpreinte();
+		System.out.println("Impact apres la simulation: "+impactApres);
 
 		return ((impactAvant-impactApres)/impactAvant)*100;
 	}
 
 	/**
 	 * Cette simulation permet de reduire le nombre de repas a base de boeuf dans notre population. 
-	 * Elle clone la population passer en parametre pour ensuite recalculer son impact avec moins de repas a bes de boeuf.
-	 * @param population notre liste d'utilisateur
-	 * @param tauxBoeufReduc le taux en pourcenatge de reduction de taux de boeuf pour chaque utilisateur de notre population
-	 * @return le pourcentage de difference entre l'impact de base et celui si on applique la simulation
+	 * @param tauxBoeufReduc taux de reduction a applique sur le taux de repas a base de boeuf 
+	 * @param population population a modifier 
+	 * @return diminution en pourcentage de l'impact
 	 */
 
 
 	public static double reducTauxBoeuf(Population population, double tauxBoeufReduc) {
-		//Population popuSimule = (Population)population.clone();
-		Population popuSimule = new Population(population.getListPopulation());
-		double impactAvant = popuSimule.calculerEmpreinte();
+		double impactAvant = population.calculerEmpreinte();
 
-		System.out.println("impact de pop de base"+population.calculerEmpreinte());
-		System.out.println("impact avant de pop simule"+impactAvant);
-
-		System.out.println("alime de pop de base"+population.calculerEmpreinteAlim());
-		System.out.println("alime de pop simule"+popuSimule.calculerEmpreinteAlim());
-
-		for (Utilisateur u : popuSimule.getListPopulation()) {
+		for (Utilisateur u : population.getListPopulation()) {
 			Alimentation a = u.getAlimentation();
 			System.out.println(a.gettxBoeuf());
 			double tx = a.gettxBoeuf()*tauxBoeufReduc;
@@ -127,36 +106,36 @@ public class Simulation {
 			System.out.println(a.gettxBoeuf());
 
 		}
-		System.out.println("alime de pop de base"+population.calculerEmpreinteAlim());
-		System.out.println("alime de pop simule"+popuSimule.calculerEmpreinteAlim());
-
-		System.out.println("impact de pop de base"+population.calculerEmpreinte());
-		double impactApres = popuSimule.calculerEmpreinte();
-		System.out.println("Impact apres la simulation:"+impactApres);
+		
+		double impactApres = population.calculerEmpreinte();
+		System.out.println("Impact apres la simulation: "+impactApres);
 
 		return ((impactAvant-impactApres)/impactAvant)*100;
 	}
-
+	
 	/**
-	 * Cette simulation permet de reduire les depenses de notre population. 
-	 * Elle clone la population passer en parametre pour ensuite recalculer son impact avec des depenses moins importantes.
-	 * @param population notre liste d'utilisateur
-	 * @param tauxReduc le taux en pourcenatge de depense en moins dans notre nouvelle population
-	 * @return le pourcentage de difference entre l'impact de base et celui si on applique la simulation
+	 * Reduire le nombre de personnes utilisant la voiture dans notre population. 
+	 * @param population population a modifier 
+	 * @param tauxPourc taux de personnes qui n'utiliseront plus de voiture
+	 * @return diminution en pourcentage de l'impact 
 	 */
 
-	public static double reducTauxDepense(Population population, double tauxReduc) {
-		Population popuSimule = (Population)population.clone();
-		double impactAvant = popuSimule.calculerEmpreinte();
-
-		for (Utilisateur u : popuSimule.getListPopulation()) {
-			BienConso b = u.getBienConso();
-			double montantReduc = b.getMontant()*tauxReduc;
-			b.setMontant(montantReduc);
-		}
-		double impactApres = popuSimule.calculerEmpreinte();
-		System.out.println("Impact apres la simulation:"+impactApres);
-
+	public static double reducVoit(Population population, double tauxPourc) {
+		double impactAvant = population.calculerEmpreinte();
+		double n = population.getNb()*tauxPourc;
+		int i = 0;
+		for (Utilisateur u : population.getListPopulation()) {
+			if (i<n) {
+				Transport t = u.getTransport();
+				t.setpossede(false);
+				u.setListCons();
+				i++;
+			}
+			else break;
+		} 
+		double impactApres = population.calculerEmpreinte();
+		System.out.println("Impact apres la simulation: "+impactApres);
+		
 		return ((impactAvant-impactApres)/impactAvant)*100;
 	}
 

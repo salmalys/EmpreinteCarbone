@@ -2,7 +2,7 @@ package user;
 import java.util.ArrayList;
 
 /**
- * Classe Population. Elle permet de creer une liste de plusieurs utilisateur 
+ * Population constituee d'utilisateurs 
  */
 
 public class Population implements Cloneable {
@@ -10,26 +10,12 @@ public class Population implements Cloneable {
 	private int nb;
 
 	/**
-	 * Constructeur de la classe Population par defaut qui instancie une ArrayList d'utilisateur 
+	 * Constructeur de la classe Population instancie une liste d'utilisateur vide
 	 */
-
 	public Population() {listPopulation = new ArrayList<Utilisateur>();}
 
 	/**
-	 * Constructeur de la classe population qui a partir d'un tableau d'utilisateur creer une population
-	 * @param pop tableau d'utilisateur de taille indefinie 
-	 */
-
-	public Population(Utilisateur ... pop) {
-		listPopulation = new ArrayList<Utilisateur>();
-		for (Utilisateur u: pop) {
-			listPopulation.add(u);
-			this.nb++;
-		};
-	}
-
-	/**
-	 *  Constructeur de la classe population qui a partir d'une liste d'utilisateur creer une population
+	 *  Constructeur de la classe population a partir d'une liste d'utilisateur creer une population
 	 * @param population liste d'utilisateur 
 	 */
 
@@ -40,51 +26,51 @@ public class Population implements Cloneable {
 			this.nb++;
 		};
 	}
+	
+	/**
+	 * Constructeur de la classe population a partir d'utilisateurs donnes
+	 * @param pop tableau d'utilisateur de taille indefinie 
+	 */
+	public Population(Utilisateur ... pop) {
+		listPopulation = new ArrayList<Utilisateur>();
+		for (Utilisateur u: pop) {
+			listPopulation.add(u);
+			this.nb++;
+		};
+	}
 
 	/**
 	 * Setter d'une population
 	 * @param population liste d'utilisateur 
 	 */
-
 	public void setPopulation(ArrayList<Utilisateur> population) {this.listPopulation = population;}
 
 	/**
 	 * Getter de la population
 	 * @return la liste d'utilisateur correspondant a la population 
 	 */
-
 	public ArrayList<Utilisateur> getListPopulation(){return this.listPopulation;}
-
-	/**
-	 * Setter du nombre d'utilisateur
-	 * @param nb nombre d'utilisateur dans la population
-	 */
-
-	public void setNb(int nb) {this.nb = nb;}
 
 	/**
 	 * Getter du nombre d'utilisateur
 	 * @return le nombre d'utilisateur dans la population
 	 */
-
 	public int getNb() {return nb;}
 
 	/**
-	 * Methode permettant d'ajouter un utilisateur dans la population, incremente nb qui represente le nombre d'utilisateur 
+	 * Methode permettant d'ajouter un utilisateur dans la population et incremente le nombre d'utilisateurs dans la population
 	 * @param user utilisateur a ajouter
 	 */
-
 	public void addUser(Utilisateur user) {
 		listPopulation.add(user);
 		this.nb++;
 	}
 
 	/**
-	 * Methode calculant l'empreinte de toute la population en utilisant la methode faites dans utilisateur
+	 * Calcul l'empreinte totale de toute la population 
 	 * @see Utilisateur#calculerEmpreinte
 	 * @return l'impact total de la population
 	 */
-
 	public double calculerEmpreinte() {
 		double impactTotal = 0;
 		for (Utilisateur u : listPopulation) {
@@ -97,7 +83,6 @@ public class Population implements Cloneable {
 	 * Methode calculant l'empreinte alimentaire de toute la population
 	 * @return l'impact alimentaire de la population
 	 */
-
 	public double calculerEmpreinteAlim() {
 		double impactA = 0;
 		for (Utilisateur u : listPopulation) {
@@ -110,7 +95,6 @@ public class Population implements Cloneable {
 	 * Methode calculant l'empreinte de tous les logements de toute la population
 	 * @return l'impact des logements de la population
 	 */
-
 	public double calculerEmpreinteLog() {
 		double impactL = 0;
 		for (Utilisateur u : listPopulation) {
@@ -123,7 +107,6 @@ public class Population implements Cloneable {
 	 * Methode calculant l'empreinte bien consommateur de toute la population
 	 * @return l'impact bien consommateur de la population
 	 */
-
 	public double calculerEmpreinteBienC() {
 		double impactB = 0;
 		for (Utilisateur u : listPopulation) {
@@ -136,7 +119,6 @@ public class Population implements Cloneable {
 	 * Methode calculant l'empreinte des mails de toute la population
 	 * @return l'impact des mails de la population
 	 */
-
 	public double calculerEmpreinteMail() {
 		double impactM = 0;
 		for (Utilisateur u : listPopulation) {
@@ -149,7 +131,6 @@ public class Population implements Cloneable {
 	 * Methode calculant l'empreinte de tous les transports de toute la population
 	 * @return l'impact transport de la population
 	 */
-
 	public double calculerEmpreinteTrans() {
 		double impactT= 0;
 		for (Utilisateur u : listPopulation) {
@@ -159,9 +140,8 @@ public class Population implements Cloneable {
 	}
 
 	/**
-	 * Methode conseillant la population. Les constantes representent l'impact de chaque poste moyen d'un francais multiplie par le nombre d'utilisateur. Cela nous permet de trouver les valeurs moyenne pour une population du meme nombre de notre population. Si l'empreinte d'un poste de notre population est superieur a celui de la population moyenne alors on renvoit un conseil
+	 * Affiche des suggestions de simulation en comparant l'impact pour chaque poste a celui d'une population moyenne
 	 */
-
 	public void conseilEmpreintePop( ) {
 		double cA = 2.353*this.nb;
 		double cL = 2.706*this.nb;
@@ -180,19 +160,15 @@ public class Population implements Cloneable {
 	/**
 	 * Reecriture de la methode clone de la classe Object pour cloner une population
 	 */
-
 	@Override
 	public Object clone(){
-
 		Population p = new Population();
 		p.nb = this.nb;
 		p.listPopulation = new ArrayList<Utilisateur>();
-		for (Utilisateur u: listPopulation) {
+		
+		for (Utilisateur u: listPopulation) 
 			p.addUser((Utilisateur)u.clone());
-		}
 		return p;
-
-
 	}
 }
 
