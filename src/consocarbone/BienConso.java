@@ -10,8 +10,7 @@ public class BienConso extends ConsoCarbone implements Cloneable {
 	private double montant;
 
 	/**
-	 * Constructeur par defaut qui initialise le montant des depenses a zero
-	 * Recalcul l'impact
+	 * Constructeur par defaut qui initialise le montant des depenses a zero et recalcul l'impact
 	 */
 
 	public BienConso() { 
@@ -20,9 +19,8 @@ public class BienConso extends ConsoCarbone implements Cloneable {
 	}
 
 	/**
-	 * Constructeur de la classe BienConso
-	 * Recalcul l'impact
-	 * @param montant
+	 * Constructeur de la classe BienConso et recalcul l'impact
+	 * @param montant montant des depenses
 	 */
 
 	public BienConso(double montant) {
@@ -31,8 +29,8 @@ public class BienConso extends ConsoCarbone implements Cloneable {
 	}
 
 	/**
-	 * Calcul de l'impact bien consommateur 
-	 * Une tonne de CO2eq est equivalente a 1750e de depenses 
+	 * Calcul de l'impact bien consommateur. 
+	 * Une tonne de CO2eq est equivalente a 1750e de depenses.
 	 * @return l'impact BienConso
 	 */
 
@@ -43,16 +41,15 @@ public class BienConso extends ConsoCarbone implements Cloneable {
 	}
 
 	/**
-	 * getters du montant
+	 * Getters du montant
 	 * @return le montant des depense anuelle
 	 */
 
 	public double getMontant() {return montant;}
 
 	/**
-	 * setter du montant
-	 * recalcul l'impact
-	 * @param montant
+	 * Setter du montant et recalcul l'impact
+	 * @param montant : nouveau montant
 	 */
 
 	public void setMontant(double montant) {
@@ -61,7 +58,7 @@ public class BienConso extends ConsoCarbone implements Cloneable {
 	}
 
 	/**
-	 * affiche l'empreinte carbonne moyenne d'un francais vis a vis de son alimentation
+	 * Affiche l'empreinte carbonne moyenne d'un francais vis a vis de son alimentation
 	 *  @see ConsoCarbone#empCarbMoy()
 	 */
 
@@ -76,15 +73,16 @@ public class BienConso extends ConsoCarbone implements Cloneable {
 
 	/**
 	 * Affiche l'impact BienConso de cet utilisateur
+	 * @return L'impact ecrit a l'ecran
 	 * @see ConsoCarbone#toString()
 	 */
 
 	public String toString() {return "L'impact de vos depenses annuelles est de : " + Math.round(this.impact*100.0)/100.0 + " TCO2eq";}
 
 	/**
-	 * Redefinition de la methode clone pour un bienConso de la classe Objet 
-	 * Copie les attributs du bienconso
-	 * @return le nouvel objet bien conso
+	 * Redefinition de la methode clone pour un bienConso de la classe Objet.
+	 * Copie les attributs du bienconso.
+	 * @return Le nouvel objet bien consommateur.
 	 */
 
 	@Override
