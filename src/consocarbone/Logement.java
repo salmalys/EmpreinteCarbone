@@ -18,9 +18,9 @@ public class Logement extends ConsoCarbone implements Cloneable {
 	}
 
 	/**
-	 * Constructeur de la classe 
-	 * @param s : superficie du logement
-	 * @param ce : Classe energetique de la classe
+	 * Constructeur de la classe Logement
+	 * @param s superficie du logement
+	 * @param ce Classe energetique de la classe
 	 */
 
 	public Logement(int s,CE ce) {
@@ -30,7 +30,7 @@ public class Logement extends ConsoCarbone implements Cloneable {
 	}
 
 	/**
-	 * getter de la superficie
+	 * Getter de la superficie
 	 * @return superficie
 	 */
 
@@ -38,7 +38,7 @@ public class Logement extends ConsoCarbone implements Cloneable {
 
 	/**
 	 * Set la superficie puis rappel la methode pour calculer l'impact avec cette superficie
-	 * @param superficie
+	 * @param superficie nouvelle superficie
 	 */
 
 	public void setSuperficie(int superficie) {
@@ -47,16 +47,15 @@ public class Logement extends ConsoCarbone implements Cloneable {
 	}
 
 	/**
-	 * getter de la classe energetique
-	 * @return la classe energetique
+	 * Getter de la classe energetique
+	 * @return la nouvelle classe energetique
 	 */
 
 	public CE getCe() {return ce;}
 
 	/**
-	 * setter de la classe energetique
-	 * Recalcul l'impact avec cette nouvelle classe energetique
-	 * @param ce
+	 * Setter de la classe energetique puis recalcul l'impact avec cette nouvelle classe energetique
+	 * @param ce Nouvelle classe energetique du poste
 	 */
 
 	public void setCe(CE ce) {
@@ -76,7 +75,7 @@ public class Logement extends ConsoCarbone implements Cloneable {
 	}
 
 	/**
-	 * affiche l'empreinte carbonne moyenne d'un logement d'un francais
+	 * Affiche l'empreinte carbonne moyenne d'un logement d'un francais
 	 * @see ConsoCarbone#empCarbMoy()
 	 */
 
@@ -89,7 +88,7 @@ public class Logement extends ConsoCarbone implements Cloneable {
 	}
 
 	/**
-	 * affiche l'impact du logement de cet utilisateur
+	 * Affiche l'impact du logement de cet utilisateur
 	 * @see ConsoCarbone#toString()
 	 */
 
