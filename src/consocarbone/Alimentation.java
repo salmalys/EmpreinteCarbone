@@ -14,8 +14,6 @@ public class Alimentation extends ConsoCarbone implements Cloneable{
 
 	/**
 	 * Constructeur par defaut de la classe
-	 * @param tB initialise a 0
-	 * @param tV initialise a 0
 	 */
 
 	public Alimentation() {
@@ -26,8 +24,8 @@ public class Alimentation extends ConsoCarbone implements Cloneable{
 
 	/**
 	 * Constructeur de la classe
-	 * @param tB : taux de boeuf
-	 * @param tV : taux vegetarien
+	 * @param tB taux de boeuf
+	 * @param tV taux vegetarien
 	 */
 
 	public Alimentation (double tB, double tV) {
@@ -46,6 +44,7 @@ public class Alimentation extends ConsoCarbone implements Cloneable{
 	/**
 	 * Setter du taux de boeuf
 	 * Apres avoir mis à jour le taux de boeuf, on recalcul l'impact alimentaire
+	 * @param txBoeuf parametre a setter
 	 */
 
 	public void settxBoeuf(double txBoeuf) {

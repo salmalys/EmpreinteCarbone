@@ -55,7 +55,7 @@ public abstract class ConsoCarbone implements Comparable<ConsoCarbone> {
 
 	/**
 	 * compare le poste avec le poste A
-	 * @param poste A
+	 * @param c poste A
 	 * @return 0 si l'impact est le meme, 1 si l'impact du poste est strictement superieur a celui du poste A et -1 sinon
 	 */
 

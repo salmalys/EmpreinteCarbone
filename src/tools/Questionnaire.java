@@ -13,51 +13,51 @@ public class Questionnaire {
 	static final String[] NOM_POSTE = {"Logement", "Alimentation", "BienConso","Mail","Transport"};
 
 	/**
-	 * Question sur le poste logement
+	 * Questions sur le poste logement
 	 */
 
 	static final String[] QST_LOGEMENT = {"Combien de logement avez vous ?","Quelle est la superficie de votre appartement en m^2?","Quelle est la classe energetique ?"};
 
 	/**
-	 *  Question sur le poste alimentaire
+	 *  Questions sur le poste alimentaire
 	 */
 
 	static final String[] QST_ALIMENTATION = {"Quel est votre taux de repas a base de boeuf ?", "Quel est votre taux de repas vegetariens ?"};
 
 	/**
-	 *  Question sur le poste bien consommateur
+	 *  Questions sur le poste bien consommateur
 	 */
 
 	static final String[] QST_BIENCONSO = {"Quel est le montant de vos depenses annuelles en euros ?"};
 
 	/**
-	 *  Question sur le poste de mail
+	 *  Questions sur le poste de mail
 	 */
 
 	static final String[] QST_MAIL = {"Combien avez vous de mail envoyes depuis un an?", "Combien avez vous de mails recus depuis un an?"};
 
 	/**
-	 *  Question sur le poste transport
+	 *  Questions sur le poste transport
 	 */
 
 	static final String[] QST_TRANSPORT = {"Combien de voiture avez vous ?","Quelle est la taille de votre voiture?","Quel est vos nombre de kilometre a l'annee ?","Quelle est la duree de conservation de votre vehicule ?"};
 
 	/**
-	 * Tableau comprenant toutes les questions
+	 * Tableau comprenant toutes les questions de tous les postes
 	 */
 
 	static final String[][] QUESTION = {QST_LOGEMENT, QST_ALIMENTATION, QST_BIENCONSO,QST_MAIL, QST_TRANSPORT};
 
 	/**
-	 * Nombre de questions pour chaque poste
+	 * Nombre d'attributs pour chaque poste
 	 */
 
 	static final int[] nbAtt = {2,2,1,2,3};
 
 	/**
-	 * Methode permettant  ???????????
-	 * @param sc : reponse insctire sur la console par l'utilisateur
-	 * @return la liste des postes
+	 * Boucle sur chaque poste et alimente la liste des postes de consommation a partir des reponses renvoyees
+	 * @param sc 
+	 * @return la liste des postes de consommation
 	 */
 
 	public static ArrayList<ConsoCarbone> commencer(Scanner sc) {
@@ -75,7 +75,7 @@ public class Questionnaire {
 	}
 
 	/**
-	 * Methode permettant de poser les bonnes quesitons en fonction du poste le nombre de fois ou c'est utile, puis ensuite permet de recuperer les valeurs ecrites par l'urtilisateur
+	 * Methode permettant de poser les bonnes questions en fonction du poste le nombre de fois ou c'est utile, puis ensuite permet de recuperer les valeurs ecrites par l'urtilisateur
 	 * pour les rentrer dans un tableau line, qui nous sert pour stocker les valeurs
 	 * @param sc
 	 * @param nomPoste pour lequel on a besoin de reponse

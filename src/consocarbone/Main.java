@@ -32,7 +32,8 @@ public class Main {
 			case 2:{
 				ArrayList<ConsoCarbone> listPostes = Questionnaire.commencer(sc);
 				Utilisateur u = new Utilisateur(listPostes);
-				System.out.println("Voici le detail de votre empreinte carbone:");
+				System.out.println("Voici le detail de votre empreinte carbone dans l'ordre croissant:");
+				u.ordonne();
 				u.detaillerEmpreinte();
 				u.conseilEmpreinte();
 				break;
