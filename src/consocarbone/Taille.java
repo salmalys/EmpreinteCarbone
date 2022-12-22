@@ -4,20 +4,27 @@ package consocarbone;
  * Enumeration Taille, qui a deux attributs P et G correspondant a une petite et grande voiture
  */
 public enum Taille {
-    P(4.2),G(19);
+	/**
+	 * Taille d'une petite voiture avec une production de 4.2tCO2
+	 */
+    P(4.2),
+    /**
+     * Taille d'une grande voiture ayant une production de 19tCO2
+     */
+    G(19);
 	
 	private double consVoit;
 	
 	/**
 	 * Set la consommation de la voiture
-	 * @param consVoit
+	 * @param consVoit consommation de la voiture de l'utilisateur
 	 */
 	
 	Taille(double consVoit){this.consVoit = consVoit;}
 	
 	/**
 	 * Getter de la consommation de la voiture
-	 * @return la consommation de la voiture de l'utilisateur
+	 * @return La consommation de la voiture de l'utilisateur
 	 */
 	
 	public double getConsVoit() {return consVoit;}
