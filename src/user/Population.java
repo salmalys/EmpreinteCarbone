@@ -150,11 +150,11 @@ public class Population implements Cloneable {
 		double cT = 2.920*this.nb;
 
 
-		if (this.calculerEmpreinteAlim()> cA) System.out.println("Nous vous conseillions d'essayer la simulation qui reduit les taux de repas aux boeufs, pour reduire l'impact alimentaite");
-		if (this.calculerEmpreinteBienC() > cB) System.out.println("Nous vous conseillions d'essayer la simulation qui diminue le montant des depenses de votre population");
-		if(this.calculerEmpreinteMail() > cM) System.out.println("Nous vous conseillions d'essayer la simulation qui simule la suppression de mail");
-		if (this.calculerEmpreinteLog()> cL) System.out.println("Nous vous conseillions d'essayer la simulation qui baisse d'une classe, la classe energetique pour chaque logement de vos utilisateur");
-		if (this.calculerEmpreinteTrans() > cT) System.out.println("Nous vous conseillions d'essayer la simulation qui fait baisser le nombre de voiture de certain de vos utilisateur");
+		if (this.calculerEmpreinteAlim()> cA) System.out.println("Poste Alimentation:\nNous vous conseillions d'essayer la simulation qui reduit les taux de repas aux boeufs, pour reduire l'impact alimentaite");
+		if (this.calculerEmpreinteBienC() > cB) System.out.println("Poste BienConso:\nNous vous conseillions d'essayer la simulation qui diminue le montant des depenses de votre population");
+		if(this.calculerEmpreinteMail() > cM) System.out.println("Poste Mail:\nEssayez la simulation qui supprime un nombre de mails pour chacun de vos utilisateurs");
+		if (this.calculerEmpreinteLog()> cL) System.out.println("Poste Logement:\nEssayez la simulation qui baisse d'un niveau la classe energetique pour tous les logements de la population");
+		if (this.calculerEmpreinteTrans() > cT) System.out.println("Poste Transport:\nEssayez la simulation qui diminue le nombre de personnes utilisant la voiture.");
 	}
 
 	/**

@@ -260,13 +260,13 @@ public class Utilisateur implements Cloneable{
 		double cM = 2.5;
 		double cT = 2.920;
 		System.out.println("\nNous avons compare votre empreinte carbonne a celle d'un francais moyen");
-		System.out.println("Voici quelques recommendations pour les postes  de consommation pour lesquels votre empreinte est superieur a celle d'un francais moyen.\n");
+		System.out.println("Voici quelques recommendations pour les postes  de consommation pour lesquels votre empreinte est superieur a la moyennne\n");
 
-		if (this.alimentation.getImpact()>cA) System.out.println("Poste Alimentation:\nNous vous conseillions de reduire votre impact alimentaire, vous pouvez par exemple reduire vos repas a base de boeuf\n");
-		if (this.bienConso.getImpact()>cB) System.out.println("Poste BienConso:\nNous vous conseillions de reduire votre impact de bien consommateur, par exemple en essayant de moins depenser dans la consommation rapide\n");
-		if(this.mail.getImpact()>cM) System.out.println("Poste Mail:\nNous vous conseillions de supprimer vos mails\n");
-		if (this.logement.getImpact()>cL) System.out.println("Poste Logement:\nNous vous conseillions de reduire votre impact de logement, par exemple en essaynt de faire baisser la classe ernegetique de votre logement\n"); 
-		if (this.transport.getImpact()>cT) System.out.println("Poste Transport:\nNous vous conseillions de reduire votre impact de transport, par exemple en utilisant un velo\n");
+		if (this.alimentation.getImpact()>cA) System.out.println("Poste Alimentation:\nReduisez votre impact alimentaire, vous pouvez par exemple diminuer vos repas a base de boeuf\n");
+		if (this.bienConso.getImpact()>cB) System.out.println("Poste BienConso:\nReduisez votre impact des biens depenses, par exemple en essayant de moins depenser dans la consommation rapide\n");
+		if(this.mail.getImpact()>cM) System.out.println("Poste Mail:\nReduisez l'impact de vos mails, nous vous conseillions de supprimer vos mails stockes inutiles\n");
+		if (this.logement.getImpact()>cL) System.out.println("Poste Logement:\nReduisez l'impact de vos logements, par exemple investissez en isolation pour baisser la classe ernegetique de votre(vos) logement(s)\n"); 
+		if (this.transport.getImpact()>cT) System.out.println("Poste Transport:\nReduisez l'impact de vos vehicules, par exemple en utilisant d'autres moyens de transport comme le velo\n");
 	}
 
 	/**

@@ -24,7 +24,7 @@ public class Simulation {
 			b.setMontant(montantReduc);
 		}
 		double impactApres = population.calculerEmpreinte();
-		System.out.println("Impact apres la simulation: "+impactApres);
+		System.out.println("Impact apres la simulation: "+impactApres+" TCO2/an\n");
 
 		return ((impactAvant-impactApres)/impactAvant)*100;
 	}
@@ -55,7 +55,7 @@ public class Simulation {
 		}
 
 		double impactApres = population.calculerEmpreinte();
-		System.out.println("Impact apres la simulation: "+impactApres);
+		System.out.println("Impact apres la simulation: "+impactApres+" TCO2/an\n");
 		return ((impactAvant-impactApres)/impactAvant)*100;
 	}
 
@@ -82,7 +82,7 @@ public class Simulation {
 		}
 
 		double impactApres = population.calculerEmpreinte();
-		System.out.println("Impact apres la simulation: "+impactApres);
+		System.out.println("Impact apres la simulation: "+impactApres+" TCO2/an\n");
 
 		return ((impactAvant-impactApres)/impactAvant)*100;
 	}
@@ -100,15 +100,12 @@ public class Simulation {
 
 		for (Utilisateur u : population.getListPopulation()) {
 			Alimentation a = u.getAlimentation();
-			System.out.println(a.gettxBoeuf());
 			double tx = a.gettxBoeuf()*tauxBoeufReduc;
 			a.settxBoeuf(tx);
-			System.out.println(a.gettxBoeuf());
-
 		}
 		
 		double impactApres = population.calculerEmpreinte();
-		System.out.println("Impact apres la simulation: "+impactApres);
+		System.out.println("Impact apres la simulation: "+impactApres+" TCO2/an");
 
 		return ((impactAvant-impactApres)/impactAvant)*100;
 	}
@@ -134,7 +131,7 @@ public class Simulation {
 			else break;
 		} 
 		double impactApres = population.calculerEmpreinte();
-		System.out.println("Impact apres la simulation: "+impactApres);
+		System.out.println("Impact apres la simulation: "+impactApres+" TCO2/an\n");
 		
 		return ((impactAvant-impactApres)/impactAvant)*100;
 	}
