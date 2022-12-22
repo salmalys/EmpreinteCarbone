@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Utilisateur defini par ses postes de consommation
+ * un utilisateur est defini par ses postes de consommation
  */
 
 public class Utilisateur implements Cloneable{

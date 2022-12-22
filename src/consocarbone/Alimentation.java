@@ -1,7 +1,7 @@
 package consocarbone;
 
 /**
- * Poste Alimentation 
+ * poste de consommation alimentaire 
  */
 
 public class Alimentation extends ConsoCarbone implements Cloneable{

@@ -3,7 +3,7 @@ import consocarbone.*;
 import java.util.ArrayList;
 
 /**
- * Cette classe comporte seulement des methodes statiques qui correspondent chacune a une simulation.
+ * simulation de mesures politiques sur une population donnee 
  */
 
 public class Simulation {

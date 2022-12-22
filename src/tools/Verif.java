@@ -2,7 +2,7 @@ package tools;
 import java.util.Arrays;
 
 /**
- * Classe contenant les methodes pour verifier que chaque arguments des postes de consommmation sont appropries
+ * verifie la validite des donnees saisies dans le fichier 
  */
 
 public class Verif {
@@ -23,7 +23,7 @@ public class Verif {
 	}
 
 	/**
-	 * Verifie si str est une bien dans l'une des deux tailles
+	 * Verifie si str est bien l'une des deux tailles
 	 * @param str String a verifier
 	 * @return boolean pour savoir si le test est reussi ou non
 	 */
@@ -58,8 +58,7 @@ public class Verif {
 	}
 
 	/**
-	 * Verifie si str est un taux, donc inclut entre 0 et 1
-	 * @throws NumberFormatException les valeurs de type autre que double
+	 * Verifie si str est un taux i.e: compris entre 0 et 1
 	 * @param str String a verifier
 	 * @return boolean pour savoir si le test est reussi ou non
 	 */

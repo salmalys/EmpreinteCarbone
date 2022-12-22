@@ -1,7 +1,7 @@
 package consocarbone;
 
 /**
- * Poste Mail
+ * poste de consommation d'une boite mail 
  */
 
 public class Mail extends ConsoCarbone {

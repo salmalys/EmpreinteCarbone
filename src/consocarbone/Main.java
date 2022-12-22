@@ -5,8 +5,7 @@ import user.*;
 import java.util.ArrayList;
 
 /**
- * Classe principale
- *
+ * Classe principale : Menu interactif et appels des methodes sur la Population ou l'Utilisateur 
  */
 public class Main {
 

@@ -1,7 +1,7 @@
 package consocarbone;
 
 /** 
- * Un BienConso est un poste de consommation qui s'interesse aux depenses du consommateur
+ * poste de consommation des depenses annuelles en biens consommateurs
  * */
 
 

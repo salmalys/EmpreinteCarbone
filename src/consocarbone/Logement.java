@@ -1,7 +1,7 @@
 package consocarbone;
 
 /**
- * Un logement est un poste de consommation qui s'interesse a l'impact de leurs logement en fonction de leur classe energetique et de leur superficie
+ * poste de consommation concernant un logement
  */
 
 public class Logement extends ConsoCarbone implements Cloneable {

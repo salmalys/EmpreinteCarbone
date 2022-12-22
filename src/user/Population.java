@@ -2,7 +2,7 @@ package user;
 import java.util.ArrayList;
 
 /**
- * Population constituee d'utilisateurs 
+ * Ensemble d'utilisateurs 
  */
 
 public class Population implements Cloneable {

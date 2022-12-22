@@ -1,7 +1,7 @@
 package consocarbone;
 
 /**
- * Classe qui correspond au poste de transport, qui a pour attribut possede, taille, le nombre de killometre par an et son ammortissement
+ * poste de consommation carbone induit par la possesion d'une voiture 
  */
 
 public class Transport extends ConsoCarbone {

@@ -5,7 +5,7 @@ import consocarbone.*;
 import java.util.ArrayList;
 
 /**
- * Classe permettant de poser les bonnes questions et recuperer les reponses d'un utilisateur.
+ * gere l'affichage des questions sur la console et alimente la liste des postes a partir des reponses
  *
  */
 
@@ -50,13 +50,11 @@ public class Questionnaire {
 	/**
 	 * Tableau comprenant toutes les questions
 	 */
-
 	static final String[][] QUESTION = {QST_LOGEMENT, QST_ALIMENTATION, QST_BIENCONSO,QST_MAIL, QST_TRANSPORT};
 
 	/**
 	 * Nombre de questions pour chaque poste
 	 */
-
 	static final int[] nbAtt = {2,2,1,2,3};
 
 	/**

@@ -1,10 +1,7 @@
 package consocarbone;
 
 /**
- * Classe service publics : poste de consommation carbone induit par les services publics.
- * Tous les francais ont la meme empreinte pour ce poste.
- * Il a donc un design patttern singleton
- *
+ * poste de consommation induit par les services publics (identique pour tous les utilisateurs)
  */
 
 public final class ServicesPublics extends ConsoCarbone {

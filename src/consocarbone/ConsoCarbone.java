@@ -1,7 +1,7 @@
 package consocarbone;
 
 /** 
- * Classe consoCarbonne qui implement l'interface Comparable
+ * poste de consommation carbone generique 
  */
 
 public abstract class ConsoCarbone implements Comparable<ConsoCarbone> {

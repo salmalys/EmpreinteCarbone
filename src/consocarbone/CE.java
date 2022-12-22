@@ -1,7 +1,7 @@
 package consocarbone;
 
 /**
- * Enumeration CE composee de sept instances nomees {A,B,C,D,E,F,G} qui representent les differentes classes energetiques
+ * Enumeration CE composee de 7 instances {A,B,C,D,E,F,G} representant les differentes classes energetiques
  *
  */
 

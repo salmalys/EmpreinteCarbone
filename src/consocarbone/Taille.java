@@ -1,7 +1,7 @@
 package consocarbone;
 
 /**
- * Enumeration Taille, qui a deux attributs P et G correspondant a une petite et grande voiture
+ * Enumeration Taille composee de 2 instances {P,G} representant une petite ou grande voiture
  */
 public enum Taille {
 	/**

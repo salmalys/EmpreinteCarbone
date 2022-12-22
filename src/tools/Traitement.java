@@ -19,15 +19,15 @@ import user.Population;
 import user.Utilisateur;
 
 /**
- * Methodes statiques qui traite les donnees des fichiers et instancie les utilisateurs ainsi que la population apartir des donnees
+ * lit des donnees des fichiers et instancie les postes, les utilisateurs ainsi que la population a partir de celles ci
  */
 
 public class Traitement {
 
 	/**
 	 * Ajout des utilisateurs pour creer la population a partir de la lecture de fichiers
-	 * @param filenames tableau comprenant des noms de fichiers
-	 * @return la population cree
+	 * @param filenames tableau contenant le nom des fichiers
+	 * @return population contenant des utilisateurs crees pour chaque fichier 
 	 */
 
 	public static Population readPop(String... filenames) {
@@ -40,10 +40,9 @@ public class Traitement {
 	}
 
 	/**
-	 * Permet d'ouvrir les fichiers donnes en arguments en ligne de commande, puis le lit ligne par ligne, et les traites une par une. 
-	 * @throws IllegalArgumentException les exceptions concernant l'ouverture des fichiers et les mauvais nom de fichiers
-	 * @param filename donne en argument en liste de commande
-	 * @return Si le fichier est ecrit correctement, retourne un utilisateur associe a sa liste de poste instancie a la fin de cette fonction
+	 * Lit le fichier donne et ajoute un poste a la liste des postes pour chaque ligne 
+	 * @param filename nom du fichier a lire
+	 * @return utilisateur cree a partir de la liste des postes alimentee par le fichier 
 	 */
 
 	public static Utilisateur readUser(String filename){
@@ -86,11 +85,10 @@ public class Traitement {
 	}
 
 	/**
-	 * Traite une ligne donnee en parametre. En fonction du nom du poste, on verifie que les arguments sont coherent avec le poste, si c'est le cas, on instancie le poste
-	 * @throws IllegalArgumentException leve une exception car si on a un argument inaproprie
-	 * @throws IllegalArgumentException Si le nom du poste n'est pas reconnu on renvoie une erreur
-	 * @param line la ligne a analyser
-	 * @param listPostes ajoute un poste bien instancier a cette liste
+	 * Traite une ligne et instancie le poste associe a cette ligne
+	 * @throws IllegalArgumentException leve une exception car si une donnee n'est pas correcte ou si le nom de poste n'est pas reconnu
+	 * @param line ligne a traiter  
+	 * @param listPostes liste a laquelle on ajoute le poste 
 	 */
 
 	public static void readConso(String[] line, ArrayList<ConsoCarbone> listPostes) throws IllegalArgumentException {
