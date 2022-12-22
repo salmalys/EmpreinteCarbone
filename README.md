@@ -4,6 +4,9 @@ Le but de ce projet est de réaliser un calculateur d’empreinte carbone. Ce ty
 Pour pouvoir executer le programme, il faut recuperer le jar dans le dossier target, ainsi que les fichiers texte user puis lancer la commande: 
 java -jar EmpreinteCarboneLahrachPicard.jar
 
+Le projet est livré sous forme d'une archive zip EmpreinteCarboneProjet.zip qui contient les sources, un jar executable et les fichiers user. 
+Vous pouvez l'importer directement sous Eclipse via l'onglet import Existing Projects into Workspace
+
 version JavaSE-17 est nécessaire 
  
 Nous avons développé notre projet sur l'IDE Eclipse et utilisé gitHub
