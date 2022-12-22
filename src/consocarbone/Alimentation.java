@@ -70,7 +70,7 @@ public class Alimentation extends ConsoCarbone implements Cloneable{
 	}
 
 	/**
-	 * Affiche l'empreinte carbonne moyenne alimenatire d'un francais
+	 * Affiche l'empreinte carbonne moyenne alimentaire d'un francais
 	 * @see ConsoCarbone#empCarbMoy()
 	 */ 
 	public static void empCarbMoy() {
