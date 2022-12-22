@@ -42,7 +42,7 @@ public class Utilisateur implements Cloneable{
 
 	/**
 	 * Constructeur de la classe Utilisateur qui instancie chaque poste 
-	 * @param postes : liste des postes de l'utilisateur que l'on veut instancier
+	 * @param postes liste des postes de l'utilisateur que l'on veut instancier
 	 */
 
 
@@ -73,7 +73,7 @@ public class Utilisateur implements Cloneable{
 
 	/**
 	 * Setter de l'objet alimentation
-	 * @param alimentation
+	 * @param alimentation objet alimentation
 	 */
 
 	public void setAlimentation(Alimentation alimentation) {this.alimentation = alimentation;}
@@ -87,7 +87,7 @@ public class Utilisateur implements Cloneable{
 
 	/**
 	 * Setter du bien consommateur
-	 * @param bienConso
+	 * @param bienConso objet bien conso
 	 */
 
 	public void setBienConso(BienConso bienConso) {this.bienConso = bienConso;}
@@ -101,35 +101,35 @@ public class Utilisateur implements Cloneable{
 
 	/**
 	 * Setter de l'objet mail de cet utilisateur
-	 * @param mails
+	 * @param mails objet mail
 	 */
 
 	public void setMail(Mail mails) {this.mail= mails;}
 
 	/**
 	 * Getter de la liste de logement de cet utilisateur
-	 * @return logement
+	 * @return logement objet logement
 	 */
 
 	public ArrayList<Logement> getLogements() {return logements;}
 
 	/**
 	 * Setter de la liste des logements de l'utilisateur
-	 * @param logements
+	 * @param logements nouveau logement initialise
 	 */
 
 	public void setLogements(ArrayList<Logement> logements) {this.logements = logements;}
 
 	/**
 	 * Getter de la liste de transport
-	 * @return transport
+	 * @return transport 
 	 */
 
 	public ArrayList<Transport> getTransports() {return transports;}
 
 	/**
 	 * Setter de la liste des transports de l'utilisateur
-	 * @param transports
+	 * @param transports objet transport
 	 */
 
 	public void setTransport(ArrayList<Transport> transports) {this.transports = transports;}
@@ -143,7 +143,7 @@ public class Utilisateur implements Cloneable{
 
 	/**
 	 * Setter des services publics
-	 * @param services
+	 * @param services objet services
 	 */
 
 	public void setServices(ServicesPublics services) {this.services = services;}
@@ -158,6 +158,7 @@ public class Utilisateur implements Cloneable{
 	/**
 	 * Setter de l'objet logement qui somme les impacts de tous les logements de cet utilisateur.
 	 */
+	
 	public void setLogement() {
 		logement = new Logement();
 		double impactLog = 0;
@@ -171,7 +172,7 @@ public class Utilisateur implements Cloneable{
 
 	/**
 	 * Getter de l'objet transport
-	 * @return
+	 * @return l'objet transport
 	 */
 
 	public Transport getTransport() {return transport;}
@@ -191,7 +192,7 @@ public class Utilisateur implements Cloneable{
 
 	/**
 	 * Methode retournant la liste des postes de l'utilisateur 
-	 * @return
+	 * @return la liste de sonsocarbone
 	 */
 	public List<ConsoCarbone> getListCons() {return listCons;}
 
@@ -211,7 +212,7 @@ public class Utilisateur implements Cloneable{
 
 	/**
 	 * La methode ordonne trie tous les impacts de l'utilisateur par ordre croissant 
-	 * @return
+	 * @return la liste des consocarbonne trie dans un ordre croissant
 	 */
 
 	public ArrayList<ConsoCarbone> ordonne(){
@@ -270,7 +271,6 @@ public class Utilisateur implements Cloneable{
 	/**
 	 * Reecriture de la methode clone de la classe Object. 
 	 * On veut clone un utilisateur, on clone donc chaque poste de consommation, en appellant les methodes clone de chaque poste
-	 * @throws InternnalError()
 	 */
 
 	@Override
@@ -292,9 +292,6 @@ public class Utilisateur implements Cloneable{
 		catch (CloneNotSupportedException e){
 			throw new InternalError();
 		}
-
-
-
 	}
 
 }
