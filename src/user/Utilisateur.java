@@ -259,7 +259,7 @@ public class Utilisateur implements Cloneable{
 		double cM = 2.5;
 		double cT = 2.920;
 		System.out.println("\nNous avons compare votre empreinte carbonne a celle d'un francais moyen");
-		System.out.println("Voici quelques recommendations pour chaque poste de consommation.\n");
+		System.out.println("Voici quelques recommendations pour les postes  de consommation pour lesquels votre empreinte est superieur a celle d'un francais moyen.\n");
 
 		if (this.alimentation.getImpact()>cA) System.out.println("Poste Alimentation:\nNous vous conseillions de reduire votre impact alimentaire, vous pouvez par exemple reduire vos repas a base de boeuf\n");
 		if (this.bienConso.getImpact()>cB) System.out.println("Poste BienConso:\nNous vous conseillions de reduire votre impact de bien consommateur, par exemple en essayant de moins depenser dans la consommation rapide\n");
