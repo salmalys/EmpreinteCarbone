@@ -4,11 +4,16 @@ import java.util.Scanner;
 import user.*;
 import java.util.ArrayList;
 
+/**
+ * Classe Main qui prend en compte les differents choix de l'utilisateur et qui donne le detail de l'empreinte carbone et des recommendations pour l'utilisateur 
+ *
+ */
+
 public class Main {
 
 	/**
 	 * Methode main qui en fonction du choix de l'utilisateur, detaille l'empreinte carbone puis conseil l'utilisateur et propose de tester des simulations pour aider a reduire l'impact carbone
-	 * @param args
+	 * @param args ligne de commande, soit rien, soit le noms des fichiers
 	 */
 
 	public static void main(String[] args) {
@@ -32,8 +37,7 @@ public class Main {
 			case 2:{
 				ArrayList<ConsoCarbone> listPostes = Questionnaire.commencer(sc);
 				Utilisateur u = new Utilisateur(listPostes);
-				System.out.println("Voici le detail de votre empreinte carbone dans l'ordre croissant:");
-				u.ordonne();
+				System.out.println("Voici le detail de votre empreinte carbone:");
 				u.detaillerEmpreinte();
 				u.conseilEmpreinte();
 				break;
@@ -55,7 +59,7 @@ public class Main {
 	/**
 	 * Methode permettant de donner le choix a l'utilisateur entre calculer l'empreintre carbone d'une population grace a des fichiers, ou grace a un questionnaire
 	 * @param sc : Reponse de l'utilisateur en ligne de commande
-	 * @return le choix de l'utilisateur
+	 * @return le choix de l'utilisateur entre calculer l'empreintre d'une population a partir d'un fichier ou d'un questionnaire
 	 */
 
 	public static int showMenu(Scanner sc) {
@@ -72,9 +76,9 @@ public class Main {
 	}
 
 	/**
-	 * Methode permettanr d'afficher les choix de simulation a l'utilisateur, puis recupere le choix de l'utilisateur
-	 * @param sc 
-	 * @return le choix de la simulation a tester
+	 * Methode permettant d'afficher les choix de simulation a l'utilisateur, puis recupere le choix de l'utilisateur
+	 * @param sc ecrit sur la console
+	 * @return Le choix de la simulation a tester
 	 */
 
 	public static int showMenuSimulation(Scanner sc) {
@@ -94,9 +98,9 @@ public class Main {
 
 	/**
 	 * Methode permettant de lancer la simulation choisi par l'utilisateur et de savoir l'effet de celle ci sur l'impact 
-	 * @param p : la population sur laquelle on va appliquer la simulation
-	 * @param optionSimul : choix de la simulation par l'utilisateur
-	 * @param sc
+	 * @param p la population sur laquelle on va appliquer la simulation
+	 * @param optionSimul Le choix de la simulation par l'utilisateur
+	 * @param sc ecrit sur la console
 	 */
 
 	public static void testSimul(Population p, int optionSimul, Scanner sc) {
