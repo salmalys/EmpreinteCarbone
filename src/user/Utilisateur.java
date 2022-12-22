@@ -42,20 +42,7 @@ public class Utilisateur implements Cloneable{
 	/**
 	 * Constructeur par defaut
 	 */
-	public Utilisateur() {
-		this.alimentation = null;
-		this.bienConso = null;
-		this.transport = null;
-		this.logement = null;
-		this.mail = null;
-		this.services = null;
-
-		this.logements = null;
-		this.transports = null;
-
-		this.listCons = null;
-
-	}
+	public Utilisateur() {}
 
 	/**
 	 * Constructeur de la classe Utilisateur a partir d'une liste de postes 

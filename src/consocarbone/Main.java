@@ -71,7 +71,7 @@ public class Main {
 	 */
 
 	public static int showMenu(Scanner sc) {
-		System.out.println("Choisissez une des options: (Entrez 1 ou 2)");
+		System.out.println("Choisissez une des options: (Entrez un nombre entre 1 et 3)");
 		System.out.println("Choix 1: Calculer l'empreinte carbonne d'une population");
 		System.out.println("Choix 2: Repondre a un questionnaire pour calculer sa propre empreinte");
 		System.out.println("Choix 3: Quitter");
