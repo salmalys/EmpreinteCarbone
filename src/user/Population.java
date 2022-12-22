@@ -17,7 +17,7 @@ public class Population implements Cloneable {
 
 	/**
 	 * Constructeur de la classe population qui a partir d'un tableau d'utilisateur creer une population
-	 * @param pop : tableau d'utilisateur de taille indefinie 
+	 * @param pop tableau d'utilisateur de taille indefinie 
 	 */
 
 	public Population(Utilisateur ... pop) {
@@ -30,7 +30,7 @@ public class Population implements Cloneable {
 
 	/**
 	 *  Constructeur de la classe population qui a partir d'une liste d'utilisateur creer une population
-	 * @param population : liste d'utilisateur 
+	 * @param population liste d'utilisateur 
 	 */
 
 	public Population(ArrayList<Utilisateur> population) {
@@ -43,13 +43,13 @@ public class Population implements Cloneable {
 
 	/**
 	 * Setter d'une population
-	 * @param population : liste d'utilisateur 
+	 * @param population liste d'utilisateur 
 	 */
 
 	public void setPopulation(ArrayList<Utilisateur> population) {this.listPopulation = population;}
 
 	/**
-	 * getter de la population
+	 * Getter de la population
 	 * @return la liste d'utilisateur correspondant a la population 
 	 */
 
@@ -57,7 +57,7 @@ public class Population implements Cloneable {
 
 	/**
 	 * Setter du nombre d'utilisateur
-	 * @param nb : nombre d'utilisateur dans la population
+	 * @param nb nombre d'utilisateur dans la population
 	 */
 
 	public void setNb(int nb) {this.nb = nb;}
@@ -71,7 +71,7 @@ public class Population implements Cloneable {
 
 	/**
 	 * Methode permettant d'ajouter un utilisateur dans la population, incremente nb qui represente le nombre d'utilisateur 
-	 * @param user : utilisateur a ajouter
+	 * @param user utilisateur a ajouter
 	 */
 
 	public void addUser(Utilisateur user) {
@@ -159,9 +159,7 @@ public class Population implements Cloneable {
 	}
 
 	/**
-	 * Methode conseillant la population
-	 * Les constantes representent l'impact de chaque poste moyen d'un francais multiplie par le nombre d'utilisateur. Cela nous permet de trouver les valeurs moyenne pour une population du meme nombre de notre population
-	 * Si l'empreinte d'un poste de notre population est superieur a celui de la population moyenne alors on renvoit un conseil
+	 * Methode conseillant la population. Les constantes representent l'impact de chaque poste moyen d'un francais multiplie par le nombre d'utilisateur. Cela nous permet de trouver les valeurs moyenne pour une population du meme nombre de notre population. Si l'empreinte d'un poste de notre population est superieur a celui de la population moyenne alors on renvoit un conseil
 	 */
 
 	public void conseilEmpreintePop( ) {
@@ -196,8 +194,5 @@ public class Population implements Cloneable {
 
 
 	}
-
-
-
 }
 
