@@ -1,149 +1,114 @@
 package consocarbone;
-import tools.*;
-import java.util.Scanner;
-import user.*;
-import java.util.ArrayList;
 
 /**
- * Classe Main qui prend en compte les differents choix de l'utilisateur et qui donne le detail de l'empreinte carbone et des recommendations pour l'utilisateur 
+ * La classe mail represente un poste qui calcul l'impact en fonction du nombre de mail envoyes et du nombre de mail stocke
  *
  */
 
-public class Main {
+public class Mail extends ConsoCarbone {
+	private int nbMailEnv;
+	private int nbMailStock;
+	private final double c1 = 0.000004;
+	private final double c2 = 0.00001;
 
 	/**
-	 * Methode main qui en fonction du choix de l'utilisateur, detaille l'empreinte carbone puis conseil l'utilisateur et propose de tester des simulations pour aider a reduire l'impact carbone
-	 * @param args ligne de commande, soit rien, soit le noms des fichiers
+	 * Constructeur par defaut de la classe Mail
 	 */
 
-	public static void main(String[] args) {
-		int option;
-		Scanner sc = new Scanner(System.in);
-		do {
-			option = showMenu(sc);
-			switch(option) {
-			case 1:{
-				System.out.println("\nChaque fichier doit contenir les informations d'un utilisateur");
-				System.out.println("Format Chaque ligne doit correspondre a un poste de consommation\nexemple: NomPoste;nbPoste;att1;att2\\n");
-				System.out.println("Entrez la liste des fichiers (separees par des espaces):");
-				String f = sc.nextLine();
-				String[] filenames = f.split(" ");
-				Population p = Traitement.readPop(filenames);
-				System.out.println("\nEmpreinte carbonne totale de la population: "+p.calculerEmpreinte()+"TCO2/an\n");
-				p.conseilEmpreintePop();
-				testSimul(p,showMenuSimulation(sc),sc);
-				break;
-			}
-			case 2:{
-				ArrayList<ConsoCarbone> listPostes = Questionnaire.commencer(sc);
-				Utilisateur u = new Utilisateur(listPostes);
-				System.out.println("Voici le detail de votre empreinte carbone:");
-				u.detaillerEmpreinte();
-				u.conseilEmpreinte();
-				break;
-			}
-			case 3:
-				System.out.println("Fin");
-				System.exit(0);
-				break;
-			default:
-				option = -1;
-				System.out.println("Entrez une valeur valide");
-			}
-		}while(option == -1);
-		System.out.println("Fin Menu");
-
-		sc.close();
+	public Mail() {
+		this.nbMailEnv = 0;
+		this.nbMailStock = 0;
 	}
 
 	/**
-	 * Methode permettant de donner le choix a l'utilisateur entre calculer l'empreintre carbone d'une population grace a des fichiers, ou grace a un questionnaire
-	 * @param sc : Reponse de l'utilisateur en ligne de commande
-	 * @return le choix de l'utilisateur entre calculer l'empreintre d'une population a partir d'un fichier ou d'un questionnaire
+	 * Constructeur de la classe Mail, recalcul l'impact
+	 * @param nbE nombre de mail envoye par an
+	 * @param nbS nombre de mail stocke
 	 */
 
-	public static int showMenu(Scanner sc) {
-		System.out.println("Choisissez une des options: (Entrez 1 ou 2)");
-		System.out.println("Choix 1: Calculer l'empreinte carbonne d'une population");
-		System.out.println("Choix 2: Repondre a un questionnaire pour calculer sa propre empreinte");
-		System.out.println("Choix 3: Quitter");
-
-		int option = sc.nextInt();
-		sc.nextLine();	
-
-		return option;
-
+	public Mail (int nbE, int nbS) {
+		this.nbMailEnv = nbE;
+		this.nbMailStock = nbS;
+		this.impact = calculImpact();
 	}
 
 	/**
-	 * Methode permettant d'afficher les choix de simulation a l'utilisateur, puis recupere le choix de l'utilisateur
-	 * @param sc ecrit sur la console
-	 * @return Le choix de la simulation a tester
+	 * Getter du nombre de mail envoye
+	 * @return nombre de mail envoye
 	 */
 
-	public static int showMenuSimulation(Scanner sc) {
-		System.out.println("\nChoisissez une des options: (Entrez un nombre entre 1 et 6)");
-		System.out.println("Choix 1: Simuler une baisse du taux de bien conso.");
-		System.out.println("Choix 2: Simuler une baisse du taux de boeufs pour chaque utilisateur de la population.");
-		System.out.println("Choix 3: Simuler une baisse du nombre de mails stockes chaque utilisateur de la population.");
-		System.out.println("Choix 4: Simuler une baisse du taux de personnes se deplacant en voiture.");
-		System.out.println("Choix 5: Simuler une baisse de la classe energetique pour chaque utilisateur de la population.");
-		System.out.println("Choix 6: Quitter");
+	public int getNbMailEnv() {return nbMailEnv;}
 
-		int option = sc.nextInt();
-		sc.nextLine();
-		return option;
+	/**
+	 * Setter du nombre de mail envoye, puis recalcul l'impact
+	 * @param nbMailEnv nombre de mail envoye de l'utilisateur
+	 */
 
+	public void setNbMailEnv(int nbMailEnv ) {
+		this.nbMailEnv = nbMailEnv;
+		this.impact = calculImpact();
 	}
 
 	/**
-	 * Methode permettant de lancer la simulation choisi par l'utilisateur et de savoir l'effet de celle ci sur l'impact 
-	 * @param p la population sur laquelle on va appliquer la simulation
-	 * @param optionSimul Le choix de la simulation par l'utilisateur
-	 * @param sc ecrit sur la console
+	 * Getter du nombre de mail stocke
+	 * @return nombre de mail stocke
 	 */
 
-	public static void testSimul(Population p, int optionSimul, Scanner sc) {
-		switch(optionSimul) {
-		case 1:{
-			System.out.println("\nEntrez la baisse du taux de depense souhaite");
-			//double t = sc.nextDouble();
-			//sc.nextLine();
-			double t = Double.parseDouble(sc.nextLine());
-			System.out.println("L'impact totale de la population a ete baisse de "+Simulation.reducTauxDepense(p,t)+"%\n");
-			break;
-		}
-		case 2:{
-			System.out.println("\nEntrez la baisse du taux de Boeuf souhaite");
-			//double t = sc.nextDouble();
-			//sc.nextLine();
-			double t = Double.parseDouble(sc.nextLine());
-			System.out.println("L'impact totale de la population a ete baisse de "+Simulation.reducTauxBoeuf(p,t)+"%\n");
-			break;
-		}
-		case 3:{
-			System.out.println("\nEntrez le nombre de mails stockes a supprimer");
-			//double t = sc.nextDouble();
-			//sc.nextLine();
-			int t = Integer.parseInt(sc.nextLine());
-			System.out.println("L'impact totale de la population a ete baisse de "+Simulation.reducNbMail(p,t)+"%\n");
-			break;
-		}
-		case 4:{
-			System.out.println("\nEntrez le taux de personnes qui n'utiliserons plus leur voiture.");
-			//double t = sc.nextDouble();
-			//sc.nextLine();
-			double t = Double.parseDouble(sc.nextLine());
-			System.out.println("L'impact totale de la population a ete baisse de "+Simulation.reducVoit(p,t)+"%\n");
-			break;
-		}
-		case 5:{
-			System.out.println("\nSimulation pour le logement:");
-			System.out.println("L'impact totale de la population a ete baisse de "+Simulation.reducCE(p)+"%\n");
-			break;
-		}
-		default:
+	public int getNbMailStock() {return nbMailStock;}
 
+	/**
+	 * Setter du nombre de mail stocke, et raclcul l'impact
+	 * @param nbMailStock nombre de mail stocke dans la boite mail
+	 */
+
+	public void setNbMailStock(int nbMailStock) {
+		this.nbMailStock = nbMailStock;
+		this.impact = calculImpact();
+	}
+
+	/**
+	 * Obtient l'impact calcule a partir d'une formule et de deux constantes
+	 * @return l'impact des mails de l'utilisateur
+	 */
+
+	@Override 
+	public double calculImpact() {
+		this.impact = c1 * nbMailEnv + c2 * nbMailStock;
+		return this.impact;
+	}
+
+	/**
+	 * Affiche l'empreinte carbonne moyenne des mails d'un francais
+	 * @see ConsoCarbone#empCarbMoy()
+	 */ 
+
+	public static void empCarbMoy() {
+		ConsoCarbone.empCarbMoy();
+		String unite = "mails/an";
+		System.out.printf("Mail envoyes : 14 000 %s\n", unite);
+		System.out.printf("Mail stocke : 25 000 %s\n", unite);
+	}
+
+	/**
+	 * Affiche l'impact des mails de cet utilisateur
+	 * @see ConsoCarbone#toString()
+	 */
+
+	@Override
+	public String toString() {return "L'impact de vos mails est de : " + Math.round(this.impact*100.0)/100.0 + " TCO2eq";}
+
+	/**
+	 * Reecriture de la methode clone de la classe object pour cree un nouveau poste de mail avec les meme argument que l'objet clone
+	 * @return nouvel object clone 
+	 */
+
+	@Override
+	public Object clone() {
+		try {
+			return super.clone();
+		}
+		catch (CloneNotSupportedException e){
+			throw new InternalError();
 		}
 	}
 
