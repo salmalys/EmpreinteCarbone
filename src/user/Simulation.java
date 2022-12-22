@@ -12,8 +12,8 @@ public class Simulation {
 	/**
 	 * Cette simulation permet de reduire le nombre de voiture dans notre population. 
 	 * Elle clone la population passer en parametre pour ensuite recalculer son impact avec plus d'utilisateur sans voiture.
-	 * @param population : notre liste d'utilisateur
-	 * @param tauxPourc : le taux en pourcenatge de voiture en moins dans notre nouvelle population
+	 * @param population notre liste d'utilisateur
+	 * @param tauxPourc le taux en pourcenatge de voiture en moins dans notre nouvelle population
 	 * @return le pourcentage de difference entre l'impact de base et celui si on applique la simulation
 	 */
 
@@ -40,8 +40,8 @@ public class Simulation {
 	/**
 	 * Cette simulation permet de reduire la classe energetique des logements de notre population. 
 	 * Elle clone la population passer en parametre pour ensuite recalculer son impact avec toute les classes energetiques de tous les logements des utilisateurs baisse d'un niveau.
-	 * Si la classe est deja a A on ne fait rien
-	 * @param population : notre liste d'utilisateur
+	 * Si la classe energetique est deja a A on ne fait rien
+	 * @param population notre liste d'utilisateur
 	 * @return le pourcentage de difference entre l'impact de base et celui si on applique la simulation
 	 */
 
@@ -73,8 +73,8 @@ public class Simulation {
 	 * Cette simulation permet de reduire le nombre de mail stocke par notre population. 
 	 * Elle clone la population passer en parametre pour ensuite recalculer son impact avec plus de mail supprimes.
 	 * Si un utilisateur a moins de mail stocke que le nombre a supprimer, on les supprime tous.
-	 * @param population : notre liste d'utilisateur
-	 * @param nbMailSupp : nombre de mail a supprimer
+	 * @param population notre liste d'utilisateur
+	 * @param nbMailSupp nombre de mail a supprimer
 	 * @return le pourcentage de difference entre l'impact de base et celui si on applique la simulation
 	 */
 
@@ -102,8 +102,8 @@ public class Simulation {
 	/**
 	 * Cette simulation permet de reduire le nombre de repas a base de boeuf dans notre population. 
 	 * Elle clone la population passer en parametre pour ensuite recalculer son impact avec moins de repas a bes de boeuf.
-	 * @param population : notre liste d'utilisateur
-	 * @param tauxBoeufReduc : le taux en pourcenatge de reduction de taux de boeuf pour chaque utilisateur de notre population
+	 * @param population notre liste d'utilisateur
+	 * @param tauxBoeufReduc le taux en pourcenatge de reduction de taux de boeuf pour chaque utilisateur de notre population
 	 * @return le pourcentage de difference entre l'impact de base et celui si on applique la simulation
 	 */
 
@@ -140,8 +140,8 @@ public class Simulation {
 	/**
 	 * Cette simulation permet de reduire les depenses de notre population. 
 	 * Elle clone la population passer en parametre pour ensuite recalculer son impact avec des depenses moins importantes.
-	 * @param population : notre liste d'utilisateur
-	 * @param tauxReduc : le taux en pourcenatge de depense en moins dans notre nouvelle population
+	 * @param population notre liste d'utilisateur
+	 * @param tauxReduc le taux en pourcenatge de depense en moins dans notre nouvelle population
 	 * @return le pourcentage de difference entre l'impact de base et celui si on applique la simulation
 	 */
 
