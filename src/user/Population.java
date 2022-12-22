@@ -163,7 +163,7 @@ public class Population implements Cloneable {
 	@Override
 	public Object clone(){
 		Population p = new Population();
-		p.nb = this.nb;
+		p.nb = 0;
 		p.listPopulation = new ArrayList<Utilisateur>();
 		
 		for (Utilisateur u: listPopulation) 
